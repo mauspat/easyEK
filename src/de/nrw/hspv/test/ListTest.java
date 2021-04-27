@@ -15,7 +15,7 @@ public class ListTest {
 	// Die Methode findCategory sucht in der Liste groceries.txt
 	// nach dem eingegebenen Item. Wird das Item gefunden, werden
 	// category-ID und Name in ein Array übertragen und zurückgeliefert.
-	// Ist das Item nicht vorhanden, sind ID und Name der Kategorie "VOID".
+	// Ist das Item nicht vorhanden, sind ID = 0 und der Name der Kategorie "VOID".
 	public static String[] findCategory(String item) throws IOException {
 		// String-Array für Rückgabe
 		String[] category = new String[2];
@@ -62,8 +62,6 @@ public class ListTest {
 	 * @return ArrayList<Item> sortedList
 	 */
 	public static ArrayList<Item> listSort(ArrayList<Item> list, int[] supermarket) {
-		// rawList enthält die übergebene, unsortierte Liste
-		ArrayList<Item> rawList = list;
 		ArrayList<Item> categorized = new ArrayList<Item>();
 		
 		// Auf die BucketList werden die Items gepackt, deren Kategorien im gewählten Supermarkt nicht vorkommen

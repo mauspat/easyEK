@@ -29,7 +29,22 @@
 2/Backwaren/körnerbrot
 2/Backwaren/baguette
 2/Backwaren/ciabatta
-2/Backwaren/baguels
+2/Backwaren/bagels
+2/Backwaren/croissants
+2/Backwaren/muffins
+2/Backwaren/kuchen
+2/Backwaren/marmorkuchen
+2/Backwaren/nusskuchen
+2/Backwaren/schokomuffins
+2/Backwaren/käsebrötchen
+2/Backwaren/vollkornbrötchen
+2/Backwaren/vollkornbrot
+2/Backwaren/körnerbrötchen
+2/Backwaren/toast
+2/Backwaren/toastbrot
+2/Backwaren/vollkorntoast
+2/Backwaren/dinkeltoast
+2/Backwaren/weißbrot
 
 3/Drogerie/deo
 3/Drogerie/deodorant
@@ -134,3 +149,112 @@
 10/Käse/geriebenen käse
 10/Käse/geriebener käse
 10/Käse/Reibekäse
+
+11/Back- und Kochzutaten/mehl
+11/Back- und Kochzutaten/salz
+11/Back- und Kochzutaten/zucker
+11/Back- und Kochzutaten/backkakao
+11/Back- und Kochzutaten/back kakao
+11/Back- und Kochzutaten/back-kakao
+11/Back- und Kochzutaten/vanillezucker
+11/Back- und Kochzutaten/vanille-zucker
+11/Back- und Kochzutaten/vanille zucker
+11/Back- und Kochzutaten/vanillearoma
+11/Back- und Kochzutaten/vanille-aroma
+11/Back- und Kochzutaten/vanille aroma
+11/Back- und Kochzutaten/brauner zucker
+11/Back- und Kochzutaten/weizenmehl
+11/Back- und Kochzutaten/dinkelmehl
+11/Back- und Kochzutaten/kichererbsenmehl
+11/Back- und Kochzutaten/eier
+
+12/Kaffe, Tee und Kakao/kaffee
+12/Kaffe, Tee und Kakao/filterkaffee
+12/Kaffe, Tee und Kakao/melitta
+12/Kaffe, Tee und Kakao/melitta kaffee
+12/Kaffe, Tee und Kakao/kaffeekapseln
+12/Kaffe, Tee und Kakao/kaffee kapseln
+12/Kaffe, Tee und Kakao/jacobs krönung
+12/Kaffe, Tee und Kakao/jacobs kaffee
+12/Kaffe, Tee und Kakao/instantkaffee
+12/Kaffe, Tee und Kakao/instant-kaffee
+12/Kaffe, Tee und Kakao/instant kaffee
+12/Kaffe, Tee und Kakao/kakao
+12/Kaffe, Tee und Kakao/instantkakao
+12/Kaffe, Tee und Kakao/instant-kakao
+12/Kaffe, Tee und Kakao/instant kakao
+12/Kaffe, Tee und Kakao/schwarzer tee
+12/Kaffe, Tee und Kakao/tee
+12/Kaffe, Tee und Kakao/fencheltee
+12/Kaffe, Tee und Kakao/kamillentee
+12/Kaffe, Tee und Kakao/früchtetee
+12/Kaffe, Tee und Kakao/earl grey
+12/Kaffe, Tee und Kakao/earl grey tee
+12/Kaffe, Tee und Kakao/darjeeling
+
+13/Essig & Öle/olivenöl
+13/Essig & Öle/natives olivenöl
+13/Essig & Öle/rapsöl
+13/Essig & Öle/sonnenblumenöl
+13/Essig & Öle/speiseöl
+13/Essig & Öle/öl
+13/Essig & Öle/essig
+13/Essig & Öle/apfelessig
+13/Essig & Öle/balsamico-essig
+13/Essig & Öle/balsamico essig
+13/Essig & Öle/balsamicoessig
+13/Essig & Öle/essig-essenz
+13/Essig & Öle/essig essenz
+13/Essig & Öle/essigessenz
+13/Essig & Öle/branntwein-essig
+13/Essig & Öle/branntwein essig
+13/Essig & Öle/leinöl
+
+14/Fleisch und Wurst/salami
+14/Fleisch und Wurst/mortadella
+14/Fleisch und Wurst/lyoner
+14/Fleisch und Wurst/fleischwurst
+14/Fleisch und Wurst/wurst
+14/Fleisch und Wurst/schinkenspicker
+14/Fleisch und Wurst/würfelschinken
+14/Fleisch und Wurst/schinken
+14/Fleisch und Wurst/serrano
+14/Fleisch und Wurst/serranoschinken
+14/Fleisch und Wurst/serrano-schinken
+14/Fleisch und Wurst/putenbrust
+14/Fleisch und Wurst/hähnchenbrust
+
+15/Reis und Nudeln/nudeln
+15/Reis und Nudeln/penne nudeln
+15/Reis und Nudeln/penne
+15/Reis und Nudeln/tagliatelle
+15/Reis und Nudeln/bandnudeln
+15/Reis und Nudeln/fussili
+15/Reis und Nudeln/cannelloni
+15/Reis und Nudeln/farfalle
+15/Reis und Nudeln/gnocchi
+15/Reis und Nudeln/fettuccine
+15/Reis und Nudeln/dinkelnudeln
+15/Reis und Nudeln/vollkornnudeln
+15/Reis und Nudeln/dinkel nudeln
+15/Reis und Nudeln/vollkorn nudeln
+15/Reis und Nudeln/lasagne platten
+15/Reis und Nudeln/lasagneplatten
+15/Reis und Nudeln/lasagne-platten
+15/Reis und Nudeln/lasagne nudeln
+15/Reis und Nudeln/lasagne-nudeln
+15/Reis und Nudeln/lasagnenudeln
+15/Reis und Nudeln/reis
+15/Reis und Nudeln/basmati
+15/Reis und Nudeln/basmati-reis
+15/Reis und Nudeln/basmati reis
+15/Reis und Nudeln/basmatireis
+15/Reis und Nudeln/jasminreis
+15/Reis und Nudeln/jasmin-reis
+15/Reis und Nudeln/jasmin reis
+15/Reis und Nudeln/langkornreis
+15/Reis und Nudeln/langkorn reis
+15/Reis und Nudeln/rundkornreis
+15/Reis und Nudeln/rundkorn reis
+15/Reis und Nudeln/naturreis
+15/Reis und Nudeln/wildreis
