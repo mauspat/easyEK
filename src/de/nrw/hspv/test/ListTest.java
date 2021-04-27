@@ -117,7 +117,8 @@ public class ListTest {
 		
 		// int-Arrays für Supermärkte
 		int[] lidl = {2, 7, 8, 1, 3, 10, 9, 4};
-		int[] aldi = {4, 7, 1, 3, 2, 9, 8};
+		int[] aldi = {5, 4, 7, 1, 3, 2, 9, 8};
+		int[] edeka = {8, 1, 2, 7, 4, 10, 3, 5, 9};
 		
 		String[] itemCategory = new String[2];
 		String categoryName = "";
@@ -191,6 +192,7 @@ public class ListTest {
 		System.out.println("Die Eingabe wurde beendet.\n\nFolgende Elemente stehen auf deiner Liste:");
 		System.out.println("\nMENGE // PRODUKT // KATEGORIE");
 		
+		// Die eingegebene Einkaufsliste wird wieder ausgegeben
 		Iterator<Item> list = shoppingList.iterator();
 		while(list.hasNext()) {
 			Item p = list.next();
@@ -207,27 +209,38 @@ public class ListTest {
 		System.out.println();
 		while(sortRepeater == true) {
 			System.out.println("Für welchen Supermarkt möchten Sie die Liste sortieren?");
-			System.out.println("1. Lidl\n2. Aldi");
-			System.out.print("Ihre Wahl (1 oder 2): ");
+			System.out.println("1. Lidl\n2. Aldi\n3. Edeka");
+			System.out.print("Ihre Wahl (1, 2 oder 3): ");
 			int usrSort = sort.nextInt();
 			switch(usrSort) {
 				case 1:
 					// ZUM TESTEN
 					System.out.println("LIDL");
 					
+					// die ArrayList sortedList erhält den Rückgabewert
+					// der Methode listSort
 					sortedList = listSort(shoppingList, lidl);
 					break;
 				case 2:
 					// ZUM TESTEN:
 					System.out.println("ALDI");
 					
+					// siehe oben
 					sortedList = listSort(shoppingList, aldi);
 					break;
+				case 3:
+					// ZUM TESTEN:
+					System.out.println("EDEKA");
+					
+					// siehe oben
+					sortedList = listSort(shoppingList, edeka);
+					break;					
 				default:
 					System.out.println("Fehler bei der Eingabe. Supermarkt wurde nicht gefunden.");
 					break;
 			}
 			
+			// Die sortierte Liste wird ausgegeben
 			System.out.println();
 			Iterator<Item> sorted = sortedList.iterator();
 			while(sorted.hasNext()) {
@@ -239,6 +252,7 @@ public class ListTest {
 				}
 			}
 			
+			// Der Nutzer wird gefragt, ob er die Liste nochmal umsortierten möchte.
 			System.out.println();
 			System.out.print("Möchten Sie eine weitere Sortierung durchführen? (Y/N): ");
 			String repeatSort = scan.nextLine();

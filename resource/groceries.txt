@@ -132,3 +132,5 @@
 10/Käse/hartkäse
 10/Käse/pizzakäse
 10/Käse/geriebenen käse
+10/Käse/geriebener käse
+10/Käse/Reibekäse
