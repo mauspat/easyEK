@@ -43,6 +43,8 @@ public class Ui extends JFrame{
 	private CardLayout cl = new CardLayout();
 	private JPanel mainPanel = new JPanel(cl);
 	
+	private JToolBar toolbar = new JToolBar();
+	
 	Ui(){			
 		this.setSize(WINDOW_WIDH, WINDOW_HIGHT);
 		this.getContentPane().setBackground(BG_COLOR);
@@ -84,6 +86,7 @@ public class Ui extends JFrame{
 		
 		
 		
+		
 	}
 	/**
 	 * Weist dem Zentrum des Frames das "MainPanel" hinzu.  Dies ist durch ein CardLayout in der Lage, mehrere Panels übereinander zu lagern, wobei nur eins sichtbar ist.
@@ -108,7 +111,6 @@ public class Ui extends JFrame{
 	private void addToolbar() {
 		
 		//Toolbar wird erstellt und mit darauffolgenden Methoden designt
-		JToolBar toolbar = new JToolBar();
 		toolbar.setBackground(BG_COLOR.darker());
 		toolbar.setPreferredSize(new Dimension(WINDOW_WIDH,WINDOW_HIGHT/18) ); 	//Setzt die größe aus 1/22 der Fensterhöhe fest
 		toolbar.setBorderPainted(false); 										// hässliche Grenze die gefärbt ist weg
@@ -142,13 +144,16 @@ public class Ui extends JFrame{
 	/*
 	 * Buttons der Toolbar hinzufügen	
 	 */
+		
+		toolbar.add(addList);
+		toolbar.add(Box.createHorizontalGlue()); //sorgt dafür, dass die darauffolgenden Buttons rechtsbündig sind
 		toolbar.add(test2);
 		toolbar.addSeparator(); // fügt Abstand zwischen beiden Buttons ein
 		toolbar.add(test1);
 		
-		toolbar.add(Box.createHorizontalGlue()); //sorgt dafür, dass die darauffolgenden Buttons rechtsbündig sind
 		
-		toolbar.add(addList);
+		
+		
 		
 		this.add(toolbar, BorderLayout.NORTH);
 		
