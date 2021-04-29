@@ -16,4 +16,12 @@ public class EKButton extends JButton {
 		setBorderPainted(false);
 		setFocusPainted(false);
 	}
+	
+	EKButton(String name){
+		super(name);
+		setBackground(Ui.getBgColor().darker());
+		setForeground(Color.WHITE);
+		setBorderPainted(false);
+		setFocusPainted(false);
+	}
 }
