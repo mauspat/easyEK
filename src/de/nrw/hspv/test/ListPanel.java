@@ -111,10 +111,7 @@ public class ListPanel extends JPanel {
 
 		// Greift in den UI Manager ein, um die Farbe zu ändern, wenn Button "getoggelt" ist
 		UIManager.put("ToggleButton.select", new Color(186, 132, 76)); 
-		
-		ImageIcon greenHook= new ImageIcon("resource\\greenCheck.png");
-		greenHook.setImage(greenHook.getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT));
-		
+	
 		// Iteriert über die länge der gesamten Liste und fügt für jedes Element einen
 		// eigenen ToggleButton in das Panel ein.		
 		for (int i = 0; i < wocheneinkauf.size(); i++) {
@@ -122,45 +119,26 @@ public class ListPanel extends JPanel {
 
 			String tempName = wocheneinkauf.get(i); // String, der die Beschriftung enthält.
 
-			button.setPosition(i);
-			button.setHorizontalAlignment(JButton.LEFT);
-			button.addActionListener(new ActionListener() {
-
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					if (button.isSelected()) {
-						button.setVisible(false);
-						button.setIcon(greenHook);
-						mainPanel.remove(button);
-						mainPanel.add(button);
-						button.setVisible(true);
-					} else {
-						button.setVisible(false);
-						button.setIcon(null);
-						mainPanel.remove(button);
-						mainPanel.add(button,0);
-						button.setVisible(true);
-						
-					}
-
-				}
-
-			});
+			button.setPosition(i); //Speichert gesetzte Position, um später anhand dieser Position eine neusortierung durchführen zu können
+			button.setHorizontalAlignment(JButton.LEFT); //Textausrichtung im Button ist Linksbündig
+			
+			//wird der Button gedrückt, färbt er sich um und bekommt ein Häkchen. Weiterhin Sortiert er sich ans Ende der Liste.
+				
 			button.setText(String.format("%d%-40s%s", 1, "x", tempName));
 			button.setAlignmentX(JButton.CENTER);
 
 			mainPanel.add(button);
+			
 		}
-
 	}
 
 	/**
-	 * Der EKListToggleButton erweitert den JToggleButton. Neben einigen Design
-	 * Formatierungen bekommt der Button ein Attribut "Position". So behält er die
-	 * Info, an welcher Position der Button des Ensprechenden Items hinzugefügt
-	 * wurde
+	 * Der EKListItemButton erweitert den JToggleButton. Neben einigen Design-
+	 * formatierungen bekommt der Button ein Attribut "Position". So behält er die
+	 * Info, an welcher Position der Button des Ensprechenden Items auf dem UI der Einkaufsliste 
+	 * hinzugefügt wurde.
 	 */
-	private static class EKListItemButton extends JToggleButton {
+	private class EKListItemButton extends JToggleButton implements ActionListener{
 		// Position soll beim erstellen des Buttons zugewiesen werden.
 		private int position;
 		private Color buttonColor = new Color(0, 209, 155);
@@ -175,6 +153,7 @@ public class ListPanel extends JPanel {
 			this.setHorizontalTextPosition(JButton.LEFT);
 			this.setIconTextGap(50);
 			this.setFont(new Font("SansSerif", Font.BOLD, 15));
+			this.addActionListener(this);
 		}
 
 		public int getPosition() {
@@ -184,6 +163,28 @@ public class ListPanel extends JPanel {
 		public void setPosition(int position) {
 			this.position = position;
 		}
-	}
 
+		@Override
+		public void actionPerformed(ActionEvent e) { 
+			ImageIcon greenHook= new ImageIcon("resource\\greenCheck.png");
+			greenHook.setImage(greenHook.getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT));
+			if (this.isSelected()) { 		//Wenn der Button ausgewählt wird (Der Button setzt sich mit Klick auf den Button sofort auf "isSelected==true" dann...
+				
+				mainPanel.setComponentZOrder(this, mainPanel.getComponentCount()-1); 			//...wird das Element (der Button) ans Ende der Liste geschoben
+				this.setIcon(greenHook);														//...wird ein grüner Haken als Icon hinzugefügt
+				
+			} else {						//wird er erneut angetippt wird der Haken wierder entfernt und der Button oben in der Liste eingefügt
+					
+				mainPanel.setComponentZOrder(this, 0);										//
+				this.setIcon(null);
+				
+			}
+
+		}
+
+	}
+		
+		
 }
+
+

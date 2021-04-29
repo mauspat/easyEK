@@ -1,5 +1,7 @@
 package de.nrw.hspv.test;
 
-public class ListOverviewPanel {
+import javax.swing.JPanel;
 
+public class ListOverviewPanel extends JPanel{
+	
 }
