@@ -11,11 +11,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 import javax.swing.JToggleButton;
 import javax.swing.JToolBar;
 import javax.swing.UIManager;
@@ -32,9 +35,8 @@ public class ListPanel extends JPanel {
 
 	ListPanel() {
 		
-		//TODO Scrolldownleiste einfügen
+		
 		//TODO Neu Sortieren Button überdenken und aufjedenfall ins Design einpflegen
-		//TODO Klassenname Fraglich... Impliziert das Panel für die Auswahl von Supermarktlisten.
 
 		/*
 		 * Nur zu
@@ -47,58 +49,67 @@ public class ListPanel extends JPanel {
 		wocheneinkauf.add("Stockbrotteig");
 		wocheneinkauf.add("Litschi");
 		wocheneinkauf.add("Quengelware");
+		wocheneinkauf.add("Quengelware");
+		wocheneinkauf.add("Quengelware");
+		wocheneinkauf.add("Quengelware");
+		wocheneinkauf.add("Quengelware");
+		wocheneinkauf.add("Quengelware");
+		wocheneinkauf.add("Quengelware");
+		
+		wocheneinkauf.add("Quengelware");
+		wocheneinkauf.add("Quengelware");
+		wocheneinkauf.add("Quengelware");
+		wocheneinkauf.add("Quengelware");
+		wocheneinkauf.add("Quengelware");
+		
+		wocheneinkauf.add("Quengelware");
+		wocheneinkauf.add("Quengelware");
+		wocheneinkauf.add("Quengelware");
+		wocheneinkauf.add("Quengelware");
+		wocheneinkauf.add("Quengelware");
+		
+		wocheneinkauf.add("Quengelware");
+		wocheneinkauf.add("Quengelware");
+		wocheneinkauf.add("Quengelware");
+		wocheneinkauf.add("Quengelware");
+		wocheneinkauf.add("Quengelware");
+		
+		wocheneinkauf.add("Quengelware");
+		wocheneinkauf.add("Quengelware");
+		wocheneinkauf.add("Quengelware");
+		wocheneinkauf.add("Quengelware");
+		wocheneinkauf.add("Quengelware");
+		
+		wocheneinkauf.add("Quengelware");
+		
+		
 		
 		Einkaufslisten.add(wocheneinkauf);
 
 		// Testzweck
 		// ENDE----------------------------------------------------------------------------------------------------
 
-		this.setLayout(new BorderLayout());// BorderLayout, um im Zentrum das Flowlayout zu verwenden, und links und
-											// rechts gleichzeitig einen Rand zu haben.
-
-		// mainPanel mit FlowLayout wird im Centrum des BorderLAyouts hinzugefügt
-		mainPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 7));
+		this.setLayout(new BorderLayout());// BorderLayout, um im Zentrum das Flowlayout zu verwenden, und links und rechts gleichzeitig einen Rand zu haben.
+		
+		// mainPanel mit FlowLayout wird im Centrum des BorderLayouts hinzugefügt
+		mainPanel.setLayout(new WrapLayout(FlowLayout.CENTER, 8, 8));
 		mainPanel.setBackground(Ui.getBgColor().brighter());
-		mainPanel.setSize(Ui.getWindowWidh(), Ui.getWindowHight());
-		this.add(mainPanel, BorderLayout.CENTER);
-
-		// Abstandhalter zum Rand werden initialisiert und rechts bzw links (spacer2)
-		// hinzugefügt
-		JPanel spacer1 = new JPanel();
-		spacer1.setBackground(Ui.getBgColor().brighter());
-		spacer1.setPreferredSize(new Dimension(Ui.getWindowWidh() / 20, Ui.getWindowHight() / 20));
-		this.add(spacer1, BorderLayout.EAST);
-
-		JPanel spacer2 = new JPanel();
-		spacer2.setBackground(Ui.getBgColor().brighter());
-		spacer2.setPreferredSize(new Dimension(25, Ui.getWindowHight()));
-		this.add(spacer2, BorderLayout.WEST);
-
+		
+		addScrollPane();
 		addItemButtons();
-		addNewSortButton();
 
 	}
-
-	private void addNewSortButton() {
-		JToolBar newSortTB = new JToolBar();
-		newSortTB.setBackground(Ui.getBgColor());
-		newSortTB.setPreferredSize(new Dimension(Ui.getWindowWidh(),Ui.getWindowHight()/23) ); 	//Setzt die größe aus 1/22 der Fensterhöhe fest
-		newSortTB.setBorderPainted(false); 	// hässliche Grenze die gefärbt ist weg
-		newSortTB.setFloatable(false); 		//Toolbar kann nicht verschoben werden
-		newSortTB.setBorder(new EmptyBorder(0,30,0,30));		// setzt einen Rand von jeweils 30 Pixeln links und rechts
-		
-		this.add(newSortTB, BorderLayout.SOUTH);
-		
-		EKButton newSortButton = new EKButton();
-		newSortButton.setText("Neu Sortieren");
-		newSortButton.setHorizontalAlignment(JButton.CENTER);
-		newSortButton.setVerticalAlignment(JButton.CENTER);
-		
-		newSortTB.setAlignmentY(CENTER_ALIGNMENT);
-		newSortTB.setAlignmentX(CENTER_ALIGNMENT);
-		newSortTB.add(newSortButton);
-		
-	
+	/**
+	 * Fügt dem CENTER Panel ein Panel mit einer Scrollbar hinzu. Die Methode entfernt Rahmen des Panels, deaktiviert das horizontale Scrollen und bestimmt die "Scrollweite"
+	 * bei einem Pfeilklick, bzw. bei einer Drehung des Mausrades.
+	 * 
+	 */
+	private void addScrollPane() {
+		JScrollPane sp = new JScrollPane(mainPanel);
+		sp.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		sp.setBorder(BorderFactory.createEmptyBorder());
+		sp.getVerticalScrollBar().setUnitIncrement(10);
+		this.add(sp);
 	}
 
 	/**
@@ -121,22 +132,24 @@ public class ListPanel extends JPanel {
 
 			button.setPosition(i); //Speichert gesetzte Position, um später anhand dieser Position eine neusortierung durchführen zu können
 			button.setHorizontalAlignment(JButton.LEFT); //Textausrichtung im Button ist Linksbündig
-			
-			//wird der Button gedrückt, färbt er sich um und bekommt ein Häkchen. Weiterhin Sortiert er sich ans Ende der Liste.
 				
-			button.setText(String.format("%d%-40s%s", 1, "x", tempName));
+			button.setText(String.format("%d%-30s%s", 1, "x", tempName));
 			button.setAlignmentX(JButton.CENTER);
 
 			mainPanel.add(button);
 			
 		}
 	}
+	
+	
 
 	/**
 	 * Der EKListItemButton erweitert den JToggleButton. Neben einigen Design-
 	 * formatierungen bekommt der Button ein Attribut "Position". So behält er die
 	 * Info, an welcher Position der Button des Ensprechenden Items auf dem UI der Einkaufsliste 
 	 * hinzugefügt wurde.
+	 * Mit der Überschriebenen Action Performed Methode bekommt der Button beim toggeln einen grünen Haken und wird unten in der Liste angereiht.
+	 * Wird er wieder "enttoggelt" bekommt er eine die oberste Position, da man davon ausgehen kann, dass das Produkt dann als nächstes geholt werden muss, da man schon vorbeigelaufen ist.
 	 */
 	private class EKListItemButton extends JToggleButton implements ActionListener{
 		// Position soll beim erstellen des Buttons zugewiesen werden.
@@ -145,10 +158,12 @@ public class ListPanel extends JPanel {
 
 		EKListItemButton() {
 			// Standartmäßige Höhe und Breite des Buttons.
-			int hight = 50, width = Ui.getWindowWidh() - 50;
+			int hight = 38, width = Ui.getWindowWidh() - 100;
 
 			this.setPreferredSize(new Dimension(width, hight));
 			this.setBackground(new Color(0, 209, 155));
+			
+			//entfernt Rahmen, wenn Button angeklickt oder Fokussiert ist.
 			this.setFocusPainted(false);
 			this.setHorizontalTextPosition(JButton.LEFT);
 			this.setIconTextGap(50);
@@ -165,18 +180,18 @@ public class ListPanel extends JPanel {
 		}
 
 		@Override
+		//wird der Button gedrückt, färbt er sich um und bekommt ein Häkchen. Weiterhin Sortiert er sich ans Ende der Liste.
 		public void actionPerformed(ActionEvent e) { 
 			ImageIcon greenHook= new ImageIcon("resource\\greenCheck.png");
 			greenHook.setImage(greenHook.getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT));
+			
 			if (this.isSelected()) { 		//Wenn der Button ausgewählt wird (Der Button setzt sich mit Klick auf den Button sofort auf "isSelected==true" dann...
-				
 				mainPanel.setComponentZOrder(this, mainPanel.getComponentCount()-1); 			//...wird das Element (der Button) ans Ende der Liste geschoben
 				this.setIcon(greenHook);														//...wird ein grüner Haken als Icon hinzugefügt
 				
-			} else {						//wird er erneut angetippt wird der Haken wierder entfernt und der Button oben in der Liste eingefügt
-					
-				mainPanel.setComponentZOrder(this, 0);										//
-				this.setIcon(null);
+			} else {						//wird er erneut angetippt...
+				mainPanel.setComponentZOrder(this, 0);				//... wird der Button oben in der Liste eingefügt			
+				this.setIcon(null);									//... der Haken wird wieder entfernt
 				
 			}
 
