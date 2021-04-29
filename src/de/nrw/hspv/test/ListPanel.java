@@ -49,38 +49,7 @@ public class ListPanel extends JPanel {
 		wocheneinkauf.add("Stockbrotteig");
 		wocheneinkauf.add("Litschi");
 		wocheneinkauf.add("Quengelware");
-		wocheneinkauf.add("Quengelware");
-		wocheneinkauf.add("Quengelware");
-		wocheneinkauf.add("Quengelware");
-		wocheneinkauf.add("Quengelware");
-		wocheneinkauf.add("Quengelware");
-		wocheneinkauf.add("Quengelware");
 		
-		wocheneinkauf.add("Quengelware");
-		wocheneinkauf.add("Quengelware");
-		wocheneinkauf.add("Quengelware");
-		wocheneinkauf.add("Quengelware");
-		wocheneinkauf.add("Quengelware");
-		
-		wocheneinkauf.add("Quengelware");
-		wocheneinkauf.add("Quengelware");
-		wocheneinkauf.add("Quengelware");
-		wocheneinkauf.add("Quengelware");
-		wocheneinkauf.add("Quengelware");
-		
-		wocheneinkauf.add("Quengelware");
-		wocheneinkauf.add("Quengelware");
-		wocheneinkauf.add("Quengelware");
-		wocheneinkauf.add("Quengelware");
-		wocheneinkauf.add("Quengelware");
-		
-		wocheneinkauf.add("Quengelware");
-		wocheneinkauf.add("Quengelware");
-		wocheneinkauf.add("Quengelware");
-		wocheneinkauf.add("Quengelware");
-		wocheneinkauf.add("Quengelware");
-		
-		wocheneinkauf.add("Quengelware");
 		
 		
 		
@@ -158,7 +127,7 @@ public class ListPanel extends JPanel {
 
 		EKListItemButton() {
 			// Standartmäßige Höhe und Breite des Buttons.
-			int hight = 38, width = Ui.getWindowWidh() - 100;
+			int hight = 40, width = Ui.getWindowWidh() - 100;
 
 			this.setPreferredSize(new Dimension(width, hight));
 			this.setBackground(new Color(0, 209, 155));
