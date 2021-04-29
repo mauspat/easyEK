@@ -82,12 +82,11 @@ public class Ui extends JFrame{
 		this.add(mainPanel, BorderLayout.CENTER);
 
 		this.setVisible(true);
-		
-		
-		
-		
-		
 	}
+	
+	
+	
+	
 	/**
 	 * Weist dem Zentrum des Frames das "MainPanel" hinzu.  Dies ist durch ein CardLayout in der Lage, mehrere Panels übereinander zu lagern, wobei nur eins sichtbar ist.
 	 * Die auswahl der einzelenen Panels erfolgt über die Buttons. Siehe: {@code addButtonLine()}
