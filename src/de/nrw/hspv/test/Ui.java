@@ -30,7 +30,7 @@ import javax.swing.border.EmptyBorder;
 public class Ui extends JFrame{
 	
 	
-	//TODO  - Buttons in eigener Klassse erstellen -> spart Code
+
 	//TODO  - JSpinner liefert "Up and Down" Zählmenu für Mengenangabe, JInternalFrame bietet "inneren" Frame (Tipp: deaktiviere windows Baar und co...)
 	
 	//Scale ist willkürlich gewählt
@@ -150,10 +150,6 @@ public class Ui extends JFrame{
 		toolbar.addSeparator(); // fügt Abstand zwischen beiden Buttons ein
 		toolbar.add(test1);
 		
-		
-		
-		
-		
 		this.add(toolbar, BorderLayout.NORTH);
 		
 		
@@ -210,6 +206,34 @@ public class Ui extends JFrame{
 	public static Color getBgColor() {
 		return BG_COLOR;
 	}
+	public JToolBar getToolbar() {
+		return toolbar;
+	}
+	public void setToolbar(JToolBar toolbar) {
+		this.toolbar = toolbar;
+	}
+	
+	/**
+	 * Beim Aufruf der Methode werden alle Buttons, welche rechts in der Toolbar liegen gelöscht. Anschließend werden alle übergebenen Buttons der Toolbar hinzugefügt.
+	 * Es können beliebig viele Buttons übergeben werden. Wenn keine Buttons übergeben werden, werden nur die vorhandenen Buttons gelöscht.
+	 * @param EKbuttons
+	 */
+	public void ChangeToolbarButton(EKButton...EKbuttons) {
+		
+		toolbar.getComponentCount();
+		
+		for(int i=toolbar.getComponentCount()-1; i>1; i--) {
+			toolbar.remove(i);
+		}
+		
+		if(EKbuttons!=null) {
+			for(int i=0; i<EKbuttons.length; i++) 
+				toolbar.add(EKbuttons[i]);
+				System.out.println(EKbuttons.length);
+		}
+		toolbar.repaint();
+	}
+	
 	
 	
 }
