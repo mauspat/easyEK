@@ -66,7 +66,6 @@ public class ListPanel extends JPanel {
 		
 		addScrollPane();
 		addItemButtons();
-
 	}
 	/**
 	 * Fügt dem CENTER Panel ein Panel mit einer Scrollbar hinzu. Die Methode entfernt Rahmen des Panels, deaktiviert das horizontale Scrollen und bestimmt die "Scrollweite"
