@@ -9,6 +9,8 @@ import javax.swing.JPanel;
 
 public class ListOverviewPanel extends JPanel{
 	
+	
+	//TODO Actual list muss mit geklicktem Button verbunden werden, damit die richtige Liste an das ListPanel übergeben wird.
 	private ArrayList<String> actualList01 = new ArrayList<String>();
 	private ArrayList<String> actualList02= new ArrayList<String>();
 	
@@ -22,6 +24,7 @@ public class ListOverviewPanel extends JPanel{
 		button.addActionListener(new ActionListener() {
 
 			@Override
+			//Der Button erstellt eine neue Ebene auf dem CardLayout der Klasse Ui. Anschließend wird das erstellte Panel aufgerufen und damit eingeblendet.
 			public void actionPerformed(ActionEvent e) {
 				Ui.getMainPanel().add(new ListPanel(actualList01), "actualList");
 				Ui.getCl().show(Ui.getMainPanel(), "actualList");
