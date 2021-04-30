@@ -67,11 +67,21 @@ public class ListPanel extends JPanel {
 		
 		addScrollPane();
 		addItemButtons();
+		changeButtons();
 
 	}
 	
+	private void changeButtons() {
+		ImageIcon garbage = new ImageIcon("resource\\pngegg.PNG");
+		garbage.setImage(garbage.getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT));
+		EKButton button = new EKButton();
+		button.setIcon(garbage);
+		Ui.ChangeToolbarButton(button);
+		
+	}
+
 	ListPanel(){
-	
+		
 		this.add(new EKButton("Hello"));
 		
 	}
