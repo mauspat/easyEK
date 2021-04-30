@@ -71,8 +71,12 @@ public class ListPanel extends JPanel {
 
 	}
 	
+	
+	/**
+	 * Toolbar wird ein "Liste löschen" Button hinzugefügt
+	 */
 	private void changeButtons() {
-		ImageIcon garbage = new ImageIcon("resource\\pngegg.PNG");
+		ImageIcon garbage = new ImageIcon("resource\\GarbageSymbol.PNG");
 		garbage.setImage(garbage.getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT));
 		EKButton button = new EKButton();
 		button.setIcon(garbage);
