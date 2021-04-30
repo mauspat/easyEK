@@ -9,6 +9,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
+import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
@@ -48,34 +49,46 @@ public class Ui extends JFrame{
 	Ui(){			
 		this.setSize(WINDOW_WIDH, WINDOW_HIGHT);
 		this.getContentPane().setBackground(BG_COLOR);
-		this.addWindowListener(new WindowListener() {
-
-			@Override
-			public void windowOpened(WindowEvent e) {}
-
-			@Override
+		
+		class MyWindowAdapter extends WindowAdapter{
 			public void windowClosing(WindowEvent e) {
 				//TODO Dialoge, Speichern hinzufügen!, ACHTUNG: Fenster nicht über "defaulCloseOperation" schließen... speichern, Userabfragen dann usw nicht möglich
-				//TODO Adapterklasse basteln
+				//TODO Adapterklasse basteln, erledigt
 				System.exit(0);
 			}
-
-			@Override
-			public void windowClosed(WindowEvent e) {}
-
-			@Override
-			public void windowIconified(WindowEvent e) {}
-
-			@Override
-			public void windowDeiconified(WindowEvent e) {}
-
-			@Override
-			public void windowActivated(WindowEvent e) {}
-
-			@Override
-			public void windowDeactivated(WindowEvent e) {}
-			
-		});
+		}
+		
+		this.addWindowListener(new MyWindowAdapter());
+		
+//		this.addWindowListener(new WindowListener() {
+//
+//			@Override
+//			public void windowOpened(WindowEvent e) {}
+//
+//			@Override
+//			public void windowClosing(WindowEvent e) {
+//				//TODO Dialoge, Speichern hinzufügen!, ACHTUNG: Fenster nicht über "defaulCloseOperation" schließen... speichern, Userabfragen dann usw nicht möglich
+//				//TODO Adapterklasse basteln
+//				System.exit(0);
+//			}
+//
+//			@Override
+//			public void windowClosed(WindowEvent e) {}
+//
+//			@Override
+//			public void windowIconified(WindowEvent e) {}
+//
+//			@Override
+//			public void windowDeiconified(WindowEvent e) {}
+//
+//			@Override
+//			public void windowActivated(WindowEvent e) {}
+//
+//			@Override
+//			public void windowDeactivated(WindowEvent e) {}
+//			
+//		});
+		
 		addButtonLine();
 		addToolbar();
 		addMainPanel();
