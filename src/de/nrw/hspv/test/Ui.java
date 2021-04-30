@@ -233,7 +233,7 @@ public class Ui extends JFrame{
 	 * Es können beliebig viele Buttons übergeben werden. Wenn keine Buttons übergeben werden, werden nur die vorhandenen Buttons gelöscht.
 	 * @param EKbuttons
 	 */
-	public void ChangeToolbarButton(EKButton...EKbuttons) {
+	public static void ChangeToolbarButton(EKButton...EKbuttons) {
 		
 		toolbar.getComponentCount();
 		
