@@ -16,6 +16,9 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JDesktopPane;
+import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
@@ -28,52 +31,59 @@ import javax.swing.border.EmptyBorder;
 public class ListPanel extends JPanel {
 
 	// TODO NUR zu Testzwecken!!
-	private ArrayList<ArrayList<String>> Einkaufslisten = new ArrayList<ArrayList<String>>();
-	private ArrayList<String> wocheneinkauf = new ArrayList<String>();
+	
+	private ArrayList<String> actualEkList;
 
-	JPanel mainPanel = new JPanel();
+	JPanel centerPanel = new JPanel();
 
-	ListPanel() {
+	ListPanel(ArrayList<String> actualEkList) {
 		
 		
-		//TODO Neu Sortieren Button überdenken und aufjedenfall ins Design einpflegen
+		//TODO Konstruktor muss Liste enthalten, welche im Panel dargestellt werden soll
 
 		/*
 		 * Nur zu
 		 * Testzwecken:-----------------------------------------------------------------
 		 * -----------------------------
 		 */
-		wocheneinkauf.add("Item");
-		wocheneinkauf.add("Apfel");
-		wocheneinkauf.add("Birne");
-		wocheneinkauf.add("Stockbrotteig");
-		wocheneinkauf.add("Litschi");
-		wocheneinkauf.add("Quengelware");
+		
+		this.actualEkList = actualEkList;
 		
 		
 		
 		
-		Einkaufslisten.add(wocheneinkauf);
 
 		// Testzweck
 		// ENDE----------------------------------------------------------------------------------------------------
-
+		
+		
 		this.setLayout(new BorderLayout());// BorderLayout, um im Zentrum das Flowlayout zu verwenden, und links und rechts gleichzeitig einen Rand zu haben.
+		this.setVisible(true);
+		this.add(centerPanel);
 		
 		// mainPanel mit FlowLayout wird im Centrum des BorderLayouts hinzugefügt
-		mainPanel.setLayout(new WrapLayout(FlowLayout.CENTER, 8, 8));
-		mainPanel.setBackground(Ui.getBgColor().brighter());
+		centerPanel.setLayout(new WrapLayout(FlowLayout.CENTER, 8, 8));
+		centerPanel.setBackground(Ui.getBgColor().brighter());
 		
 		addScrollPane();
 		addItemButtons();
+
 	}
+	
+	ListPanel(){
+	
+		this.add(new EKButton("Hello"));
+		
+	}
+	
+	
 	/**
 	 * Fügt dem CENTER Panel ein Panel mit einer Scrollbar hinzu. Die Methode entfernt Rahmen des Panels, deaktiviert das horizontale Scrollen und bestimmt die "Scrollweite"
 	 * bei einem Pfeilklick, bzw. bei einer Drehung des Mausrades.
 	 * 
 	 */
 	private void addScrollPane() {
-		JScrollPane sp = new JScrollPane(mainPanel);
+		JScrollPane sp = new JScrollPane(centerPanel);
 		sp.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		sp.setBorder(BorderFactory.createEmptyBorder());
 		sp.getVerticalScrollBar().setUnitIncrement(10);
@@ -93,10 +103,10 @@ public class ListPanel extends JPanel {
 	
 		// Iteriert über die länge der gesamten Liste und fügt für jedes Element einen
 		// eigenen ToggleButton in das Panel ein.		
-		for (int i = 0; i < wocheneinkauf.size(); i++) {
+		for (int i = 0; i < actualEkList.size(); i++) {
 			EKListItemButton button = new EKListItemButton();
 
-			String tempName = wocheneinkauf.get(i); // String, der die Beschriftung enthält.
+			String tempName = actualEkList.get(i); // String, der die Beschriftung enthält.
 
 			button.setPosition(i); //Speichert gesetzte Position, um später anhand dieser Position eine neusortierung durchführen zu können
 			button.setHorizontalAlignment(JButton.LEFT); //Textausrichtung im Button ist Linksbündig
@@ -104,7 +114,7 @@ public class ListPanel extends JPanel {
 			button.setText(String.format("%d%-30s%s", 1, "x", tempName));
 			button.setAlignmentX(JButton.CENTER);
 
-			mainPanel.add(button);
+			centerPanel.add(button);
 			
 		}
 	}
@@ -154,11 +164,11 @@ public class ListPanel extends JPanel {
 			greenHook.setImage(greenHook.getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT));
 			
 			if (this.isSelected()) { 		//Wenn der Button ausgewählt wird (Der Button setzt sich mit Klick auf den Button sofort auf "isSelected==true" dann...
-				mainPanel.setComponentZOrder(this, mainPanel.getComponentCount()-1); 			//...wird das Element (der Button) ans Ende der Liste geschoben
+				centerPanel.setComponentZOrder(this, centerPanel.getComponentCount()-1); 			//...wird das Element (der Button) ans Ende der Liste geschoben
 				this.setIcon(greenHook);														//...wird ein grüner Haken als Icon hinzugefügt
 				
 			} else {						//wird er erneut angetippt...
-				mainPanel.setComponentZOrder(this, 0);				//... wird der Button oben in der Liste eingefügt			
+				centerPanel.setComponentZOrder(this, 0);				//... wird der Button oben in der Liste eingefügt			
 				this.setIcon(null);									//... der Haken wird wieder entfernt
 				
 			}
