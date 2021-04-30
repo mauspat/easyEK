@@ -17,6 +17,7 @@ import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -39,12 +40,12 @@ public class Ui extends JFrame{
 	private static final int WINDOW_WIDH = scale*9;
 	private static final int WINDOW_HIGHT = scale*16;
 	private static final Color BG_COLOR = Color.DARK_GRAY; //Eigentliche Backgroundfarbe soll BG_COLOR.brighter() sein!!! Von der Farbe ist es einfacher auszugehen und den Componenten ihre Farben zu zu weisen
+
 	
 	//Das CardLyout muss als Instanzvariable gespeichert werden, da das Layout selbst bei der "durchblättern" Methode übergeben werden muss!
-	private CardLayout cl = new CardLayout();
-	private JPanel mainPanel = new JPanel(cl);
-	
-	private JToolBar toolbar = new JToolBar();
+	private static CardLayout cl = new CardLayout();
+	private static JPanel mainPanel = new JPanel(cl);
+	private static JToolBar toolbar = new JToolBar();
 	
 	Ui(){			
 		this.setSize(WINDOW_WIDH, WINDOW_HIGHT);
@@ -111,8 +112,8 @@ public class Ui extends JFrame{
 		this.add(mainPanel, BorderLayout.CENTER);
 		mainPanel.setBackground(BG_COLOR);
 		
-		mainPanel.add(new ListPanel(),"LIST"); //hinzufügen eines Panel mit Schlüsselwort
-		mainPanel.add(new SettingPanel(), "SETTINGS");	
+		mainPanel.add(new ListOverviewPanel(),"ListOverview"); //hinzufügen eines Panel mit Schlüsselwort
+		mainPanel.add(new ProduktPanel(), "Produkts");
 	}
 	
 	/**
@@ -180,12 +181,12 @@ public class Ui extends JFrame{
 		// Es werden Buttons der Unteren Leiste erstellt und hinzugefügt
 		EKButton listButton = new EKButton();
 		listButton.setText("Einkaufslisten"); //
-		listButton.addActionListener(e->cl.show(mainPanel, "LIST")); //Interface ActionListener hat nur eine zu überschreibene Methode, daher kann auch der Lamda-Ausdruck verwendet werden
+		listButton.addActionListener(e->cl.show(mainPanel, "ListOverview")); //Interface ActionListener hat nur eine zu überschreibene Methode, daher kann auch der Lamda-Ausdruck verwendet werden
 		buttonPanel.add(listButton);
 		
 		EKButton menu = new EKButton();// Erstellt Button um ins Setting Menu zu kommen.
-		menu.setText("Menu");		
-		menu.addActionListener(e->cl.show(mainPanel, "SETTINGS"));
+		menu.setText("Produkte");		
+		menu.addActionListener(e->cl.show(mainPanel, "Produkts"));
 		buttonPanel.add(menu);
 		
 		EKButton supermarketButton = new EKButton(); // Erstellt Button, um ins Supermarktmanagementmenu zu kommen.
@@ -195,17 +196,17 @@ public class Ui extends JFrame{
 		
 		this.add(buttonPanel, BorderLayout.SOUTH);
 	}
-	public CardLayout getCl() {
+	public static CardLayout getCl() {
 		return cl;
 	}
-	public void setCl(CardLayout cl) {
-		this.cl = cl;
+	public static void setCl(CardLayout cl) {
+		Ui.cl = cl;
 	}
-	public JPanel getMainPanel() {
+	public static JPanel getMainPanel() {
 		return mainPanel;
 	}
-	public void setMainPanel(JPanel mainPanel) {
-		this.mainPanel = mainPanel;
+	public static void setMainPanel(JPanel mainPanel) {
+		Ui.mainPanel = mainPanel;
 	}
 	public static int getScale() {
 		return scale;
@@ -219,12 +220,13 @@ public class Ui extends JFrame{
 	public static Color getBgColor() {
 		return BG_COLOR;
 	}
-	public JToolBar getToolbar() {
+	public static JToolBar getToolbar() {
 		return toolbar;
 	}
-	public void setToolbar(JToolBar toolbar) {
-		this.toolbar = toolbar;
+	public static void setToolbar(JToolBar toolbar) {
+		Ui.toolbar = toolbar;
 	}
+
 	
 	/**
 	 * Beim Aufruf der Methode werden alle Buttons, welche rechts in der Toolbar liegen gelöscht. Anschließend werden alle übergebenen Buttons der Toolbar hinzugefügt.
