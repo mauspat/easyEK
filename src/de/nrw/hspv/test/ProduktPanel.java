@@ -7,9 +7,9 @@ import javax.swing.UIManager;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
-public class SettingPanel extends JPanel {
+public class ProduktPanel extends JPanel {
 
-	SettingPanel(){
+	ProduktPanel(){
 	
 		this.setBackground(Color.DARK_GRAY.brighter());
 	}
