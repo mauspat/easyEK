@@ -68,7 +68,7 @@ public class NewList extends JFrame{
 		this.add(uppanel, BorderLayout.NORTH);
 		this.add(downpanel, BorderLayout.SOUTH);
 		this.add(leftpanel,BorderLayout.WEST);
-		this.add(rightpanel, BorderLayout.EAST);
+		this.add(rightpanel, BorderLayout.EAST); // rechts
 		this.add(centerpanel, BorderLayout.CENTER);
 
 //		centerpanel.setBorder(BorderFactory.createEmptyBorder(50,50,50,50));
