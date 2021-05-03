@@ -9,6 +9,8 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -54,42 +56,10 @@ public class Ui extends JFrame{
 		class MyWindowAdapter extends WindowAdapter{
 			public void windowClosing(WindowEvent e) {
 				//TODO Dialoge, Speichern hinzufügen!, ACHTUNG: Fenster nicht über "defaulCloseOperation" schließen... speichern, Userabfragen dann usw nicht möglich
-				//TODO Adapterklasse basteln, erledigt
 				System.exit(0);
 			}
 		}
-		
-		this.addWindowListener(new MyWindowAdapter());
-		
-//		this.addWindowListener(new WindowListener() {
-//
-//			@Override
-//			public void windowOpened(WindowEvent e) {}
-//
-//			@Override
-//			public void windowClosing(WindowEvent e) {
-//				//TODO Dialoge, Speichern hinzufügen!, ACHTUNG: Fenster nicht über "defaulCloseOperation" schließen... speichern, Userabfragen dann usw nicht möglich
-//				//TODO Adapterklasse basteln
-//				System.exit(0);
-//			}
-//
-//			@Override
-//			public void windowClosed(WindowEvent e) {}
-//
-//			@Override
-//			public void windowIconified(WindowEvent e) {}
-//
-//			@Override
-//			public void windowDeiconified(WindowEvent e) {}
-//
-//			@Override
-//			public void windowActivated(WindowEvent e) {}
-//
-//			@Override
-//			public void windowDeactivated(WindowEvent e) {}
-//			
-//		});
-		
+		this.addWindowListener(new MyWindowAdapter());		
 		addButtonLine();
 		addToolbar();
 		addMainPanel();
@@ -142,6 +112,16 @@ public class Ui extends JFrame{
 		//Erstellt die Buttons, die oben in der Toolbar angezeigt werden sollen
 		EKButton addList = new EKButton();
 		addList.setText("Neue Liste");
+		addList.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				
+				NewList Liste1 = new NewList();
+				
+			}
+			
+		});
 	//	addList.setPreferredSize( new Dimension(buttonSizeW, buttonSizeH));//setzt neue Buttongrößen
 		
 		
