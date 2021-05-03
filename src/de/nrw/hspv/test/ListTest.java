@@ -11,7 +11,6 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class ListTest {
-	
 	// Die Methode findCategory sucht in der Liste groceries.txt
 	// nach dem eingegebenen Item. Wird das Item gefunden, werden
 	// category-ID und Name in ein Array übertragen und zurückgeliefert.
