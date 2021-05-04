@@ -1,0 +1,111 @@
+1/Obst/Äpfel
+1/Obst/Birnen
+1/Obst/Orangen
+1/Obst/Melonen
+1/Obst/Mangos
+1/Obst/Bananen
+1/Obst/Kiwis
+1/Obst/Erdbeeren
+1/Obst/Heidelbeeren
+1/Obst/Kirschen
+1/Obst/Zitronen
+1/Obst/Papayas
+2/Backwaren/Brot
+2/Backwaren/Brötchen
+2/Backwaren/Aufbackbrötchen
+2/Backwaren/Baguette
+2/Backwaren/Bagels
+2/Backwaren/Croissants
+2/Backwaren/Muffins
+2/Backwaren/Kuchen
+2/Backwaren/Körnerbrötchen
+2/Backwaren/Toast
+3/Drogerie/Deo
+3/Drogerie/Shampoo
+3/Drogerie/Duschgel
+3/Drogerie/Seife
+3/Drogerie/Handcreme
+3/Drogerie/Hairspray
+3/Drogerie/Zahnpasta
+3/Drogerie/Zahnbürste
+3/Drogerie/Toilettenpapier
+3/Drogerie/Tempos
+3/Drogerie/Zewa
+4/Snacks/Chips
+4/Snacks/Salzstangen
+4/Snacks/Erdnussflips
+4/Snacks/Zwiebelringe
+4/Snacks/Nic-Nacs
+5/Getränke/Wasser
+5/Getränke/Cola
+5/Getränke/Bier
+5/Getränke/Apfelschorle
+5/Getränke/Malzbier
+5/Getränke/Orangensaft
+5/Getränke/Saft
+6/Sprituosen/Cognac
+6/Sprituosen/Whisky
+6/Sprituosen/Vodka
+6/Sprituosen/Rum
+7/Süßigkeiten/Schokolade
+7/Süßigkeiten/Kekse
+7/Süßigkeiten/Schokobons
+7/Süßigkeiten/Twix
+7/Süßigkeiten/Snickers
+7/Süßigkeiten/Milky Way
+7/Süßigkeiten/Duplo
+7/Süßigkeiten/Kinderriegel
+7/Süßigkeiten/Mars
+8/Gemüse/Möhren
+8/Gemüse/Rotkohl
+8/Gemüse/Blumenkohl
+8/Gemüse/Brokkoli
+8/Gemüse/Porree
+8/Gemüse/Lauchzwiebeln
+8/Gemüse/Kartoffeln
+8/Gemüse/Zwiebeln
+8/Gemüse/Knoblauch
+8/Gemüse/Kohlrabi
+9/Milchprodukte/Milch
+9/Milchprodukte/Joghurt
+9/Milchprodukte/Creme Fraiche
+10/Käse/Parmesan
+10/Käse/Gouda
+10/Käse/Emmentaler
+10/Käse/Scheibenkäse
+10/Käse/Hartkäse
+10/Käse/Geriebener Käse
+11/Back- und Kochzutaten/Mehl
+11/Back- und Kochzutaten/Salz
+11/Back- und Kochzutaten/Zucker
+11/Back- und Kochzutaten/Backkakao
+11/Back- und Kochzutaten/Vanillezucker
+11/Back- und Kochzutaten/Vanillearoma
+11/Back- und Kochzutaten/Brauner Zucker
+11/Back- und Kochzutaten/Eier
+12/Kaffe, Tee und Kakao/Kaffee
+12/Kaffe, Tee und Kakao/Kaffeekapseln
+12/Kaffe, Tee und Kakao/Kakao
+12/Kaffe, Tee und Kakao/Tee
+12/Kaffe, Tee und Kakao/Fencheltee
+12/Kaffe, Tee und Kakao/Kamillentee
+12/Kaffe, Tee und Kakao/Früchtetee
+13/Essig & Öle/Olivenöl
+13/Essig & Öle/Rapsöl
+13/Essig & Öle/Sonnenblumenöl
+13/Essig & Öle/Speiseöl
+13/Essig & Öle/Essig
+13/Essig & Öle/Apfelessig
+13/Essig & Öle/Balsamico-Essig
+13/Essig & Öle/Essig-Essenz
+13/Essig & Öle/Branntwein-Essig
+14/Fleisch und Wurst/Salami
+14/Fleisch und Wurst/Mortadella
+14/Fleisch und Wurst/Fleischwurst
+14/Fleisch und Wurst/Wurst
+14/Fleisch und Wurst/Schinken
+15/Reis und Nudeln/Nudeln
+15/Reis und Nudeln/Lasagnenudeln
+15/Reis und Nudeln/Reis
+15/Reis und Nudeln/Basmati-Reis
+15/Reis und Nudeln/Langkornreis

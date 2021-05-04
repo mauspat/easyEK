@@ -19,8 +19,8 @@ import javax.swing.JPanel;
 public class UIMainFrame extends JFrame implements ActionListener {
 	
 	/**
-	 * Die Funktion findCategory erhält als Übergabeparameter den Namen eines Items
-	 * sowie eine Item-Liste, die zum Programmstart aus einer Datei eingelesen wird.
+	 * Die Methode findCategory erhält als Übergabeparameter den Namen eines Items
+	 * sowie eine Item-Liste vom Typen List, deren Inhalt zum Programmstart aus einer Datei eingelesen wird.
 	 * Wenn der Produktname in der Liste auftaucht, wird die in der Liste hinterlegte
 	 * Kategorie zugewiesen (sowohl eine ID im int-Format als auch ein Name vom Typen String).
 	 * 
