@@ -42,7 +42,7 @@ public class Main {
 			FileInputStream fileInput = new FileInputStream(new File("resource//safedItems.txt"));
 			ObjectInputStream objectInput = new ObjectInputStream(fileInput);
 			
-			//Zu testzwecken:
+			//TODO Zu testzwecken: - noch in die Liste schreiben!
 			
 			Item i1 = (Item)objectInput.readObject();
 			Item i2 = (Item)objectInput.readObject();
