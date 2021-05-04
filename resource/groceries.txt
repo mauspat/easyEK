@@ -22,7 +22,6 @@
 1/Obst/zitronen
 1/Obst/papaya
 1/Obst/papayas
-
 2/Backwaren/brot
 2/Backwaren/brötchen
 2/Backwaren/aufbackbrötchen
@@ -45,7 +44,6 @@
 2/Backwaren/vollkorntoast
 2/Backwaren/dinkeltoast
 2/Backwaren/weißbrot
-
 3/Drogerie/deo
 3/Drogerie/deodorant
 3/Drogerie/shampoo
@@ -60,7 +58,6 @@
 3/Drogerie/klopapier
 3/Drogerie/tempos
 3/Drogerie/zewa
-
 4/Snacks/chips
 4/Snacks/salzstangen
 4/Snacks/pringles
@@ -72,7 +69,6 @@
 4/Snacks/nic-nacs
 4/Snacks/pringles
 4/Snacks/chipsletten
-
 5/Getränke/cola
 5/Getränke/bier
 5/Getränke/wasser
@@ -84,7 +80,6 @@
 5/Getränke/orangensaft
 5/Getränke/apfelsaft
 5/Getränke/maracujasaft
-
 6/Sprituosen/cognac
 6/Sprituosen/whisky
 6/Sprituosen/whiskey
@@ -92,7 +87,6 @@
 6/Sprituosen/vodka
 6/Sprituosen/tequila
 6/Sprituosen/rum
-
 7/Süßigkeiten/schokolade
 7/Süßigkeiten/kekse
 7/Süßigkeiten/oreos
@@ -114,7 +108,6 @@
 7/Süßigkeiten/kinder riegel
 7/Süßigkeiten/kinderschokolade
 7/Süßigkeiten/mars
-
 8/Gemüse/möhren
 8/Gemüse/karotten
 8/Gemüse/rotkohl
@@ -131,14 +124,12 @@
 8/Gemüse/pakchoi
 8/Gemüse/rote zwiebeln
 8/Gemüse/kohlrabi
-
 9/Milchprodukte/milch
 9/Milchprodukte/joghurt
 9/Milchprodukte/creme fraiche
 9/Milchprodukte/hartkäse
 9/Milchprodukte/parmesan
 9/Milchprodukte/grana padano
-
 10/Käse/grana padano
 10/Käse/parmesan
 10/Käse/gouda
@@ -149,7 +140,6 @@
 10/Käse/geriebenen käse
 10/Käse/geriebener käse
 10/Käse/Reibekäse
-
 11/Back- und Kochzutaten/mehl
 11/Back- und Kochzutaten/salz
 11/Back- und Kochzutaten/zucker
@@ -167,7 +157,6 @@
 11/Back- und Kochzutaten/dinkelmehl
 11/Back- und Kochzutaten/kichererbsenmehl
 11/Back- und Kochzutaten/eier
-
 12/Kaffe, Tee und Kakao/kaffee
 12/Kaffe, Tee und Kakao/filterkaffee
 12/Kaffe, Tee und Kakao/melitta
@@ -191,7 +180,6 @@
 12/Kaffe, Tee und Kakao/earl grey
 12/Kaffe, Tee und Kakao/earl grey tee
 12/Kaffe, Tee und Kakao/darjeeling
-
 13/Essig & Öle/olivenöl
 13/Essig & Öle/natives olivenöl
 13/Essig & Öle/rapsöl
@@ -209,7 +197,6 @@
 13/Essig & Öle/branntwein-essig
 13/Essig & Öle/branntwein essig
 13/Essig & Öle/leinöl
-
 14/Fleisch und Wurst/salami
 14/Fleisch und Wurst/mortadella
 14/Fleisch und Wurst/lyoner
@@ -223,7 +210,6 @@
 14/Fleisch und Wurst/serrano-schinken
 14/Fleisch und Wurst/putenbrust
 14/Fleisch und Wurst/hähnchenbrust
-
 15/Reis und Nudeln/nudeln
 15/Reis und Nudeln/penne nudeln
 15/Reis und Nudeln/penne
