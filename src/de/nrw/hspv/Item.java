@@ -19,27 +19,11 @@ public class Item implements Serializable {
 	public static TreeMap<String, Item> itemList = new TreeMap<String, Item>();
 	
 	private String name;
-	private int amount;
-	private int categoryID;
-	private String categoryName;
+	private Category category;
 	
-	Item(String name) {
+	Item(String name, Category category){
 		this.name = name;
-		amount = 1;
-	}
-	
-	Item(String name, String categoryName, int categoryID) {
-		this.name = name;
-		this.categoryName = categoryName;
-		this.categoryID = categoryID;
-		amount = 1;
-	}
-	
-	Item(String name, int amount, String categoryName, int categoryID) {
-		this.name = name;
-		this.amount = amount;
-		this.categoryName = categoryName;
-		this.categoryID = categoryID;
+		this.category = category;
 	}
 	
 	public static void saveItems() {
@@ -60,23 +44,11 @@ public class Item implements Serializable {
 			e.printStackTrace();
 		}
 		
-	}	
+	} 	
 	
 	// GETTERS
 	public String getName() {
 		return name;
-	}
-	
-	public int getAmount() {
-		return amount;
-	}
-	
-	public int getCategory() {
-		return categoryID;
-	}
-	
-	public String getCategoryName() {
-		return categoryName;
 	}
 	
 	
@@ -85,11 +57,4 @@ public class Item implements Serializable {
 		this.name = name;
 	}
 	
-	public void setAmount(int amount) {
-		this.amount = amount;
-	}
-	
-	public void setCategory(int id) {
-		categoryID = id;
-	}
 }
