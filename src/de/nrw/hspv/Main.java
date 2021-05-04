@@ -25,6 +25,36 @@ public class Main {
 		
 		
 		
-		new UIMainFrame();
+		//new UIMainFrame();
+		
+		Item.itemList.put("Banane", new Item("Banane","Obst", 2));
+		Item.itemList.put("Apfel", new Item("Apfel","Obst", 2));
+		Item.itemList.put("Brot", new Item("Brot","Gebäck", 5));
+		Item.saveItems();
+		loadAllItems();
+		
+		
+		
+	}
+	
+	public static void loadAllItems() {
+		try {
+			FileInputStream fileInput = new FileInputStream(new File("resource//safedItems.txt"));
+			ObjectInputStream objectInput = new ObjectInputStream(fileInput);
+			
+			//Zu testzwecken:
+			
+			Item i1 = (Item)objectInput.readObject();
+			Item i2 = (Item)objectInput.readObject();
+			Item i3 = (Item)objectInput.readObject();
+			
+			System.out.println(i1.getName()+"-"+i1.getCategory());
+			System.out.println(i2.getName()+"-"+i2.getCategory());
+			System.out.println(i3.getName()+"-"+i3.getCategory());
+			
+		} catch (IOException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

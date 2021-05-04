@@ -35,7 +35,12 @@ public class ListPanel extends JPanel {
 	private ArrayList<String> actualEkList;
 
 	JPanel centerPanel = new JPanel();
-
+	
+	
+	/**
+	 * Konstruktor zum erstellen eines ListPanels. Das ListPanel wird auf Basis der Übergebenen Einkaufsliste erstellt. Die Elemente der Einkaufsliste werden im Panel als Button angezeigt
+	 * @param actualEkList
+	 */
 	ListPanel(ArrayList<String> actualEkList) {
 		
 		
