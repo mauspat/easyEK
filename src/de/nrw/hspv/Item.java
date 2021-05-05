@@ -19,6 +19,7 @@ public class Item implements Serializable {
 	Item(String name, Category category){
 		this.name = name;
 		this.category = category;
+//		itemList.put(name, this);
 	}
 	
 

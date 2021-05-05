@@ -48,31 +48,12 @@ public class ShoppingList implements Serializable {
 		try {
 			// Dateiname wird dynamisch ermittelt aus dem Namen und der ID der Liste.
 			// also z. B. Wochenendeinkauf_02.txt
-			int fileNumber = id;
-			String filename = name + "_" + fileNumber + ".txt";
+
+			String filename = name + ".txt";
 
 			// Verzeichnis wird nach Datei durch
-			File dir = new File("resource/shoppinglists");
-			File[] directoryListing = dir.listFiles();
-			if(directoryListing != null) {
-				for(File child : directoryListing) {
-					String savedFile = child.getName();
-					if(filename.equals(savedFile)) {
-						String[] fileSegs = savedFile.split(Pattern.quote("_"));
-						String[] fileEnding = fileSegs[1].split(Pattern.quote("."));
-						int fileNo = Integer.parseInt(fileEnding[0]);
-						// Wenn bereits eine Liste mit demselben Namen und _1 existiert, wird
-						// die Datei umbenannt in Dateiname_2.txt
-						if(fileNumber == fileNo) {
-							fileNumber += 1;
-							filename = name + "_" + fileNumber + ".txt";
-							
-			// TODO: OVERWRITE
-							
-						}
-					}
-				}
-			}
+//			File dir = new File("resource/shoppinglists");
+//			File[] directoryListing = dir.listFiles();
 			
 			FileOutputStream fileOut = new FileOutputStream("resource/shoppinglists/" + filename);
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -88,13 +69,14 @@ public class ShoppingList implements Serializable {
 	
 	public static void deleteList(ShoppingList shoppingList) {
 		Iterator<ShoppingList> itr = savedLists.iterator();
-		int counter = 0;
 		while(itr.hasNext()) {
 			ShoppingList s = itr.next();
-			if(s.equals(shoppingList)) {
-				savedLists.remove(counter);
+			if(s == shoppingList) {
+				String filename = s.getShoppingListName();
+				itr.remove();
+				File file = new File("resource/shoppinglists/" + filename + ".txt");
+				file.delete();
 			}
-			counter++;
 		}
 	}
 	

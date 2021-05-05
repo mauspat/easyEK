@@ -21,16 +21,17 @@ public class Main implements Serializable {
 		// itemList und categoryList in den jeweiligen Klassen geschrieben
 		loadCategories();
 		loadItems();
-//		loadShoppingLists();
+		loadShoppingLists();
 		
 		//--------- Zu Testzwecken - Ausgabe der Kategorien und Items ---------
 //		displayCategories();
-//		displayItems();
+		displayItems();
 		
 		
 		System.out.println("Es wird eine neue Shopping Liste mit dem Namen \"TestListe\" angelegt ");
 		ShoppingList myList = new ShoppingList("TestListe");
-		new ShoppingList("TestListe2");
+		new ShoppingList("TestListe2").saveList();
+		new ShoppingList("Testliste3").saveList();
 		
 		System.out.println("Es werden Äpfel, Wasser, Brot, Mehl und Kekse Käse hinzugefügt ...");
 		myList.addToList(Item.itemList.get("Äpfel"));
@@ -48,9 +49,14 @@ public class Main implements Serializable {
 		ShoppingList del = ShoppingList.savedLists.get(1);
 		System.out.println(del.getShoppingListName());
 		ShoppingList.deleteList(del);
-//		System.out.println(ShoppingList.savedLists.size());
+		System.out.println(ShoppingList.savedLists.size());
+		del = ShoppingList.savedLists.get(1);
+		ShoppingList.deleteList(del);
+		System.out.println(ShoppingList.savedLists.size());
 		
-		//new UIMainFrame();
+		System.out.println(ShoppingList.savedLists.get(0).getShoppingListName());
+		
+		new UIMainFrame();
 	}
 	
 	
@@ -140,7 +146,7 @@ public class Main implements Serializable {
 					FileInputStream fileIn = new FileInputStream(child);
 					ObjectInputStream in = new ObjectInputStream(fileIn);
 					ShoppingList temp = (ShoppingList) in.readObject();
-//					ShoppingList.savedLists.add(temp);
+					ShoppingList.savedLists.add(temp);
 					fileIn.close();
 				} catch (Exception e) {
 					System.out.println("Einkaufsliste konnte nicht geladen werden.");
