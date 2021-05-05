@@ -1,4 +1,4 @@
-package de.nrw.hspv;
+package de.nrw.hspv.backend;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -7,6 +7,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
+
+import de.nrw.hspv.gui.UIMainFrame;
+
 import java.io.Serializable;
 
 public class Main implements Serializable {
@@ -56,7 +59,7 @@ public class Main implements Serializable {
 		
 		System.out.println(ShoppingList.savedLists.get(0).getShoppingListName());
 		
-		new UIMainFrame();
+//		new UIMainFrame();
 	}
 	
 	

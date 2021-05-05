@@ -1,4 +1,4 @@
-package de.nrw.hspv;
+package de.nrw.hspv.backend;
 
 import java.io.Serializable;
 import java.util.TreeMap;

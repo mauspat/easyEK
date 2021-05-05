@@ -35,7 +35,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-public class NewList extends JFrame {
+public class NewListFrame extends JFrame {
 
 	private static final int scale = 50;
 	private static final int WINDOW_WIDH = scale * 9;
@@ -48,7 +48,7 @@ public class NewList extends JFrame {
 	JPanel rightPanel = new JPanel();
 	JPanel centerPanel = new JPanel();
 
-	NewList() {
+	NewListFrame() {
 
 		this.setSize(WINDOW_WIDH, WINDOW_HIGHT);
 		this.getContentPane().setBackground(BG_COLOR);

@@ -1,4 +1,4 @@
-package de.nrw.hspv;
+package de.nrw.hspv.gui;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -14,6 +14,8 @@ import java.util.regex.Pattern;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import de.nrw.hspv.backend.Item;
 
 public class UIMainFrame extends JFrame implements ActionListener {
 	
@@ -64,7 +66,7 @@ public class UIMainFrame extends JFrame implements ActionListener {
 	List<String> itemList;
 	ArrayList<Item> shoppingList = new ArrayList<Item>();
 	
-	UIMainFrame() {		
+	public UIMainFrame() {		
 		// Produkt-Liste wird zum Programmstart eingelesen
 		try {
 			itemList = Files.readAllLines(Paths.get("resource/groceries.txt"));	

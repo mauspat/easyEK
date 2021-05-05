@@ -1,4 +1,4 @@
-package de.nrw.hspv;
+package de.nrw.hspv.backend;
 
 public class Supermarket {
 	private static int counter = 0;
