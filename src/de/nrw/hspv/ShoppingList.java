@@ -13,12 +13,14 @@ public class ShoppingList implements Serializable {
 	/**
 	 * 
 	 */
+	
+	public static ArrayList<ShoppingList> savedLists = new ArrayList<ShoppingList>();
 	private static final long serialVersionUID = 1L;
 	private int counter = 1;
 	private String name;
 	private int id;
 	private ArrayList<Item> shoppingList = new ArrayList<Item>();
-	public static ArrayList<ShoppingList> savedLists = new ArrayList<ShoppingList>();
+	
 	
 	ShoppingList(String name) {
 		this.name = name;
