@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -19,11 +20,13 @@ import java.util.regex.Pattern;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
 public class NewList extends JFrame {
@@ -33,11 +36,11 @@ public class NewList extends JFrame {
 	private static final int WINDOW_HIGHT = scale * 16;
 	private static final Color BG_COLOR = Color.DARK_GRAY;
 
-	JPanel uppanel = new JPanel();
-	JPanel downpanel = new JPanel();
-	JPanel leftpanel = new JPanel();
-	JPanel rightpanel = new JPanel();
-	JPanel centerpanel = new JPanel();
+	JPanel upPanel = new JPanel();
+	JPanel downPanel = new JPanel();
+	JPanel leftPanel = new JPanel();
+	JPanel rightPanel = new JPanel();
+	JPanel centerPanel = new JPanel();
 
 	NewList() {
 
@@ -55,38 +58,36 @@ public class NewList extends JFrame {
 
 		initPanels();
 		initCenter();
+		initButtons();
 		this.setVisible(true);
 
 	}
 
 	public void initPanels() {
 
-		uppanel.setBackground(BG_COLOR);
-		downpanel.setBackground(BG_COLOR);
-		leftpanel.setBackground(BG_COLOR);
-		rightpanel.setBackground(BG_COLOR);
-		centerpanel.setBackground(Color.RED);
+		upPanel.setBackground(BG_COLOR);
+		downPanel.setBackground(BG_COLOR);
+		leftPanel.setBackground(BG_COLOR);
+		rightPanel.setBackground(BG_COLOR);
+		centerPanel.setBackground(BG_COLOR);
 
-		uppanel.setPreferredSize(new Dimension(WINDOW_WIDH, 50));
-		downpanel.setPreferredSize(new Dimension(WINDOW_WIDH, 50));
-		leftpanel.setPreferredSize(new Dimension(50, WINDOW_HIGHT));
-		rightpanel.setPreferredSize(new Dimension(50, WINDOW_HIGHT));
-		centerpanel.setPreferredSize(new Dimension());
+		upPanel.setPreferredSize(new Dimension(WINDOW_WIDH, 50));
+		downPanel.setPreferredSize(new Dimension(WINDOW_WIDH, WINDOW_HIGHT/15));
+		leftPanel.setPreferredSize(new Dimension(50, WINDOW_HIGHT));
+		rightPanel.setPreferredSize(new Dimension(50, WINDOW_HIGHT));
+		centerPanel.setPreferredSize(new Dimension());
 
-		this.add(uppanel, BorderLayout.NORTH);
-		this.add(downpanel, BorderLayout.SOUTH);
-		this.add(leftpanel, BorderLayout.WEST);
-		this.add(rightpanel, BorderLayout.EAST);
-		this.add(centerpanel, BorderLayout.CENTER);
-
-//		centerpanel.setBorder(BorderFactory.createEmptyBorder(50,50,50,50));
-
+		this.add(upPanel, BorderLayout.NORTH);
+		this.add(downPanel, BorderLayout.SOUTH);
+		this.add(leftPanel, BorderLayout.WEST);
+		this.add(rightPanel, BorderLayout.EAST);
+		this.add(centerPanel, BorderLayout.CENTER);
 	}
-	
+	/**
+	 * 
+	 */
 
 	public void initCenter() {
-
-		centerpanel.setLayout(new BorderLayout());
 
 		JPanel chooseCategoryText = new JPanel();
 		chooseCategoryText.setBackground(BG_COLOR);
@@ -103,7 +104,6 @@ public class NewList extends JFrame {
 		label.setForeground(Color.WHITE);
 		label.setHorizontalTextPosition(JLabel.CENTER);
 		label.setVerticalAlignment(JLabel.CENTER);
-
 		
 
 		//JList mit allen Produkten aus TextFile groceries.txt
@@ -125,14 +125,42 @@ public class NewList extends JFrame {
 			model.addElement(line[2]);									// drittes Segment wird dem DefaulListModel hinzugefügt
 
 		}
+		
+		myList.setFixedCellWidth(300);
 
-		myList.setModel(model);											// der JList wird die Liste mit den Produkten übergeben
+		
+		JScrollPane scrollPane = new JScrollPane();
+		centerPanel.add(new JScrollPane(myList));
+		
+		
 //		myList.getSelectionModel().addListSelectionListener(new ListSelectionListener(){	//der Liste in der JList wird ein ListSelectionListener hinzugefügt
 //		gucken weche Methode implementiert werden muss});
-		chooseCategoryText.add(label);
-		centerpanel.add(chooseCategoryText, BorderLayout.NORTH);
-		centerpanel.add(chooseCategoryPanel, BorderLayout.CENTER);
-		chooseCategoryPanel.add(myList);
+		
+		
 
+	
+		myList.setModel(model);											// der JList wird die Liste mit den Produkten übergeben
+		upPanel.add(label);
+		centerPanel.add(chooseCategoryText, BorderLayout.NORTH);
+		centerPanel.add(chooseCategoryPanel, BorderLayout.CENTER);
+
+	}
+	
+	public void initButtons() {
+		
+		downPanel.setLayout(new GridLayout(1,3,4,0));
+		
+		
+		EKButton goBack = new EKButton();
+		goBack.setText("zurück");
+		downPanel.add(goBack);
+		
+		EKButton addToList = new EKButton();
+		addToList.setText("Einkaufsliste erstellen");
+		downPanel.add(addToList);
+		
+		EKButton addNewItem = new EKButton();
+		addNewItem.setText("Neues Produkt hinzufügen");
+		downPanel.add(addNewItem);
 	}
 }
