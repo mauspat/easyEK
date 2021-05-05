@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -28,6 +29,11 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 public class NewList extends JFrame {
 
@@ -81,7 +87,7 @@ public class NewList extends JFrame {
 		this.add(downPanel, BorderLayout.SOUTH);
 		this.add(leftPanel, BorderLayout.WEST);
 		this.add(rightPanel, BorderLayout.EAST);
-		this.add(centerPanel, BorderLayout.CENTER);
+		this.add(centerPanel, BorderLayout.CENTER); 
 	}
 	/**
 	 * 
@@ -111,7 +117,7 @@ public class NewList extends JFrame {
 		Scanner scan = null; 											//Scanner erstellen und initialisieren
 		try {
 
-			scan = new Scanner(new File("resource/groceries.txt"));		// File einlesen
+			scan = new Scanner(new File("resource/productlist/easyEK_productList.txt"));		// File einlesen
 		} catch (FileNotFoundException ex) {
 			ex.printStackTrace();										// Fehlerausgabe
 		}
@@ -127,15 +133,29 @@ public class NewList extends JFrame {
 		}
 		
 		myList.setFixedCellWidth(300);
-
+		myList.setSelectionBackground(new Color(0, 209, 155));
+		myList.setVisibleRowCount(20);
+		myList.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 		
+	
+
 		JScrollPane scrollPane = new JScrollPane();
 		centerPanel.add(new JScrollPane(myList));
 		
 		
-//		myList.getSelectionModel().addListSelectionListener(new ListSelectionListener(){	//der Liste in der JList wird ein ListSelectionListener hinzugefügt
-//		gucken weche Methode implementiert werden muss});
 		
+		
+
+//		myList.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
+//
+//			@Override
+//			public void valueChanged(ListSelectionEvent e) {
+//				// TODO Auto-generated method stub
+//				
+//			}	//der Liste in der JList wird ein ListSelectionListener hinzugefügt
+////		gucken weche Methode implementiert werden muss
+//			});
+//		
 		
 
 	
@@ -153,10 +173,23 @@ public class NewList extends JFrame {
 		
 		EKButton goBack = new EKButton();
 		goBack.setText("zurück");
+		
+ 
+		
+		
 		downPanel.add(goBack);
 		
 		EKButton addToList = new EKButton();
 		addToList.setText("Einkaufsliste erstellen");
+		addToList.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				
+			}
+			
+		});
 		downPanel.add(addToList);
 		
 		EKButton addNewItem = new EKButton();
