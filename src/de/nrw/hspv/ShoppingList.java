@@ -13,16 +13,17 @@ public class ShoppingList implements Serializable {
 	/**
 	 * 
 	 */
+	public static ArrayList<ShoppingList> savedLists = new ArrayList<ShoppingList>();
 	private static final long serialVersionUID = 1L;
 	private int counter = 1;
 	private String name;
 	private int id;
 	private ArrayList<Item> shoppingList = new ArrayList<Item>();
-	public static ArrayList<ShoppingList> savedLists = new ArrayList<ShoppingList>();
 	
 	ShoppingList(String name) {
 		this.name = name;
 		this.id = counter;
+		savedLists.add(this);
 		counter += 1;
 	}
 	
@@ -65,6 +66,9 @@ public class ShoppingList implements Serializable {
 						if(fileNumber == fileNo) {
 							fileNumber += 1;
 							filename = name + "_" + fileNumber + ".txt";
+							
+			// TODO: OVERWRITE
+							
 						}
 					}
 				}
@@ -79,6 +83,18 @@ public class ShoppingList implements Serializable {
 		} catch (IOException e) {
 			System.out.println("Fehler beim Speichern der Liste.");
 			e.printStackTrace();
+		}
+	}
+	
+	public static void deleteList(ShoppingList shoppingList) {
+		Iterator<ShoppingList> itr = savedLists.iterator();
+		int counter = 0;
+		while(itr.hasNext()) {
+			ShoppingList s = itr.next();
+			if(s.equals(shoppingList)) {
+				savedLists.remove(counter);
+			}
+			counter++;
 		}
 	}
 	
