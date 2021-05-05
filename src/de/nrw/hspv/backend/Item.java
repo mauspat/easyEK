@@ -46,7 +46,14 @@ public class Item implements Serializable {
 		}
 		
 	}
+	
+	 
 	*/ 	
+	
+	@Override
+	 public String toString() {
+		return this.name;
+	}
 	
 	// GETTERS
 	public String getName() {

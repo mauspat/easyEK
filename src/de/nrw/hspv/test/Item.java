@@ -31,6 +31,11 @@ public class Item implements java.io.Serializable {
 	}
 	
 	
+	@Override
+	public String toString() {
+		return this.name;
+	}
+	
 	// GETTERS
 	public String getName() {
 		return name;
