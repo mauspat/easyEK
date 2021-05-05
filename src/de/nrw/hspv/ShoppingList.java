@@ -2,7 +2,6 @@ package de.nrw.hspv;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.regex.Pattern;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -13,6 +12,7 @@ public class ShoppingList implements Serializable {
 	/**
 	 * 
 	 */
+
 	public static ArrayList<ShoppingList> savedLists = new ArrayList<ShoppingList>();
 	private static final long serialVersionUID = 1L;
 	private int counter = 1;
