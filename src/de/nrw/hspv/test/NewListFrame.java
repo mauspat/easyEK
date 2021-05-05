@@ -145,13 +145,17 @@ public class NewListFrame extends JFrame {
 		/*
 		 * anderer Ansatz JList
 		 */
-
+		TreeMap<String,Item>testListe = new TreeMap<String,Item>();
+		testListe.put("Apefel", new Item("Apfel"));
+		testListe.put("Banane", new Item("Banane"));
 		
-		JList list = new JList(de.nrw.hspv.backend.Item.itemList.values().toArray()); //TODO package importen
+		//JList list = new JList(de.nrw.hspv.backend.Item.itemList.values().toArray());
+		JList list = new JList(testListe.values().toArray());
 		list.setFixedCellWidth(300);
 		list.setSelectionBackground(new Color(0, 209, 155));
 		list.setVisibleRowCount(20);
 		list.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+		list.setFixedCellHeight(80);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		centerPanel.add(new JScrollPane(list));
