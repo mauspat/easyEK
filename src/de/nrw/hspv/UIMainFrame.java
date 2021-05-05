@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -18,6 +17,11 @@ import javax.swing.JPanel;
 
 public class UIMainFrame extends JFrame implements ActionListener {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	/**
 	 * Die Methode findCategory erhält als Übergabeparameter den Namen eines Items
 	 * sowie eine Item-Liste vom Typen List, deren Inhalt zum Programmstart aus einer Datei eingelesen wird.
@@ -104,6 +108,7 @@ public class UIMainFrame extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		/*
 		String buttonName = e.getActionCommand().toString();
 		if(!buttonName.equals("Anzeigen")) {
 			String category[] = new String[2];
@@ -122,7 +127,6 @@ public class UIMainFrame extends JFrame implements ActionListener {
 				System.out.println(p.getName() + " / " + p.getCategoryName());
 			}
 		}
-		
-		
-	}
+		*/	
+	}	
 }

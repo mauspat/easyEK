@@ -38,74 +38,74 @@
 4/Snacks/Nic-Nacs
 5/Getränke/Wasser
 5/Getränke/Cola
-5/Getränke/Bier
 5/Getränke/Apfelschorle
 5/Getränke/Malzbier
 5/Getränke/Orangensaft
 5/Getränke/Saft
-6/Sprituosen/Cognac
-6/Sprituosen/Whisky
-6/Sprituosen/Vodka
-6/Sprituosen/Rum
-7/Süßigkeiten/Schokolade
-7/Süßigkeiten/Kekse
-7/Süßigkeiten/Schokobons
-7/Süßigkeiten/Twix
-7/Süßigkeiten/Snickers
-7/Süßigkeiten/Milky Way
-7/Süßigkeiten/Duplo
-7/Süßigkeiten/Kinderriegel
-7/Süßigkeiten/Mars
-8/Gemüse/Möhren
-8/Gemüse/Rotkohl
-8/Gemüse/Blumenkohl
-8/Gemüse/Brokkoli
-8/Gemüse/Porree
-8/Gemüse/Lauchzwiebeln
-8/Gemüse/Kartoffeln
-8/Gemüse/Zwiebeln
-8/Gemüse/Knoblauch
-8/Gemüse/Kohlrabi
-9/Milchprodukte/Milch
-9/Milchprodukte/Joghurt
-9/Milchprodukte/Creme Fraiche
-10/Käse/Parmesan
-10/Käse/Gouda
-10/Käse/Emmentaler
-10/Käse/Scheibenkäse
-10/Käse/Hartkäse
-10/Käse/Geriebener Käse
-11/Back- und Kochzutaten/Mehl
-11/Back- und Kochzutaten/Salz
-11/Back- und Kochzutaten/Zucker
-11/Back- und Kochzutaten/Backkakao
-11/Back- und Kochzutaten/Vanillezucker
-11/Back- und Kochzutaten/Vanillearoma
-11/Back- und Kochzutaten/Brauner Zucker
-11/Back- und Kochzutaten/Eier
-12/Kaffe, Tee und Kakao/Kaffee
-12/Kaffe, Tee und Kakao/Kaffeekapseln
-12/Kaffe, Tee und Kakao/Kakao
-12/Kaffe, Tee und Kakao/Tee
-12/Kaffe, Tee und Kakao/Fencheltee
-12/Kaffe, Tee und Kakao/Kamillentee
-12/Kaffe, Tee und Kakao/Früchtetee
-13/Essig & Öle/Olivenöl
-13/Essig & Öle/Rapsöl
-13/Essig & Öle/Sonnenblumenöl
-13/Essig & Öle/Speiseöl
-13/Essig & Öle/Essig
-13/Essig & Öle/Apfelessig
-13/Essig & Öle/Balsamico-Essig
-13/Essig & Öle/Essig-Essenz
-13/Essig & Öle/Branntwein-Essig
-14/Fleisch und Wurst/Salami
-14/Fleisch und Wurst/Mortadella
-14/Fleisch und Wurst/Fleischwurst
-14/Fleisch und Wurst/Wurst
-14/Fleisch und Wurst/Schinken
-15/Reis und Nudeln/Nudeln
-15/Reis und Nudeln/Lasagnenudeln
-15/Reis und Nudeln/Reis
-15/Reis und Nudeln/Basmati-Reis
-15/Reis und Nudeln/Langkornreis
+6/Alkoholische Getränke/Bier
+7/Sprituosen/Cognac
+7/Sprituosen/Whisky
+7/Sprituosen/Vodka
+7/Sprituosen/Rum
+8/Süßigkeiten/Schokolade
+8/Süßigkeiten/Kekse
+8/Süßigkeiten/Schokobons
+8/Süßigkeiten/Twix
+8/Süßigkeiten/Snickers
+8/Süßigkeiten/Milky Way
+8/Süßigkeiten/Duplo
+8/Süßigkeiten/Kinderriegel
+8/Süßigkeiten/Mars
+9/Gemüse/Möhren
+9/Gemüse/Rotkohl
+9/Gemüse/Blumenkohl
+9/Gemüse/Brokkoli
+9/Gemüse/Porree
+9/Gemüse/Lauchzwiebeln
+9/Gemüse/Kartoffeln
+9/Gemüse/Zwiebeln
+9/Gemüse/Knoblauch
+9/Gemüse/Kohlrabi
+10/Milchprodukte/Milch
+10/Milchprodukte/Joghurt
+10/Milchprodukte/Creme Fraiche
+11/Käse/Parmesan
+11/Käse/Gouda
+11/Käse/Emmentaler
+11/Käse/Scheibenkäse
+11/Käse/Hartkäse
+11/Käse/Geriebener Käse
+12/Back- und Kochzutaten/Mehl
+12/Back- und Kochzutaten/Salz
+12/Back- und Kochzutaten/Zucker
+12/Back- und Kochzutaten/Backkakao
+12/Back- und Kochzutaten/Vanillezucker
+12/Back- und Kochzutaten/Vanillearoma
+12/Back- und Kochzutaten/Brauner Zucker
+12/Back- und Kochzutaten/Eier
+13/Kaffe, Tee und Kakao/Kaffee
+13/Kaffe, Tee und Kakao/Kaffeekapseln
+13/Kaffe, Tee und Kakao/Kakao
+13/Kaffe, Tee und Kakao/Tee
+13/Kaffe, Tee und Kakao/Fencheltee
+13/Kaffe, Tee und Kakao/Kamillentee
+13/Kaffe, Tee und Kakao/Früchtetee
+14/Essig & Öle/Olivenöl
+14/Essig & Öle/Rapsöl
+14/Essig & Öle/Sonnenblumenöl
+14/Essig & Öle/Speiseöl
+14/Essig & Öle/Essig
+14/Essig & Öle/Apfelessig
+14/Essig & Öle/Balsamico-Essig
+14/Essig & Öle/Essig-Essenz
+14/Essig & Öle/Branntwein-Essig
+15/Fleisch und Wurst/Salami
+15/Fleisch und Wurst/Mortadella
+15/Fleisch und Wurst/Fleischwurst
+15/Fleisch und Wurst/Wurst
+15/Fleisch und Wurst/Schinken
+16/Reis und Nudeln/Nudeln
+16/Reis und Nudeln/Lasagnenudeln
+16/Reis und Nudeln/Reis
+16/Reis und Nudeln/Basmati-Reis
+16/Reis und Nudeln/Langkornreis

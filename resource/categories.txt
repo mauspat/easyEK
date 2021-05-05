@@ -1,0 +1,17 @@
+0/Nicht kategorisiert
+1/Obst
+2/Backwaren
+3/Drogerie
+4/Snacks
+5/Getränke
+6/Alkoholische Getränke
+7/Spirituosen
+8/Süßigkeiten
+9/Gemüse
+10/Milchprodukte
+11/Käse
+12/Back- und Kochzutaten
+13/Kaffee, Tee und Kakao
+14/Essig & Öle
+15/Fleisch und Wurst
+16/Reis und Nudeln
