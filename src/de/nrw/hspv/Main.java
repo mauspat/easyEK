@@ -21,29 +21,22 @@ public class Main implements Serializable {
 		// itemList und categoryList in den jeweiligen Klassen geschrieben
 		loadCategories();
 		loadItems();
+		loadShoppingLists();
 		
 		//--------- Zu Testzwecken - Ausgabe der Kategorien und Items ---------
 //		displayCategories();
 //		displayItems();
 		
-		//--------- Listen werden geladen ---------
-		File dir = new File("resource/shoppinglists");
-		File[] directoryListing = dir.listFiles();
-		if(directoryListing != null) {
-			for(File child : directoryListing) {
-				System.out.println(child.getName());
-			}
-		}
-		//-----------------------------------------
 		
 		System.out.println("Es wird eine neue Shopping Liste mit dem Namen \"TestListe\" angelegt ");
 		ShoppingList myList = new ShoppingList("TestListe");
 		
-		System.out.println("Es werden Äpfel, Wasser, Brot, Mehl und Kekse hinzugefügt ...");
+		System.out.println("Es werden Äpfel, Wasser, Brot, Mehl, Milch und Kekse hinzugefügt ...");
 		myList.addToList(Item.itemList.get("Äpfel"));
 		myList.addToList(Item.itemList.get("Wasser"));
 		myList.addToList(Item.itemList.get("Brot"));
 		myList.addToList(Item.itemList.get("Mehl"));
+		myList.addToList(Item.itemList.get("Milch"));
 		myList.addToList(Item.itemList.get("Kekse"));
 		
 		System.out.println("Die Liste wird ausgegeben ...\n");
@@ -87,7 +80,7 @@ public class Main implements Serializable {
 	public static void loadItems() {
 		List<String> itemListTemp;
 		try {
-			itemListTemp = Files.readAllLines(Paths.get("resource/easyEK_productList.txt"));
+			itemListTemp = Files.readAllLines(Paths.get("resource/productlist/easyEK_productList.txt"));
 			
 			Iterator<String> itr = itemListTemp.iterator();
 			while(itr.hasNext()) {
@@ -111,7 +104,7 @@ public class Main implements Serializable {
 	public static void loadCategories() {
 		List<String> categoryList;
 		try {
-			categoryList = Files.readAllLines(Paths.get("resource/categories.txt"));
+			categoryList = Files.readAllLines(Paths.get("resource/categorylist/categories.txt"));
 			Iterator<String> itr = categoryList.iterator();
 			while(itr.hasNext()) {
 				String line = itr.next();
@@ -125,6 +118,40 @@ public class Main implements Serializable {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	/**
+	 * Die Methode loadShoppingLists() liest das Verzeichnis "resource/shoppinglists/" ein.
+	 * Jede txt-Datei im Verzeichnis wird als eigene Liste behandelt und eingelesen.
+	 */
+	public static void loadShoppingLists() {
+		File dir = new File("resource/shoppinglists");
+		File[] directoryListing = dir.listFiles();
+		if(directoryListing != null) {
+			for(File child : directoryListing) {
+				System.out.println(child.getName());
+				try {
+					FileInputStream fileIn = new FileInputStream(child);
+					ObjectInputStream in = new ObjectInputStream(fileIn);
+					ShoppingList temp = (ShoppingList) in.readObject();
+					ShoppingList.savedLists.add(temp);
+					fileIn.close();
+				} catch (Exception e) {
+					System.out.println("Einkaufsliste konnte nicht geladen werden.");
+					e.printStackTrace();
+				}
+				
+				System.out.println("Folgende Listen sind gespeichert:");
+				Iterator<ShoppingList> itr = ShoppingList.savedLists.iterator();
+				while(itr.hasNext()) {
+					ShoppingList l = itr.next();
+					System.out.println(l.getShoppingListName());
+				}
+				
+			}
+		} else {
+			System.out.println("Keine Listen vorhanden.");
+		}
 	}
 	
 	
