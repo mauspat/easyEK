@@ -174,6 +174,16 @@ public class NewList extends JFrame {
 		EKButton goBack = new EKButton();
 		goBack.setText("zurück");
 		
+		goBack.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			dispose();
+			}
+			
+			
+		});
  
 		
 		
