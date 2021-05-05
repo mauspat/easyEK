@@ -15,8 +15,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
+import java.util.TreeMap;
 import java.util.regex.Pattern;
 
 import javax.swing.BorderFactory;
@@ -66,6 +68,7 @@ public class NewListFrame extends JFrame {
 		initCenter();
 		initButtons();
 		this.setVisible(true);
+		
 
 	}
 
@@ -114,33 +117,44 @@ public class NewListFrame extends JFrame {
 
 		//JList mit allen Produkten aus TextFile groceries.txt
 		
-		Scanner scan = null; 											//Scanner erstellen und initialisieren
-		try {
+//		Scanner scan = null; 											//Scanner erstellen und initialisieren
+//		try {
+//
+//			scan = new Scanner(new File("resource/productlist/easyEK_productList.txt"));		// File einlesen
+//		} catch (FileNotFoundException ex) {
+//			ex.printStackTrace();										// Fehlerausgabe
+//		}
+//
+//		JList<String> myList = new JList<String>();						// JList erstellen
+//		DefaultListModel<String> model = new DefaultListModel<>();		// Model muss der Liste übergeben werden, damit sie einen Inhalt hat
+//
+//		while (scan.hasNext()) {										// Geht Liste durch, bis Ende
+//
+//			String[] line = scan.nextLine().split("/");					// teilt Zeilen in einzelne Segmente {"Key","Kategorie","Name"}
+//			model.addElement(line[2]);									// drittes Segment wird dem DefaulListModel hinzugefügt
+//
+//		}
+//		
+//		
+//		
+//	
+//
+//		JScrollPane scrollPane = new JScrollPane();
+//		centerPanel.add(new JScrollPane(myList));
+//		
+		/*
+		 * anderer Ansatz JList
+		 */
 
-			scan = new Scanner(new File("resource/productlist/easyEK_productList.txt"));		// File einlesen
-		} catch (FileNotFoundException ex) {
-			ex.printStackTrace();										// Fehlerausgabe
-		}
-
-		JList<String> myList = new JList<String>();						// JList erstellen
-		DefaultListModel<String> model = new DefaultListModel<>();		// Model muss der Liste übergeben werden, damit sie einen Inhalt hat
-
-		while (scan.hasNext()) {										// Geht Liste durch, bis Ende
-
-			String[] line = scan.nextLine().split("/");					// teilt Zeilen in einzelne Segmente {"Key","Kategorie","Name"}
-			model.addElement(line[2]);									// drittes Segment wird dem DefaulListModel hinzugefügt
-
-		}
 		
-		myList.setFixedCellWidth(300);
-		myList.setSelectionBackground(new Color(0, 209, 155));
-		myList.setVisibleRowCount(20);
-		myList.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+		JList list = new JList(de.nrw.hspv.backend.Item.itemList.values().toArray()); //TODO package importen
+		list.setFixedCellWidth(300);
+		list.setSelectionBackground(new Color(0, 209, 155));
+		list.setVisibleRowCount(20);
+		list.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 		
-	
-
 		JScrollPane scrollPane = new JScrollPane();
-		centerPanel.add(new JScrollPane(myList));
+		centerPanel.add(new JScrollPane(list));
 		
 		
 		
@@ -159,7 +173,7 @@ public class NewListFrame extends JFrame {
 		
 
 	
-		myList.setModel(model);											// der JList wird die Liste mit den Produkten übergeben
+//		myList.setModel(model);											// der JList wird die Liste mit den Produkten übergeben
 		upPanel.add(label);
 		centerPanel.add(chooseCategoryText, BorderLayout.NORTH);
 		centerPanel.add(chooseCategoryPanel, BorderLayout.CENTER);

@@ -117,7 +117,7 @@ public class Ui extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				
-				NewList Liste1 = new NewList();
+				NewListFrame Liste1 = new NewListFrame();
 				
 			}
 			
