@@ -2,6 +2,8 @@ package de.nrw.hspv;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.regex.Pattern;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -12,10 +14,11 @@ public class ShoppingList implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private static int counter = 1;
+	private int counter = 1;
 	private String name;
 	private int id;
 	private ArrayList<Item> shoppingList = new ArrayList<Item>();
+	public static ArrayList<ShoppingList> savedLists = new ArrayList<ShoppingList>();
 	
 	ShoppingList(String name) {
 		this.name = name;
@@ -34,13 +37,39 @@ public class ShoppingList implements Serializable {
 	
 	/**
 	 * Die Methode saveList() nutzt das Serializable-Interface, um eine Einkaufsliste
-	 * zu speichern. Der Dateiname ergibt sich dabei aus dem Listennamen sowie der ID.
+	 * zu speichern. Der Dateiname ergibt sich dabei aus dem Listennamen sowie einer ID.
+	 * 
+	 * Außerdem prüft die Methode, ob ein Listenname bereits im Verzeichnis vorhanden ist.
+	 * Wenn das zutrifft, wird die ID um 1 erhöht. Wenn also eine Liste Dateiname_1.txt
+	 * existiert, wird der Dateiname zu Dateiname_2.txt geändert.
 	 */
 	public void saveList() {
 		try {
 			// Dateiname wird dynamisch ermittelt aus dem Namen und der ID der Liste.
 			// also z. B. Wochenendeinkauf_02.txt
-			String filename = name + "_" + id + ".txt";
+			int fileNumber = id;
+			String filename = name + "_" + fileNumber + ".txt";
+
+			// Verzeichnis wird nach Datei durch
+			File dir = new File("resource/shoppinglists");
+			File[] directoryListing = dir.listFiles();
+			if(directoryListing != null) {
+				for(File child : directoryListing) {
+					String savedFile = child.getName();
+					if(filename.equals(savedFile)) {
+						String[] fileSegs = savedFile.split(Pattern.quote("_"));
+						String[] fileEnding = fileSegs[1].split(Pattern.quote("."));
+						int fileNo = Integer.parseInt(fileEnding[0]);
+						// Wenn bereits eine Liste mit demselben Namen und _1 existiert, wird
+						// die Datei umbenannt in Dateiname_2.txt
+						if(fileNumber == fileNo) {
+							fileNumber += 1;
+							filename = name + "_" + fileNumber + ".txt";
+						}
+					}
+				}
+			}
+			
 			FileOutputStream fileOut = new FileOutputStream("resource/shoppinglists/" + filename);
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
 			// Die aktuelle Liste wird in eine .txt-Datei geschrieben
@@ -69,5 +98,9 @@ public class ShoppingList implements Serializable {
 	//--------- GETTERS ---------
 	public int getListCounter() {
 		return counter;
+	}
+	
+	public String getShoppingListName() {
+		return name;
 	}
 }
