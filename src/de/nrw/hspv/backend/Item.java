@@ -22,6 +22,7 @@ public class Item implements Serializable {
 //		itemList.put(name, this);
 	}
 	
+	
 
 	
 	// Wird diese Funktion gebraucht, wenn wir die Items

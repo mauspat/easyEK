@@ -40,6 +40,7 @@ public class Main implements Serializable {
 		myList.addToList(Item.itemList.get("Äpfel"));
 		myList.addToList(Item.itemList.get("Wasser"));
 		myList.addToList(Item.itemList.get("Brot"));
+		
 		myList.addToList(Item.itemList.get("Mehl"));
 		myList.addToList(Item.itemList.get("Kekse"));
 		
