@@ -1,6 +1,6 @@
 package de.nrw.hspv.test;
 
-public class Item implements java.io.Serializable {
+public class Item_old implements java.io.Serializable {
 	/**
 	 * 
 	 */
@@ -11,19 +11,19 @@ public class Item implements java.io.Serializable {
 	private int categoryID;
 	private String categoryName;
 	
-	Item(String name) {
+	Item_old(String name) {
 		this.name = name;
 		amount = 1;
 	}
 	
-	Item(String name, String categoryName, int categoryID) {
+	Item_old(String name, String categoryName, int categoryID) {
 		this.name = name;
 		this.categoryName = categoryName;
 		this.categoryID = categoryID;
 		amount = 1;
 	}
 	
-	Item(String name, int amount, String categoryName, int categoryID) {
+	Item_old(String name, int amount, String categoryName, int categoryID) {
 		this.name = name;
 		this.amount = amount;
 		this.categoryName = categoryName;

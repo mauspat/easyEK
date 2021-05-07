@@ -60,23 +60,23 @@ public class ListTest {
 	 * @param supermarket
 	 * @return ArrayList<Item> sortedList
 	 */
-	public static ArrayList<Item> listSort(ArrayList<Item> list, int[] supermarket) {
-		ArrayList<Item> categorized = new ArrayList<Item>();
+	public static ArrayList<Item_old> listSort(ArrayList<Item_old> list, int[] supermarket) {
+		ArrayList<Item_old> categorized = new ArrayList<Item_old>();
 		
 		// Auf die BucketList werden die Items gepackt, deren Kategorien im gewählten Supermarkt nicht vorkommen
 		// Die BucketList ist nur temporär, alle Werte auf der BucketList werden zum Schluss an die
 		// SortedList angehängt, damit diese ganz unten auf der Liste stehen.
-		ArrayList<Item> bucketList = new ArrayList<Item>();
+		ArrayList<Item_old> bucketList = new ArrayList<Item_old>();
 		
 		// in sortedList werden die sortierten Einträge gespeichert
-		ArrayList<Item> sortedList = new ArrayList<Item>();
+		ArrayList<Item_old> sortedList = new ArrayList<Item_old>();
 		
 		// Hier wird vorsortiert - Wenn die Kategorie des Produktes als Kategorie im
 		// Supermarkt vorkommt, wird das Item auf die categorized-Liste gesetzt.
 		// Ansonsten auf die BucketList.
-		Iterator<Item> rawItr = list.iterator();
+		Iterator<Item_old> rawItr = list.iterator();
 		while(rawItr.hasNext()) {
-			Item xy = rawItr.next();
+			Item_old xy = rawItr.next();
 			if(contains(supermarket, xy.getCategory())) {
 				categorized.add(xy);
 			} else {
@@ -88,9 +88,9 @@ public class ListTest {
 		// abgeglichen; wenn die ID des aktuellen Items dem aktuellen Supermarkt-Array-Wert gleicht,
 		// wird das Item auf die Liste sortedList gesetzt.
 		for(int i = 0; i < supermarket.length; i++) {
-			Iterator<Item> sortItr = categorized.iterator();
+			Iterator<Item_old> sortItr = categorized.iterator();
 			while(sortItr.hasNext()) {
-				Item sorter = sortItr.next();
+				Item_old sorter = sortItr.next();
 				if(sorter.getCategory() == supermarket[i]) {
 					sortedList.add(sorter);
 				}
@@ -98,9 +98,9 @@ public class ListTest {
 		}
 		
 		// Alle Items auf der BucketList werden jetzt an die SortedList angehängt
-		Iterator<Item> bucket = bucketList.iterator();
+		Iterator<Item_old> bucket = bucketList.iterator();
 		while(bucket.hasNext()) {
-			Item temp = bucket.next();
+			Item_old temp = bucket.next();
 			sortedList.add(temp);
 		}
 				
@@ -109,8 +109,8 @@ public class ListTest {
 	
 	public static void main(String[] args) throws IOException {
 		// Shopping-Liste und Array für sortierte Liste werden angelegt
-		ArrayList<Item> shoppingList = new ArrayList<Item>();
-		ArrayList<Item> sortedList = new ArrayList<Item>();
+		ArrayList<Item_old> shoppingList = new ArrayList<Item_old>();
+		ArrayList<Item_old> sortedList = new ArrayList<Item_old>();
 		
 		// int-Arrays für Supermärkte
 		int[] lidl = {2, 7, 8, 1, 3, 10, 9, 4};
@@ -161,11 +161,11 @@ public class ListTest {
 					categoryID = 0;
 					// Wenn der Nutzer keine Anzahl eingegeben hat ...
 					if(amount == 1) {
-						Item temp = new Item(itemName, categoryName, categoryID);
+						Item_old temp = new Item_old(itemName, categoryName, categoryID);
 						shoppingList.add(temp);
 					} else {
 						// ... ansonsten wird die Anzahl an das Objekt übergeben
-						Item temp = new Item(itemName, amount, categoryName, categoryID);
+						Item_old temp = new Item_old(itemName, amount, categoryName, categoryID);
 						shoppingList.add(temp);
 					}
 				} else {
@@ -173,10 +173,10 @@ public class ListTest {
 					categoryName = itemCategory[1];
 					categoryID = Integer.parseInt(itemCategory[0]);
 					if(amount == 1) {
-						Item temp = new Item(itemName, categoryName, categoryID);
+						Item_old temp = new Item_old(itemName, categoryName, categoryID);
 						shoppingList.add(temp);
 					} else {
-						Item temp = new Item(itemName, amount, categoryName, categoryID);
+						Item_old temp = new Item_old(itemName, amount, categoryName, categoryID);
 						shoppingList.add(temp);
 					}
 				}
@@ -190,9 +190,9 @@ public class ListTest {
 		System.out.println("\nMENGE // PRODUKT // KATEGORIE");
 		
 		// Die eingegebene Einkaufsliste wird wieder ausgegeben
-		Iterator<Item> list = shoppingList.iterator();
+		Iterator<Item_old> list = shoppingList.iterator();
 		while(list.hasNext()) {
-			Item p = list.next();
+			Item_old p = list.next();
 			if(p.getCategoryName().equals("VOID")) {
 				System.out.println(p.getAmount() + "\t" + p.getName() + " (bisher ohne Kategorie)");
 			} else {
@@ -239,9 +239,9 @@ public class ListTest {
 			
 			// Die sortierte Liste wird ausgegeben
 			System.out.println();
-			Iterator<Item> sorted = sortedList.iterator();
+			Iterator<Item_old> sorted = sortedList.iterator();
 			while(sorted.hasNext()) {
-				Item n = sorted.next();
+				Item_old n = sorted.next();
 				if(n.getCategoryName().equals("VOID")) {
 					System.out.println(n.getAmount() + "\t" + n.getName() + " (bisher ohne Kategorie)");
 				} else {

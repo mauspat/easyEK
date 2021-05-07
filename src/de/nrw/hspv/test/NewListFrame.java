@@ -145,9 +145,9 @@ public class NewListFrame extends JFrame {
 		/*
 		 * anderer Ansatz JList
 		 */
-		TreeMap<String,Item>testListe = new TreeMap<String,Item>();
-		testListe.put("Apefel", new Item("Apfel"));
-		testListe.put("Banane", new Item("Banane"));
+		TreeMap<String,Item_old>testListe = new TreeMap<String,Item_old>();
+		testListe.put("Apefel", new Item_old("Apfel"));
+		testListe.put("Banane", new Item_old("Banane"));
 		
 		//JList list = new JList(de.nrw.hspv.backend.Item.itemList.values().toArray());
 		JList list = new JList(testListe.values().toArray());

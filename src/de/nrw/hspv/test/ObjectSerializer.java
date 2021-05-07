@@ -32,7 +32,7 @@ public class ObjectSerializer implements java.io.Serializable {
 			try {
 				FileOutputStream fileOut = new FileOutputStream("resource/productList.ser", true);
 				ObjectOutputStream out = new ObjectOutputStream(fileOut);
-				out.writeObject(new Item(itemName, itemCategory, itemCategoryID));
+				out.writeObject(new Item_old(itemName, itemCategory, itemCategoryID));
 				out.close();
 				fileOut.close();
 				System.out.println("Line was written ...");
