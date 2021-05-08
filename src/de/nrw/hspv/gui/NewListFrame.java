@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.TreeMap;
+import java.util.logging.Level;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -239,6 +240,8 @@ public class NewListFrame extends JFrame {
 				}
 					
 				dispose();
+				MyLogger.getInstance().getLogger().log(Level.FINE, "Neue Liste konnte erfolgreich erstellt werden!");
+				
 				System.out.println(sl.getSize());
 				} else {
 					JOptionPane.showMessageDialog(getContentPane(), "Sie müssen einen Namen für die Liste angeben!", "Fehler", JOptionPane.ERROR_MESSAGE);

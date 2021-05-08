@@ -1,0 +1,89 @@
+// mit Level CONFIG in MyLogger
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-05-08T23:03:30.028482700Z</date>
+  <millis>1620515010028</millis>
+  <nanos>482700</nanos>
+  <sequence>0</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>CONFIG</level>
+  <class>de.nrw.hspv.gui.UIMain</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Das war schlecht! Hat nicht so geklappt1</message>
+</record>
+<record>
+  <date>2021-05-08T23:03:30.045434100Z</date>
+  <millis>1620515010045</millis>
+  <nanos>434100</nanos>
+  <sequence>1</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>SEVERE</level>
+  <class>de.nrw.hspv.gui.UIMain</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Katastrophe!1</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-05-08T23:09:46.503735900Z</date>
+  <millis>1620515386503</millis>
+  <nanos>735900</nanos>
+  <sequence>0</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>CONFIG</level>
+  <class>de.nrw.hspv.gui.UIMain</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Das war schlecht! Hat nicht so geklappt2</message>
+</record>
+<record>
+  <date>2021-05-08T23:09:46.532658600Z</date>
+  <millis>1620515386532</millis>
+  <nanos>658600</nanos>
+  <sequence>1</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>SEVERE</level>
+  <class>de.nrw.hspv.gui.UIMain</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Katastrophe!2</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-05-08T23:14:49.527462Z</date>
+  <millis>1620515689527</millis>
+  <nanos>462000</nanos>
+  <sequence>0</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>CONFIG</level>
+  <class>de.nrw.hspv.gui.NewListFrame$4</class>
+  <method>actionPerformed</method>
+  <thread>19</thread>
+  <message>Neue Liste konnte nicht erstellt werden!</message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-05-08T23:43:42.364815300Z</date>
+  <millis>1620517422364</millis>
+  <nanos>815300</nanos>
+  <sequence>0</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>FINE</level>
+  <class>de.nrw.hspv.gui.NewListFrame$4</class>
+  <method>actionPerformed</method>
+  <thread>19</thread>
+  <message>Neue Liste konnte erfolgreich erstellt werden!</message>
+</record>
+</log>
