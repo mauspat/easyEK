@@ -20,7 +20,7 @@ public class ShoppingList implements Serializable {
 	private int id;
 	private ArrayList<Item> shoppingList = new ArrayList<Item>();
 	
-	ShoppingList(String name) {
+	public ShoppingList(String name) {
 		this.name = name;
 		this.id = counter;
 		savedLists.add(this);
@@ -100,5 +100,13 @@ public class ShoppingList implements Serializable {
 	
 	public String getShoppingListName() {
 		return name;
+	}
+	
+	public int getSize() {
+		return shoppingList.size();
+	}
+	
+	public void printList() {
+		shoppingList.stream().forEach(e -> System.out.println(e));
 	}
 }
