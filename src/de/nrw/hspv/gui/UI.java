@@ -41,7 +41,7 @@ public class UI extends JFrame{
 	private static JPanel mainPanel = new JPanel(cl);
 	private static JToolBar toolbar = new JToolBar();
 	
-	UI(){			
+	public UI(){			
 		this.setSize(WINDOW_WIDH, WINDOW_HIGHT);
 		this.getContentPane().setBackground(BG_COLOR);
 		
