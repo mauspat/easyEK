@@ -11,6 +11,8 @@ import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -21,11 +23,14 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.JTabbedPane;
 import javax.swing.JToolBar;
 import javax.swing.JToolTip;
+import javax.swing.SwingUtilities;
 import javax.swing.UIDefaults;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
@@ -63,12 +68,48 @@ public class Ui extends JFrame{
 		addButtonLine();
 		addToolbar();
 		addMainPanel();
+		addRightClick();
 		this.add(mainPanel, BorderLayout.CENTER);
-
 		this.setVisible(true);
 	}
 	
 	
+	
+	
+	
+	/**
+	 * Erzeugt ein PopupMenu. Es dient dem Logging und wird erstellt mit einem Klick auf die rechte Maustaste.
+	 */
+	public void addRightClick() {
+		
+		JPopupMenu logging = new JPopupMenu();
+		
+		JMenuItem log = new JMenuItem("Log!");
+		logging.add(log);
+		
+		log.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				System.out.println("Öffne Logging Klasse oder so");
+			}
+			
+		});
+
+		
+		this.addMouseListener(new MouseAdapter(){
+			public void mouseClicked (MouseEvent e) {
+				
+				if(SwingUtilities.isRightMouseButton(e)) {
+					
+				logging.show(Ui.this,e.getX(), e.getY());
+			}
+			}
+		});
+		this.add(logging);
+		
+	}
 	
 	
 	/**
