@@ -1,42 +1,29 @@
-package de.nrw.hspv.test;
+package de.nrw.hspv.gui;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 
 import javax.swing.Box;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JInternalFrame;
-import javax.swing.JLabel;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
-import javax.swing.JTabbedPane;
 import javax.swing.JToolBar;
-import javax.swing.JToolTip;
 import javax.swing.SwingUtilities;
-import javax.swing.UIDefaults;
-import javax.swing.UIManager;
-import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
-public class Ui extends JFrame{
+
+
+public class UI extends JFrame{
 	
 	
 
@@ -54,7 +41,7 @@ public class Ui extends JFrame{
 	private static JPanel mainPanel = new JPanel(cl);
 	private static JToolBar toolbar = new JToolBar();
 	
-	Ui(){			
+	UI(){			
 		this.setSize(WINDOW_WIDH, WINDOW_HIGHT);
 		this.getContentPane().setBackground(BG_COLOR);
 		
@@ -103,7 +90,7 @@ public class Ui extends JFrame{
 				
 				if(SwingUtilities.isRightMouseButton(e)) {
 					
-				logging.show(Ui.this,e.getX(), e.getY());
+				logging.show(UI.this,e.getX(), e.getY());
 			}
 			}
 		});
@@ -124,7 +111,7 @@ public class Ui extends JFrame{
 		mainPanel.setBackground(BG_COLOR);
 		
 		mainPanel.add(new ListOverviewPanel(),"ListOverview"); //hinzufügen eines Panel mit Schlüsselwort
-		mainPanel.add(new ProduktPanel(), "Produkts");
+		mainPanel.add(new ProductPanel(), "Produkts");
 	}
 	
 	/**
@@ -221,13 +208,13 @@ public class Ui extends JFrame{
 		return cl;
 	}
 	public static void setCl(CardLayout cl) {
-		Ui.cl = cl;
+		UI.cl = cl;
 	}
 	public static JPanel getMainPanel() {
 		return mainPanel;
 	}
 	public static void setMainPanel(JPanel mainPanel) {
-		Ui.mainPanel = mainPanel;
+		UI.mainPanel = mainPanel;
 	}
 	public static int getScale() {
 		return scale;
@@ -245,7 +232,7 @@ public class Ui extends JFrame{
 		return toolbar;
 	}
 	public static void setToolbar(JToolBar toolbar) {
-		Ui.toolbar = toolbar;
+		UI.toolbar = toolbar;
 	}
 
 	

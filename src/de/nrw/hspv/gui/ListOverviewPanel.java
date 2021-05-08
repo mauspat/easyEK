@@ -1,4 +1,4 @@
-package de.nrw.hspv.test;
+package de.nrw.hspv.gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+
+
 
 public class ListOverviewPanel extends JPanel{
 	
@@ -26,8 +28,8 @@ public class ListOverviewPanel extends JPanel{
 			@Override
 			//Der Button erstellt eine neue Ebene auf dem CardLayout der Klasse Ui. Anschließend wird das erstellte Panel aufgerufen und damit eingeblendet.
 			public void actionPerformed(ActionEvent e) {
-				Ui.getMainPanel().add(new ListPanel(actualList01), "actualList");
-				Ui.getCl().show(Ui.getMainPanel(), "actualList");
+				UI.getMainPanel().add(new ListPanel(actualList01), "actualList");
+				UI.getCl().show(UI.getMainPanel(), "actualList");
 			
 			}
 			
@@ -47,8 +49,8 @@ public class ListOverviewPanel extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-			Ui.getMainPanel().add(new ListPanel(actualList02), "actualList");
-			Ui.getCl().show(Ui.getMainPanel(), "actualList");
+			UI.getMainPanel().add(new ListPanel(actualList02), "actualList");
+			UI.getCl().show(UI.getMainPanel(), "actualList");
 			}
 			
 		});

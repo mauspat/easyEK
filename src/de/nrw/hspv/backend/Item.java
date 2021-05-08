@@ -16,11 +16,12 @@ public class Item implements Serializable {
 	private String name;
 	private Category category;
 	
-	Item(String name, Category category){
+	public Item(String name, Category category){
 		this.name = name;
 		this.category = category;
 //		itemList.put(name, this);
 	}
+	
 	
 
 	// Wird diese Funktion gebraucht, wenn wir die Items

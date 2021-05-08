@@ -1,4 +1,4 @@
-package de.nrw.hspv.test;
+package de.nrw.hspv.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -9,33 +9,22 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Scanner;
 import java.util.TreeMap;
-import java.util.regex.Pattern;
 
-import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
+import javax.swing.DefaultListSelectionModel;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.border.EmptyBorder;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+
+import de.nrw.hspv.backend.*;
 
 public class NewListFrame extends JFrame {
 
@@ -67,8 +56,8 @@ public class NewListFrame extends JFrame {
 		initPanels();
 		initCenter();
 		initButtons();
+		initJList();
 		this.setVisible(true);
-		
 
 	}
 
@@ -81,7 +70,7 @@ public class NewListFrame extends JFrame {
 		centerPanel.setBackground(BG_COLOR);
 
 		upPanel.setPreferredSize(new Dimension(WINDOW_WIDH, 50));
-		downPanel.setPreferredSize(new Dimension(WINDOW_WIDH, WINDOW_HIGHT/15));
+		downPanel.setPreferredSize(new Dimension(WINDOW_WIDH, WINDOW_HIGHT / 15));
 		leftPanel.setPreferredSize(new Dimension(50, WINDOW_HIGHT));
 		rightPanel.setPreferredSize(new Dimension(50, WINDOW_HIGHT));
 		centerPanel.setPreferredSize(new Dimension());
@@ -90,21 +79,18 @@ public class NewListFrame extends JFrame {
 		this.add(downPanel, BorderLayout.SOUTH);
 		this.add(leftPanel, BorderLayout.WEST);
 		this.add(rightPanel, BorderLayout.EAST);
-		this.add(centerPanel, BorderLayout.CENTER); 
+		this.add(centerPanel, BorderLayout.CENTER);
 	}
+
 	/**
 	 * 
 	 */
 
 	public void initCenter() {
 
-		JPanel chooseCategoryText = new JPanel();
-		chooseCategoryText.setBackground(BG_COLOR);
-
-		JPanel chooseCategoryPanel = new JPanel();
-		chooseCategoryPanel.setBackground(BG_COLOR);
-
-		//JLabel
+//		centerPanel.setLayout(new GridLayout(0,1,5,10));
+		centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
+		// JLabel
 		JLabel label = new JLabel();
 		label.setText("Wählen Sie Ihre Produkte");
 		label.setFont(new Font("SansSerif", Font.BOLD, 14));
@@ -113,115 +99,138 @@ public class NewListFrame extends JFrame {
 		label.setForeground(Color.WHITE);
 		label.setHorizontalTextPosition(JLabel.CENTER);
 		label.setVerticalAlignment(JLabel.CENTER);
-		
 
-		//JList mit allen Produkten aus TextFile groceries.txt
+		upPanel.add(label);
+
+	}
+
+	private void initJList() {
+
+		// -------------Testzweck entfernen--------------
+		Item.itemList.put("Apfel", new Item("Apfel", new Category("Obst", 1)));
+		Item.itemList.put("Banane", new Item("Banane", new Category("Obst", 1)));
+		// ----------------------------------------------
+
+		// JLabel mit Titel
+		JLabel listTitle = new JLabel("Produkte auswählen");
+		listTitle.setForeground(Color.white);
+		listTitle.setPreferredSize(new Dimension(centerPanel.getWidth(), 15));
+		listTitle.setHorizontalTextPosition(JLabel.LEFT);
+		centerPanel.add(listTitle);
 		
-//		Scanner scan = null; 											//Scanner erstellen und initialisieren
-//		try {
-//
-//			scan = new Scanner(new File("resource/productlist/easyEK_productList.txt"));		// File einlesen
-//		} catch (FileNotFoundException ex) {
-//			ex.printStackTrace();										// Fehlerausgabe
-//		}
-//
-//		JList<String> myList = new JList<String>();						// JList erstellen
-//		DefaultListModel<String> model = new DefaultListModel<>();		// Model muss der Liste übergeben werden, damit sie einen Inhalt hat
-//
-//		while (scan.hasNext()) {										// Geht Liste durch, bis Ende
-//
-//			String[] line = scan.nextLine().split("/");					// teilt Zeilen in einzelne Segmente {"Key","Kategorie","Name"}
-//			model.addElement(line[2]);									// drittes Segment wird dem DefaulListModel hinzugefügt
-//
-//		}
-//		
-//		
-//		
-//	
-//
-//		JScrollPane scrollPane = new JScrollPane();
-//		centerPanel.add(new JScrollPane(myList));
-//		
-		/*
-		 * anderer Ansatz JList
-		 */
-		TreeMap<String,Item_old>testListe = new TreeMap<String,Item_old>();
-		testListe.put("Apefel", new Item_old("Apfel"));
-		testListe.put("Banane", new Item_old("Banane"));
 		
-		//JList list = new JList(de.nrw.hspv.backend.Item.itemList.values().toArray());
-		JList list = new JList(testListe.values().toArray());
+		DefaultListModel<String> itemListModel = new DefaultListModel<String>();
+		DefaultListModel<String> choosenListModel = new DefaultListModel<String>();
+		itemListModel.addAll(Item.itemList.keySet());
+
+		// JList list mit allen Produkten, die es gibt
+		JList<String> list = new JList<String>(itemListModel);
 		list.setFixedCellWidth(300);
 		list.setSelectionBackground(new Color(0, 209, 155));
-		list.setVisibleRowCount(20);
-		list.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-		list.setFixedCellHeight(80);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		centerPanel.add(new JScrollPane(list));
-		
-		
-		
-		
+		list.setBackground(BG_COLOR.brighter().brighter());
+		list.setVisibleRowCount(10);
+		list.setForeground(Color.white);
+		list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+		list.setFixedCellHeight(40);
 
+		list.addListSelectionListener(new ListSelectionListener() {
+
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+
+				if (e.getValueIsAdjusting()) {
+
+					String choosenOne = list.getSelectedValue();
+					System.out.println(choosenOne);
+					
+					choosenListModel.addElement(choosenOne);
+					
+				}
+			}
+		});
+
+		centerPanel.add(new JScrollPane(list));
+
+		// Abstand zwischen Liste und Label
+		centerPanel.add(Box.createRigidArea(new Dimension(100, 10)));
+
+		JLabel listTitle2 = new JLabel("ausgewählte Produkte");
+		listTitle2.setForeground(Color.white);
+		listTitle2.setPreferredSize(new Dimension(centerPanel.getWidth(), 15));
+		listTitle2.setHorizontalTextPosition(JLabel.LEFT);
+		centerPanel.add(listTitle2);
+
+		
+		// JList mit Items, die aus der JList 1 ausgewählt wurden
+		JList<String> list2 = new JList<String>(choosenListModel);
+		list2.setSelectionBackground(new Color(0, 209, 155));
+		list2.setBackground(BG_COLOR.brighter().brighter());
+		list2.setVisibleRowCount(5);
+		list2.setForeground(Color.white);
+		list2.setFixedCellHeight(40);
+		list2.addListSelectionListener(new ListSelectionListener() {
+
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+
+//				if (e.getValueIsAdjusting()) {
+
+					choosenListModel.removeElementAt(list2.getSelectedIndex());
+					
+					
+					
+//				}
+			}
+		});
+
+		centerPanel.add(new JScrollPane(list2));
 //		myList.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
 //
 //			@Override
 //			public void valueChanged(ListSelectionEvent e) {
 //				// TODO Auto-generated method stub
 //				
-//			}	//der Liste in der JList wird ein ListSelectionListener hinzugefügt
+//			}	
 ////		gucken weche Methode implementiert werden muss
 //			});
 //		
-		
+		centerPanel.add(Box.createRigidArea(new Dimension(100, 10)));
 
-	
-//		myList.setModel(model);											// der JList wird die Liste mit den Produkten übergeben
-		upPanel.add(label);
-		centerPanel.add(chooseCategoryText, BorderLayout.NORTH);
-		centerPanel.add(chooseCategoryPanel, BorderLayout.CENTER);
+		// der JList wird die Liste mit den Produkten übergeben
 
 	}
-	
+
 	public void initButtons() {
-		
-		downPanel.setLayout(new GridLayout(1,3,4,0));
-		
-		
+
+		downPanel.setLayout(new GridLayout(1, 3, 4, 0));
+
 		EKButton goBack = new EKButton();
 		goBack.setText("zurück");
-		
+
 		goBack.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-			dispose();
+
+				dispose();
 			}
-			
-			
 		});
- 
-		
-		
 		downPanel.add(goBack);
-		
+
 		EKButton addToList = new EKButton();
-		addToList.setText("Einkaufsliste erstellen");
+		addToList.setText("<html>Einkaufsliste<br>erstellen</html>");
 		addToList.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				
+
 			}
-			
+
 		});
 		downPanel.add(addToList);
-		
+
 		EKButton addNewItem = new EKButton();
-		addNewItem.setText("Neues Produkt hinzufügen");
+		addNewItem.setText("<html>Neues Produkt<br>hinzufügen</html>");
 		downPanel.add(addNewItem);
 	}
 }

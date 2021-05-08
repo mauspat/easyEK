@@ -1,32 +1,23 @@
-package de.nrw.hspv.test;
+package de.nrw.hspv.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JDesktopPane;
-import javax.swing.JFrame;
-import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JToggleButton;
-import javax.swing.JToolBar;
 import javax.swing.UIManager;
-import javax.swing.border.Border;
-import javax.swing.border.EmptyBorder;
+
 
 public class ListPanel extends JPanel {
 
@@ -68,7 +59,7 @@ public class ListPanel extends JPanel {
 		
 		// mainPanel mit FlowLayout wird im Centrum des BorderLayouts hinzugefügt
 		centerPanel.setLayout(new WrapLayout(FlowLayout.CENTER, 8, 8));
-		centerPanel.setBackground(Ui.getBgColor().brighter());
+		centerPanel.setBackground(UI.getBgColor().brighter());
 		
 		addScrollPane();
 		addItemButtons();
@@ -85,7 +76,7 @@ public class ListPanel extends JPanel {
 		garbage.setImage(garbage.getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT));
 		EKButton button = new EKButton();
 		button.setIcon(garbage);
-		Ui.ChangeToolbarButton(button);
+		UI.ChangeToolbarButton(button);
 		
 	}
 
@@ -155,7 +146,7 @@ public class ListPanel extends JPanel {
 
 		EKListItemButton() {
 			// Standartmäßige Höhe und Breite des Buttons.
-			int hight = 40, width = Ui.getWindowWidh() - 100;
+			int hight = 40, width = UI.getWindowWidh() - 100;
 
 			this.setPreferredSize(new Dimension(width, hight));
 			this.setBackground(new Color(0, 209, 155));

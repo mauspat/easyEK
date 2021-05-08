@@ -1,17 +1,16 @@
-package de.nrw.hspv.test;
+package de.nrw.hspv.gui;
 
 import java.awt.Color;
 
 import javax.swing.JButton;
 
-/**
- * Hilfsklasse, die einige Standartparameter für die Buttons in der App konfiguriert. Es muss nicht jedes mal die Farbe bestimmt werden und die "Effektlinien" entfernt werden.
- */
+
+
 public class EKButton extends JButton {
 	
 	
 	EKButton(){
-		setBackground(Ui.getBgColor().darker());
+		setBackground(UI.getBgColor().darker());
 		setForeground(Color.WHITE);
 		setBorderPainted(false);
 		setFocusPainted(false);
@@ -19,7 +18,7 @@ public class EKButton extends JButton {
 	
 	EKButton(String name){
 		super(name);
-		setBackground(Ui.getBgColor().darker());
+		setBackground(UI.getBgColor().darker());
 		setForeground(Color.WHITE);
 		setBorderPainted(false);
 		setFocusPainted(false);

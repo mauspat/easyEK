@@ -14,7 +14,7 @@ public class Category implements Serializable {
 	// Statische Liste mit allen Kategorien
 	public static TreeMap<Integer, Category> categoryList = new TreeMap<Integer, Category>();
 	
-	Category(String name, int id) {
+	public Category(String name, int id) {
 		this.name = name;
 		this.id = idCounter;
 		idCounter++;
