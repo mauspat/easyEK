@@ -18,6 +18,7 @@ import javax.swing.DefaultListSelectionModel;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
@@ -38,6 +39,8 @@ public class NewListFrame extends JFrame {
 	JPanel leftPanel = new JPanel();
 	JPanel rightPanel = new JPanel();
 	JPanel centerPanel = new JPanel();
+	
+	DefaultListModel<String> choosenListModel = new DefaultListModel<String>();
 
 	NewListFrame() {
 
@@ -47,11 +50,14 @@ public class NewListFrame extends JFrame {
 		class MyWindowAdapter extends WindowAdapter { // nur die Methode implementieren, die wir brauchen, weil die
 														// Klasse WindowAdapter das Interface implementiert
 			public void windowClosing(WindowEvent e) {
-				System.exit(0);
+				dispose();
 			}
 		}
 		this.addWindowListener(new MyWindowAdapter());
 		this.getContentPane().setLayout(new BorderLayout());
+		this.getContentPane().setBackground(BG_COLOR);
+
+
 
 		initPanels();
 		initCenter();
@@ -118,9 +124,8 @@ public class NewListFrame extends JFrame {
 		listTitle.setHorizontalTextPosition(JLabel.LEFT);
 		centerPanel.add(listTitle);
 		
-		
 		DefaultListModel<String> itemListModel = new DefaultListModel<String>();
-		DefaultListModel<String> choosenListModel = new DefaultListModel<String>();
+		
 		itemListModel.addAll(Item.itemList.keySet());
 
 		// JList list mit allen Produkten, die es gibt
@@ -173,13 +178,16 @@ public class NewListFrame extends JFrame {
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
 
-//				if (e.getValueIsAdjusting()) {
-
-					choosenListModel.removeElementAt(list2.getSelectedIndex());
+				if (e.getValueIsAdjusting()) {
 					
+					int index = list2.getSelectedIndex();
 					
-					
-//				}
+					//wenn Listenelement gelöscht wird, wird auch wieder etwas geändert und damit der ListSelectionListener erneut aufgerufen
+					//dann ist in der Liste kein Element mehr selectiert und index wird -1 (Siehe .getSelectedIndex). ->IndexOutofBoundsException
+					if(index!=-1) {
+						choosenListModel.removeElementAt(index);
+					}
+				}
 			}
 		});
 
@@ -220,10 +228,22 @@ public class NewListFrame extends JFrame {
 		EKButton addToList = new EKButton();
 		addToList.setText("<html>Einkaufsliste<br>erstellen</html>");
 		addToList.addActionListener(new ActionListener() {
-
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				String listName = JOptionPane.showInputDialog(getContentPane(), "Geben sie einen Namen für Ihre Einkaufsliste ein:", "Listenname", JOptionPane.QUESTION_MESSAGE);
+				if(listName!=null || listName.equals("")) {
+				ShoppingList sl = new ShoppingList(listName);
+				for(int i = 0; i<choosenListModel.size(); i++) {
+					sl.addToList(Item.itemList.get(choosenListModel.elementAt(i)));
+				}
+					
+				dispose();
+				System.out.println(sl.getSize());
+				} else {
+					JOptionPane.showMessageDialog(getContentPane(), "Sie müssen einen Namen für die Liste angeben!", "Fehler", JOptionPane.ERROR_MESSAGE);
+				}
+				
 			}
 
 		});
