@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
+import de.nrw.hspv.gui.UI;
+
 import java.io.Serializable;
 
 public class Main implements Serializable {
@@ -135,7 +137,7 @@ public class Main implements Serializable {
 		
 		System.out.println(ShoppingList.savedLists.get(0).getShoppingListName());
 		
-//		new UIMainFrame();
+		new UI();
 	}
 	
 	
