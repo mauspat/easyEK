@@ -10,6 +10,10 @@ public class Supermarket {
 	private String city;
 	private int[] grid;
 	
+	Supermarket(){
+		
+	}
+	
 	// --------- KONSTRUKTOREN ---------
 	Supermarket(String name, int[] grid) {
 		this.name = name;
@@ -50,6 +54,27 @@ public class Supermarket {
 		counter += 1;
 	}
 	
+	
+	
+	//--------- SETTERS ---------
+	public void setName(String name) {
+		this.name = name;
+	}
+	public void setPostalCode(int postalCode) {
+		this.postalCode = postalCode;
+	}
+	public void setStreet(String street) {
+		this.street = street;
+	}
+	public void setAdressNumber(int addrNumber) {
+		this.addrNumber = addrNumber;
+	}
+	public void setCity(String city) {
+		this.city = city;
+		
+		
+		
+	}
 	//--------- GETTERS ---------
 	public Supermarket getSupermarket() {
 		return this;
@@ -63,4 +88,9 @@ public class Supermarket {
 		return grid;
 	}
 	
+	public String getAdress() {
+		
+		return ((street+ " " + addrNumber)+", " +(postalCode+" "+ city));
+		
+	}
 }
