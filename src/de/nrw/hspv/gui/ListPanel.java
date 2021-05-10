@@ -32,8 +32,6 @@ import de.nrw.hspv.backend.Supermarket;
 
 public class ListPanel extends JPanel {
 
-	// TODO NUR zu Testzwecken!!
-
 	private ShoppingList actualEkList;
 
 	JPanel centerPanel = new JPanel();
@@ -202,11 +200,10 @@ public class ListPanel extends JPanel {
 	}
 
 	/**
+	 * @TODO weiter ausformulieren
 	 * ItemButtons sind JToggleButtons mit bestimmten Eigenschaften... ... ... ...
 	 */
 
-	// TODO Auswahl der Items muss an "echte Item Liste angepasst werden". Bisher
-	// wird hier nur mit den Listen aus dieser Klasse gearbeitet.
 	private void addItemButtons() {
 
 		// Greift in den UI Manager ein, um die Farbe zu ändern, wenn Button "getoggelt"

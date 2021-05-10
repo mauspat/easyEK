@@ -15,6 +15,7 @@ import java.awt.event.WindowEvent;
 import javax.swing.Box;
 import javax.swing.JFrame;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JToolBar;
@@ -25,9 +26,6 @@ import javax.swing.border.EmptyBorder;
 
 public class UI extends JFrame{
 	
-	
-
-	//TODO  - JSpinner liefert "Up and Down" Zählmenu für Mengenangabe, JInternalFrame bietet "inneren" Frame (Tipp: deaktiviere windows Baar und co...)
 	
 	//Scale ist willkürlich gewählt
 	private static final int scale= 50;
@@ -50,14 +48,18 @@ public class UI extends JFrame{
 	public UI(){			
 		this.setSize(WINDOW_WIDH, WINDOW_HIGHT);
 		this.getContentPane().setBackground(BG_COLOR);
+		this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		
-		class MyWindowAdapter extends WindowAdapter{
+		this.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
-				//TODO Dialoge, Speichern hinzufügen!, ACHTUNG: Fenster nicht über "defaulCloseOperation" schließen... speichern, Userabfragen dann usw nicht möglich
-				System.exit(0);
+				int answer = JOptionPane.showConfirmDialog(mainPanel, "<html>Möchten Sie das Programm schließen?<br>Alle Änderungen werden automatisch gespeichert!</html>",
+						"schließen", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
+				if(answer==0) {
+					System.exit(0);
+				}
 			}
-		}
-		this.addWindowListener(new MyWindowAdapter());		
+		});
+				
 		addButtonLine();
 		addToolbar();
 		addMainPanel();
