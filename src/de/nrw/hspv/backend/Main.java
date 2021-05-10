@@ -114,6 +114,7 @@ public class Main implements Serializable {
 		new ShoppingList("TestListe2").saveList();
 		new ShoppingList("Testliste3").saveList();
 		
+		
 		System.out.println("Es werden Äpfel, Wasser, Brot, Mehl und Kekse Käse hinzugefügt ...");
 		myList.addToList(Item.itemList.get("Äpfel"));
 		myList.addToList(Item.itemList.get("Wasser"));
@@ -129,10 +130,10 @@ public class Main implements Serializable {
 		System.out.println(ShoppingList.getAllShoppingLists().size());
 		ShoppingList del = ShoppingList.getAllShoppingLists().get(1);
 		System.out.println(del.getShoppingListName());
-		ShoppingList.deleteList(del);
+
 		System.out.println(ShoppingList.getAllShoppingLists().size());
 		del = ShoppingList.getAllShoppingLists().get(1);
-		ShoppingList.deleteList(del);
+	
 		System.out.println(ShoppingList.getAllShoppingLists().size());
 		
 		System.out.println(ShoppingList.getAllShoppingLists().get(0).getShoppingListName());
@@ -140,6 +141,14 @@ public class Main implements Serializable {
 		
 		int[] lidlGrid= {1,2,3,4,5,6,7,8};
 		new Supermarket("Lidl",lidlGrid); 
+		ShoppingList LidlAmSonntag = new ShoppingList("Lidl Sonntag");
+		LidlAmSonntag.addToList(Item.itemList.get("Vodka"));
+		LidlAmSonntag.addToList(Item.itemList.get("Rum"));
+		LidlAmSonntag.addToList(Item.itemList.get("Chips"));
+		LidlAmSonntag.addToList(Item.itemList.get("Kekse"));
+		LidlAmSonntag.addToList(Item.itemList.get("Backkakao"));
+		LidlAmSonntag.addToList(Item.itemList.get("Kaffee"));
+		
 		
 		new UI();
 		
