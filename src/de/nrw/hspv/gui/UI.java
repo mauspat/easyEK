@@ -250,9 +250,10 @@ public class UI extends JFrame{
 		}
 		
 		if(EKbuttons!=null) {
-			for(int i=0; i<EKbuttons.length; i++) 
+			for(int i=0; i<EKbuttons.length; i++) {
+				toolbar.add(Box.createHorizontalStrut(25));
 				toolbar.add(EKbuttons[i]);
-				System.out.println(EKbuttons.length);
+			}
 		}
 		toolbar.repaint();
 	}
