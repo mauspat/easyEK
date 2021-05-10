@@ -41,6 +41,8 @@ public class UI extends JFrame{
 	private static JPanel mainPanel = new JPanel(cl);
 	private static JToolBar toolbar = new JToolBar();
 	
+	
+	
 	public UI(){			
 		this.setSize(WINDOW_WIDH, WINDOW_HIGHT);
 		this.getContentPane().setBackground(BG_COLOR);
@@ -144,33 +146,15 @@ public class UI extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				
-				NewListFrame Liste1 = new NewListFrame();
+				NewListFrame liste1 = new NewListFrame();
 				
 			}
 			
 		});
-	//	addList.setPreferredSize( new Dimension(buttonSizeW, buttonSizeH));//setzt neue Buttongrößen
-		
-		
-		EKButton test1 = new EKButton();
-		test1.setText("Do more");
-	//	test1.setPreferredSize( new Dimension(buttonSizeW, buttonSizeH));
-		
-		
-		EKButton test2 = new EKButton();
-		test2.setText("Do ");
-	//	test2.setPreferredSize( new Dimension(buttonSizeW, buttonSizeH));
-
-	/*
-	 * Buttons der Toolbar hinzufügen	
-	 */
+	
 		
 		toolbar.add(addList);
 		toolbar.add(Box.createHorizontalGlue()); //sorgt dafür, dass die darauffolgenden Buttons rechtsbündig sind
-		toolbar.add(test2);
-		toolbar.addSeparator(); // fügt Abstand zwischen beiden Buttons ein
-		toolbar.add(test1);
 		
 		this.add(toolbar, BorderLayout.NORTH);
 		
@@ -189,13 +173,19 @@ public class UI extends JFrame{
 		// Es werden Buttons der Unteren Leiste erstellt und hinzugefügt
 		EKButton listButton = new EKButton();
 		listButton.setText("Einkaufslisten"); //
-		listButton.addActionListener(e->cl.show(mainPanel, "ListOverview")); //Interface ActionListener hat nur eine zu überschreibene Methode, daher kann auch der Lamda-Ausdruck verwendet werden
+		listButton.addActionListener(e->{
+			cl.show(mainPanel, "ListOverview"); 
+			UI.changeToolbarButton();
+		});
 		buttonPanel.add(listButton);
 		
-		EKButton menu = new EKButton();// Erstellt Button um ins Setting Menu zu kommen.
-		menu.setText("Produkte");		
-		menu.addActionListener(e->cl.show(mainPanel, "Produkts"));
-		buttonPanel.add(menu);
+		EKButton products = new EKButton();// Erstellt Button um ins Setting Menu zu kommen.
+		products.setText("Produkte");		
+		products.addActionListener(e->{
+			cl.show(mainPanel, "Produkts");
+			UI.changeToolbarButton();
+		});
+		buttonPanel.add(products);
 		
 		EKButton supermarketButton = new EKButton(); // Erstellt Button, um ins Supermarktmanagementmenu zu kommen.
 		supermarketButton.setText("Supermärkte");		
@@ -241,7 +231,7 @@ public class UI extends JFrame{
 	 * Es können beliebig viele Buttons übergeben werden. Wenn keine Buttons übergeben werden, werden nur die vorhandenen Buttons gelöscht.
 	 * @param EKbuttons
 	 */
-	public static void ChangeToolbarButton(EKButton...EKbuttons) {
+	public static void changeToolbarButton(EKButton...EKbuttons) {
 		
 		toolbar.getComponentCount();
 		
