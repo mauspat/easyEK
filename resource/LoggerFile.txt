@@ -87,3 +87,67 @@
   <message>Neue Liste konnte erfolgreich erstellt werden!</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-05-10T08:29:25.757737100Z</date>
+  <millis>1620635365757</millis>
+  <nanos>737100</nanos>
+  <sequence>0</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>FINE</level>
+  <class>de.nrw.hspv.gui.NewListFrame$5</class>
+  <method>actionPerformed</method>
+  <thread>18</thread>
+  <message>Neue Liste konnte erfolgreich erstellt werden!</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-05-10T08:54:57.635209500Z</date>
+  <millis>1620636897635</millis>
+  <nanos>209500</nanos>
+  <sequence>0</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>FINE</level>
+  <class>de.nrw.hspv.gui.NewListFrame$5</class>
+  <method>actionPerformed</method>
+  <thread>18</thread>
+  <message>Neue Liste konnte erfolgreich erstellt werden!</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-05-10T09:08:22.602952800Z</date>
+  <millis>1620637702602</millis>
+  <nanos>952800</nanos>
+  <sequence>0</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>FINE</level>
+  <class>de.nrw.hspv.gui.NewListFrame$5</class>
+  <method>actionPerformed</method>
+  <thread>18</thread>
+  <message>Neue Liste konnte erfolgreich erstellt werden!</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-05-10T10:57:55.947422800Z</date>
+  <millis>1620644275947</millis>
+  <nanos>422800</nanos>
+  <sequence>0</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>FINE</level>
+  <class>de.nrw.hspv.gui.NewListFrame$5</class>
+  <method>actionPerformed</method>
+  <thread>18</thread>
+  <message>Neue Liste konnte erfolgreich erstellt werden!</message>
+</record>
+</log>
