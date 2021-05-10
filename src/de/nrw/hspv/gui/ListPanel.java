@@ -11,19 +11,26 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JToggleButton;
 import javax.swing.UIManager;
+
+import de.nrw.hspv.backend.Item;
+import de.nrw.hspv.backend.ShoppingList;
+import de.nrw.hspv.backend.Supermarket;
 
 
 public class ListPanel extends JPanel {
 
 	// TODO NUR zu Testzwecken!!
 	
-	private ArrayList<String> actualEkList;
+	private ArrayList<Item> actualEkList;
 
 	JPanel centerPanel = new JPanel();
 	
@@ -32,7 +39,7 @@ public class ListPanel extends JPanel {
 	 * Konstruktor zum erstellen eines ListPanels. Das ListPanel wird auf Basis der Übergebenen Einkaufsliste erstellt. Die Elemente der Einkaufsliste werden im Panel als Button angezeigt
 	 * @param actualEkList
 	 */
-	ListPanel(ArrayList<String> actualEkList) {
+	ListPanel(ShoppingList actualEkList) {
 		
 		
 		//TODO Konstruktor muss Liste enthalten, welche im Panel dargestellt werden soll
@@ -43,7 +50,7 @@ public class ListPanel extends JPanel {
 		 * -----------------------------
 		 */
 		
-		this.actualEkList = actualEkList;
+		this.actualEkList = actualEkList.getShoppingList();
 		
 		
 		
@@ -73,12 +80,37 @@ public class ListPanel extends JPanel {
 	 */
 	private void changeButtons() {
 		ImageIcon garbage = new ImageIcon("resource\\GarbageSymbol.PNG");
-		garbage.setImage(garbage.getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT));
+		garbage.setImage(garbage.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
 		EKButton button = new EKButton();
 		button.setIcon(garbage);
-		UI.ChangeToolbarButton(button);
+		
+		EKButton sortButton = initSortButton();
+		
+		
+		UI.ChangeToolbarButton(sortButton, button);
 		
 	}
+
+	private EKButton initSortButton() {
+		EKButton button = new EKButton("Sortieren");
+		
+		JComboBox<Supermarket> supermarkets = new JComboBox<Supermarket>();
+		for (Supermarket s: Supermarket.getSupermarketList()) {
+			supermarkets.addItem(s);
+		}
+		
+		button.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(centerPanel, supermarkets, "Supermarkt auswählen", JOptionPane.QUESTION_MESSAGE);
+				
+			}
+			
+		});
+		return button;
+	}
+
 
 	ListPanel(){
 		
@@ -116,7 +148,7 @@ public class ListPanel extends JPanel {
 		for (int i = 0; i < actualEkList.size(); i++) {
 			EKListItemButton button = new EKListItemButton();
 
-			String tempName = actualEkList.get(i); // String, der die Beschriftung enthält.
+			String tempName = actualEkList.get(i).getName(); // String, der die Beschriftung enthält.
 
 			button.setPosition(i); //Speichert gesetzte Position, um später anhand dieser Position eine neusortierung durchführen zu können
 			button.setHorizontalAlignment(JButton.LEFT); //Textausrichtung im Button ist Linksbündig
