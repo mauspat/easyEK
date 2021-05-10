@@ -1,5 +1,6 @@
 package de.nrw.hspv.gui;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class ListOverviewPanel extends JPanel{
 		for (ShoppingList sl: allShoppingLists) {
 			EKButton button = new EKButton();
 			button.setText(sl.getName());
+			button.setPreferredSize(new Dimension(300,50));
 			button.addActionListener(new ActionListener() {
 
 				@Override
