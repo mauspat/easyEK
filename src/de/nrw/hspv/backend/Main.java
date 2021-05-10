@@ -126,18 +126,24 @@ public class Main implements Serializable {
 		System.out.println("\nDie Liste wird gespeichert...");
 		myList.saveList();
 		
-		System.out.println(ShoppingList.savedLists.size());
-		ShoppingList del = ShoppingList.savedLists.get(1);
+		System.out.println(ShoppingList.getAllShoppingLists().size());
+		ShoppingList del = ShoppingList.getAllShoppingLists().get(1);
 		System.out.println(del.getShoppingListName());
 		ShoppingList.deleteList(del);
-		System.out.println(ShoppingList.savedLists.size());
-		del = ShoppingList.savedLists.get(1);
+		System.out.println(ShoppingList.getAllShoppingLists().size());
+		del = ShoppingList.getAllShoppingLists().get(1);
 		ShoppingList.deleteList(del);
-		System.out.println(ShoppingList.savedLists.size());
+		System.out.println(ShoppingList.getAllShoppingLists().size());
 		
-		System.out.println(ShoppingList.savedLists.get(0).getShoppingListName());
+		System.out.println(ShoppingList.getAllShoppingLists().get(0).getShoppingListName());
+		
+		
+		int[] lidlGrid= {1,2,3,4,5,6,7,8};
+		new Supermarket("Lidl",lidlGrid); 
 		
 		new UI();
+		
+		System.out.println(Supermarket.getSupermarketList().size());
 	}
 	
 	
@@ -227,7 +233,7 @@ public class Main implements Serializable {
 					FileInputStream fileIn = new FileInputStream(child);
 					ObjectInputStream in = new ObjectInputStream(fileIn);
 					ShoppingList temp = (ShoppingList) in.readObject();
-					ShoppingList.savedLists.add(temp);
+					ShoppingList.getAllShoppingLists().add(temp);
 					fileIn.close();
 				} catch (Exception e) {
 					System.out.println("Einkaufsliste konnte nicht geladen werden.");
@@ -235,7 +241,7 @@ public class Main implements Serializable {
 				}
 				
 				System.out.println("Folgende Listen sind gespeichert:");
-				Iterator<ShoppingList> itr = ShoppingList.savedLists.iterator();
+				Iterator<ShoppingList> itr = ShoppingList.getAllShoppingLists().iterator();
 				while(itr.hasNext()) {
 					ShoppingList l = itr.next();
 					System.out.println(l.getShoppingListName());
