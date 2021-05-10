@@ -10,6 +10,7 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
@@ -63,6 +64,9 @@ public class ListPanel extends JPanel {
 		changeToolbarButtons();
 
 	}
+	ListPanel(){
+		this.setBackground(Color.black);
+	};
 
 	/**
 	 * Toolbar wird ein "Liste löschen" Button hinzugefügt
@@ -71,6 +75,32 @@ public class ListPanel extends JPanel {
 		ImageIcon garbage = new ImageIcon("resource\\GarbageSymbol.PNG");
 		garbage.setImage(garbage.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
 		EKButton button = new EKButton();
+		
+		button.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int checkProgress = JOptionPane.showConfirmDialog(centerPanel, "Soll diese Liste wirklich gelöscht werden?", "Liste löschen", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+				if(checkProgress==0) {
+					//Iterieren über die Liste, bis diese gefunden ist und dann wird diese gelöscht
+					Iterator<ShoppingList> it = ShoppingList.getAllShoppingLists().iterator();
+					while(it.hasNext()) {
+						if(it.next().equals(actualEkList)) {
+							it.remove();
+							break;
+						}
+					}
+					
+					UI.getMainPanel().add(new ListOverviewPanel(), "ListOverview");
+					UI.getCl().show(UI.getMainPanel(), "ListOverview");
+					UI.changeToolbarButton();
+					System.out.println(UI.getMainPanel().getComponentCount());
+				}
+				
+			}
+			
+		});
+		
 		button.setIcon(garbage);
 
 		EKButton sortButton = initSortButton();

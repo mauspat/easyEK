@@ -28,11 +28,12 @@ public class ListOverviewPanel extends JPanel{
 			button.addActionListener(new ActionListener() {
 
 				@Override
-				//Der Button erstellt eine neue Ebene auf dem CardLayout der Klasse Ui. Anschließend wird das erstellte Panel aufgerufen und damit eingeblendet.
+				//Der Button erstellt eine neue Ebene auf dem CardLayout der Klasse UI. Anschließend wird das erstellte Panel aufgerufen und damit eingeblendet.
 				public void actionPerformed(ActionEvent e) {
+					
 					UI.getMainPanel().add(new ListPanel(sl), "actualList");
 					UI.getCl().show(UI.getMainPanel(), "actualList");
-
+					
 				}
 
 			});

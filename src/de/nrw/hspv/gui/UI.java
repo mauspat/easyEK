@@ -41,6 +41,10 @@ public class UI extends JFrame{
 	private static JPanel mainPanel = new JPanel(cl);
 	private static JToolBar toolbar = new JToolBar();
 	
+	private static JPanel listOverviewPanel;
+	private static JPanel productPanel;
+	private static JPanel listPanel;
+	
 	
 	
 	public UI(){			
@@ -112,8 +116,15 @@ public class UI extends JFrame{
 		this.add(mainPanel, BorderLayout.CENTER);
 		mainPanel.setBackground(BG_COLOR);
 		
-		mainPanel.add(new ListOverviewPanel(),"ListOverview"); //hinzufügen eines Panel mit Schlüsselwort
-		mainPanel.add(new ProductPanel(), "Produkts");
+		UI.listOverviewPanel = new ListOverviewPanel();
+		mainPanel.add(UI.listOverviewPanel,"ListOverview"); //hinzufügen eines Panel mit Schlüsselwort
+		
+		UI.productPanel =new ProductPanel();
+		mainPanel.add(UI.productPanel, "Products");
+		
+		UI.listPanel = new ListPanel();
+		
+		mainPanel.add(UI.listPanel,"actualList");
 	}
 	
 	/**
@@ -182,7 +193,7 @@ public class UI extends JFrame{
 		EKButton products = new EKButton();// Erstellt Button um ins Setting Menu zu kommen.
 		products.setText("Produkte");		
 		products.addActionListener(e->{
-			cl.show(mainPanel, "Produkts");
+			cl.show(mainPanel, "Products");
 			UI.changeToolbarButton();
 		});
 		buttonPanel.add(products);
@@ -224,8 +235,35 @@ public class UI extends JFrame{
 	public static void setToolbar(JToolBar toolbar) {
 		UI.toolbar = toolbar;
 	}
-
 	
+	public static JPanel getListOverviewPanel() {
+		return listOverviewPanel;
+	}
+
+	public static void setListOverviewPanel(JPanel listOverviewPanel) {
+		UI.listOverviewPanel = listOverviewPanel;
+	}
+	
+	public static JPanel getProductPanel() {
+		return productPanel;
+	}
+	
+	public static void setProductPanel(JPanel productPanel) {
+		UI.productPanel = productPanel;
+	}
+
+	public static JPanel getListPanel() {
+		return listPanel;
+	}
+
+	public static void setListPanel(JPanel listPanel) {
+		UI.listPanel = listPanel;
+	}
+
+
+
+
+
 	/**
 	 * Beim Aufruf der Methode werden alle Buttons, welche rechts in der Toolbar liegen gelöscht. Anschließend werden alle übergebenen Buttons der Toolbar hinzugefügt.
 	 * Es können beliebig viele Buttons übergeben werden. Wenn keine Buttons übergeben werden, werden nur die vorhandenen Buttons gelöscht.
