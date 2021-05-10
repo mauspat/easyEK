@@ -5,8 +5,14 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.TreeMap;
@@ -16,12 +22,15 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
 import javax.swing.DefaultListSelectionModel;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -40,8 +49,12 @@ public class NewListFrame extends JFrame {
 	JPanel leftPanel = new JPanel();
 	JPanel rightPanel = new JPanel();
 	JPanel centerPanel = new JPanel();
-	
+
+	DefaultListModel<String> itemListModel = new DefaultListModel<String>();
 	DefaultListModel<String> choosenListModel = new DefaultListModel<String>();
+	JList<String> list = new JList<String>(itemListModel);
+
+	JTextField searchPanel = new JTextField();
 
 	NewListFrame() {
 
@@ -58,13 +71,77 @@ public class NewListFrame extends JFrame {
 		this.getContentPane().setLayout(new BorderLayout());
 		this.getContentPane().setBackground(BG_COLOR);
 
-
+		initSearchPanel();
 
 		initPanels();
 		initCenter();
 		initButtons();
 		initJList();
 		this.setVisible(true);
+
+	}
+
+	private void initSearchPanel() {
+		// TODO Textfeld größe anpassen wenn langeweile vorhanden!
+		// TODO Text "Suche..." bei anklicken entfernen
+
+		searchPanel.setText("Suche...");
+//		searchPanel.addFocusListener(new FocusListener() {
+//
+//			@Override
+//			public void focusGained(FocusEvent e) {
+//				if(searchPanel.getText().equals("Suche...")) {
+//					searchPanel.setText("");
+//				}
+//				
+//			}
+//
+//			@Override
+//			public void focusLost(FocusEvent e) {
+//				// TODO Auto-generated method stub
+//				
+//			}
+//			
+//		});
+
+		searchPanel.addKeyListener(new KeyListener() {
+
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				searchFilter(searchPanel.getText());
+
+			}
+
+		});
+
+		centerPanel.add(searchPanel);
+		centerPanel.add(Box.createVerticalStrut(10));
+
+	}
+
+	private void searchFilter(String searchText) {
+		DefaultListModel<String> searchModel = new DefaultListModel<String>();
+
+		for (String e : Item.itemList.keySet()) {
+			if (e.toLowerCase().contains(searchText.toLowerCase())) {
+				searchModel.addElement(e);
+			}
+		}
+
+		itemListModel = searchModel;
+		list.setModel(itemListModel);
 
 	}
 
@@ -124,13 +201,11 @@ public class NewListFrame extends JFrame {
 		listTitle.setPreferredSize(new Dimension(centerPanel.getWidth(), 15));
 		listTitle.setHorizontalTextPosition(JLabel.LEFT);
 		centerPanel.add(listTitle);
-		
-		DefaultListModel<String> itemListModel = new DefaultListModel<String>();
-		
+
 		itemListModel.addAll(Item.itemList.keySet());
 
 		// JList list mit allen Produkten, die es gibt
-		JList<String> list = new JList<String>(itemListModel);
+
 		list.setFixedCellWidth(300);
 		list.setSelectionBackground(new Color(0, 209, 155));
 		list.setBackground(BG_COLOR.brighter().brighter());
@@ -148,9 +223,9 @@ public class NewListFrame extends JFrame {
 
 					String choosenOne = list.getSelectedValue();
 					System.out.println(choosenOne);
-					
+
 					choosenListModel.addElement(choosenOne);
-					
+
 				}
 			}
 		});
@@ -166,7 +241,6 @@ public class NewListFrame extends JFrame {
 		listTitle2.setHorizontalTextPosition(JLabel.LEFT);
 		centerPanel.add(listTitle2);
 
-		
 		// JList mit Items, die aus der JList 1 ausgewählt wurden
 		JList<String> list2 = new JList<String>(choosenListModel);
 		list2.setSelectionBackground(new Color(0, 209, 155));
@@ -180,12 +254,14 @@ public class NewListFrame extends JFrame {
 			public void valueChanged(ListSelectionEvent e) {
 
 				if (e.getValueIsAdjusting()) {
-					
+
 					int index = list2.getSelectedIndex();
-					
-					//wenn Listenelement gelöscht wird, wird auch wieder etwas geändert und damit der ListSelectionListener erneut aufgerufen
-					//dann ist in der Liste kein Element mehr selectiert und index wird -1 (Siehe .getSelectedIndex). ->IndexOutofBoundsException
-					if(index!=-1) {
+
+					// wenn Listenelement gelöscht wird, wird auch wieder etwas geändert und damit
+					// der ListSelectionListener erneut aufgerufen
+					// dann ist in der Liste kein Element mehr selectiert und index wird -1 (Siehe
+					// .getSelectedIndex). ->IndexOutofBoundsException
+					if (index != -1) {
 						choosenListModel.removeElementAt(index);
 					}
 				}
@@ -211,10 +287,18 @@ public class NewListFrame extends JFrame {
 
 	public void initButtons() {
 
-		downPanel.setLayout(new GridLayout(1, 3, 4, 0));
+		downPanel.setLayout(new GridLayout(1, 2, 4, 0));
 
 		EKButton goBack = new EKButton();
-		goBack.setText("zurück");
+		
+		
+		ImageIcon backArrow = new ImageIcon("resource/icons/goback.png");
+		backArrow.setImage(backArrow.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+		
+		goBack.setIcon(backArrow);
+		
+		
+		
 
 		goBack.addActionListener(new ActionListener() {
 
@@ -227,33 +311,39 @@ public class NewListFrame extends JFrame {
 		downPanel.add(goBack);
 
 		EKButton addToList = new EKButton();
+		
 		addToList.setText("<html>Einkaufsliste<br>erstellen</html>");
 		addToList.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String listName = JOptionPane.showInputDialog(getContentPane(), "Geben sie einen Namen für Ihre Einkaufsliste ein:", "Listenname", JOptionPane.QUESTION_MESSAGE);
-				if(listName!=null || listName.equals("")) {
-				ShoppingList sl = new ShoppingList(listName);
-				for(int i = 0; i<choosenListModel.size(); i++) {
-					sl.addToList(Item.itemList.get(choosenListModel.elementAt(i)));
-				}
-					
-				dispose();
-				MyLogger.getInstance().getLogger().log(Level.FINE, "Neue Liste konnte erfolgreich erstellt werden!");
-				
-				System.out.println(sl.getSize());
-				} else {
-					JOptionPane.showMessageDialog(getContentPane(), "Sie müssen einen Namen für die Liste angeben!", "Fehler", JOptionPane.ERROR_MESSAGE);
-				}
-				
-			}
+				String listName = JOptionPane.showInputDialog(getContentPane(),
+						"Geben sie einen Namen für Ihre Einkaufsliste ein:", "Listenname",
+						JOptionPane.QUESTION_MESSAGE);
 
+				if (listName == null) {
+					//Wenn Cancel gedrückt wird, ist der Listenname "null" und der User soll weiter beim Liste erstellen machen.
+				} else if (listName.equals("")) {
+					JOptionPane.showMessageDialog(getContentPane(), "Sie müssen einen Namen für die Liste angeben!",
+							"Fehler", JOptionPane.ERROR_MESSAGE);
+				}
+
+				else {
+					ShoppingList sl = new ShoppingList(listName);
+					for (int i = 0; i < choosenListModel.size(); i++) {
+						sl.addToList(Item.itemList.get(choosenListModel.elementAt(i)));
+					}
+
+					dispose();
+					MyLogger.getInstance().getLogger().log(Level.FINE,
+							"Neue Liste konnte erfolgreich erstellt werden!");
+
+				}
+
+			}
 		});
 		downPanel.add(addToList);
 
-		EKButton addNewItem = new EKButton();
-		addNewItem.setText("<html>Neues Produkt<br>hinzufügen</html>");
-		downPanel.add(addNewItem);
+		
 	}
 }
