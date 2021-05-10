@@ -66,9 +66,10 @@ public class ShoppingList implements Serializable {
 	 * @param supermarket
 	 * @return ArrayList<Item> sortedList
 	 */
-	public  ArrayList<Item> sortList() {
+	public  ArrayList<Item> sortList(Supermarket supermarket) {
 		
-		int[] supermarketGrid = this.supermarket.getSupermarketGrid();
+		this.supermarket=supermarket;
+		int[] supermarketGrid = supermarket.getSupermarketGrid();
 		// Die Liste categorized erhält vorab alle Items, deren Kategorien im gewählten Supermarkt gefunden werden.
 		ArrayList<Item> categorized = new ArrayList<Item>();
 		
