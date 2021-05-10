@@ -1,6 +1,11 @@
 package de.nrw.hspv.backend;
 
+import java.util.ArrayList;
+
 public class Supermarket {
+	
+	private static ArrayList<Supermarket> supermarketList = new ArrayList<Supermarket>();
+	
 	private static int counter = 0;
 	private int id;
 	private int postalCode;
@@ -27,6 +32,8 @@ public class Supermarket {
 		addrNumber = 9999;
 		postalCode = 9999;
 		//---------------------------------
+		
+		supermarketList.add(this);
 	}
 	
 	Supermarket(String name, String city, int[] grid) {
@@ -41,6 +48,8 @@ public class Supermarket {
 		addrNumber = 9999;
 		postalCode = 9999;
 		//---------------------------------
+		
+		supermarketList.add(this);
 	}
 	
 	Supermarket(String name, String city, String street, int addrNumber, int postalCode, int[] grid) {
@@ -52,9 +61,16 @@ public class Supermarket {
 		this.grid = grid;
 		this.id = counter + 1;
 		counter += 1;
+		
+		supermarketList.add(this);
 	}
 	
+	@Override
+	public String toString() {
+		return this.name;
+	}
 	
+
 	
 	//--------- SETTERS ---------
 	public void setName(String name) {
@@ -71,10 +87,11 @@ public class Supermarket {
 	}
 	public void setCity(String city) {
 		this.city = city;
-		
-		
-		
 	}
+	public static void setSupermarketList(ArrayList<Supermarket> supermarketList) {
+		Supermarket.supermarketList = supermarketList;
+	}
+
 	//--------- GETTERS ---------
 	public Supermarket getSupermarket() {
 		return this;
@@ -92,5 +109,10 @@ public class Supermarket {
 		
 		return ((street+ " " + addrNumber)+", " +(postalCode+" "+ city));
 		
+	}
+	
+	
+	public static ArrayList<Supermarket> getSupermarketList() {
+		return supermarketList;
 	}
 }
