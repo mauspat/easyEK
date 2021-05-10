@@ -9,9 +9,13 @@ import java.awt.Insets;
 import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
 
-//TODO Quelle angeben
+
 /**
- *  FlowLayout subclass that fully supports wrapping of components.
+ *  Diese Klasse wurde nicht selbst erstellt!
+ *  Camick, R. (2008) "Wrap Layout", Java Tips Webblog.
+ *  https://tips4java.wordpress.com/2008/11/06/wrap-layout/ abgerufen am 03.05.2020
+ *  
+ *  Code URL: http://www.camick.com/java/source/WrapLayout.java 
  */
 public class WrapLayout extends FlowLayout
 {
