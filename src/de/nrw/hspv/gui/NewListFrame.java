@@ -24,6 +24,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.DefaultListSelectionModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -104,19 +105,7 @@ public class NewListFrame extends JFrame {
 //			
 //		});
 
-		searchPanel.addKeyListener(new KeyListener() {
-
-			@Override
-			public void keyTyped(KeyEvent e) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void keyPressed(KeyEvent e) {
-				// TODO Auto-generated method stub
-
-			}
+		searchPanel.addKeyListener(new KeyAdapter() {
 
 			@Override
 			public void keyReleased(KeyEvent e) {
@@ -290,15 +279,11 @@ public class NewListFrame extends JFrame {
 		downPanel.setLayout(new GridLayout(1, 2, 4, 0));
 
 		EKButton goBack = new EKButton();
-		
-		
+
 		ImageIcon backArrow = new ImageIcon("resource/icons/goback.png");
 		backArrow.setImage(backArrow.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
-		
+
 		goBack.setIcon(backArrow);
-		
-		
-		
 
 		goBack.addActionListener(new ActionListener() {
 
@@ -311,7 +296,7 @@ public class NewListFrame extends JFrame {
 		downPanel.add(goBack);
 
 		EKButton addToList = new EKButton();
-		
+
 		addToList.setText("<html>Einkaufsliste<br>erstellen</html>");
 		addToList.addActionListener(new ActionListener() {
 
@@ -322,28 +307,45 @@ public class NewListFrame extends JFrame {
 						JOptionPane.QUESTION_MESSAGE);
 
 				if (listName == null) {
-					//Wenn Cancel gedrückt wird, ist der Listenname "null" und der User soll weiter beim Liste erstellen machen.
+					// Wenn Cancel gedrückt wird, ist der Listenname "null" und der User soll weiter
+					// beim Liste erstellen machen.
 				} else if (listName.equals("")) {
 					JOptionPane.showMessageDialog(getContentPane(), "Sie müssen einen Namen für die Liste angeben!",
 							"Fehler", JOptionPane.ERROR_MESSAGE);
-				}
+				} else { // (Also wenn ein Name eingegeben wurde und dieser Name nicht Leer ist)
 
-				else {
-					ShoppingList sl = new ShoppingList(listName);
-					for (int i = 0; i < choosenListModel.size(); i++) {
-						sl.addToList(Item.itemList.get(choosenListModel.elementAt(i)));
+					// Neues AbfrageFenster -> Nach welchem Supermarkt soll die Liste sortiert sein?
+					JComboBox<Supermarket> supermarkets = new JComboBox<Supermarket>();
+					// ComboBox wird befüllt. Dazu werden alle Element der supermarketList
+					// hinzugefügt.
+					for (Supermarket s : Supermarket.getSupermarketList()) {
+						supermarkets.addItem(s);
 					}
 
-					dispose();
-					MyLogger.getInstance().getLogger().log(Level.FINE,
-							"Neue Liste konnte erfolgreich erstellt werden!");
+					// Abfragefenster wird angezeigt
+					int clickedButton = JOptionPane.showConfirmDialog(centerPanel, supermarkets, "Supermarkt auswählen",
+							JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+					// Nur wenn Okay gedrückt wird, ansonsten passiert nichts.
+					if (clickedButton == 0) {
+						ShoppingList sl = new ShoppingList(listName);
+						for (int i = 0; i < choosenListModel.size(); i++) {
+							sl.addToList(Item.itemList.get(choosenListModel.elementAt(i)));
+						}
+						// Die Liste wird sortiert.
+						sl.sortList((Supermarket) supermarkets.getSelectedItem());
+						
+						UI.getMainPanel().add(new ListOverviewPanel(),"ListOverview");
+						UI.getCl().show(UI.getMainPanel(), "ListOverview");
+						dispose();
+						MyLogger.getInstance().getLogger().log(Level.FINE,
+								"Neue Liste konnte erfolgreich erstellt werden!");
+					}
 
 				}
-
 			}
 		});
 		downPanel.add(addToList);
 
-		
 	}
 }
