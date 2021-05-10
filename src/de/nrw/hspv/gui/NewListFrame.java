@@ -334,6 +334,8 @@ public class NewListFrame extends JFrame {
 						// Die Liste wird sortiert.
 						sl.sortList((Supermarket) supermarkets.getSelectedItem());
 						
+						JOptionPane.showMessageDialog(getContentPane(), "Neue Einkaufsliste wurde erstellt!", "Liste erstellt", JOptionPane.INFORMATION_MESSAGE);
+						
 						UI.getMainPanel().add(new ListOverviewPanel(),"ListOverview");
 						UI.getCl().show(UI.getMainPanel(), "ListOverview");
 						dispose();

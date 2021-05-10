@@ -319,3 +319,19 @@
   <message>Neue Liste konnte erfolgreich erstellt werden!</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-05-10T22:30:05.523917400Z</date>
+  <millis>1620685805523</millis>
+  <nanos>917400</nanos>
+  <sequence>0</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>FINE</level>
+  <class>de.nrw.hspv.gui.NewListFrame$5</class>
+  <method>actionPerformed</method>
+  <thread>18</thread>
+  <message>Neue Liste konnte erfolgreich erstellt werden!</message>
+</record>
+</log>
