@@ -149,6 +149,22 @@ public class Main implements Serializable {
 		LidlAmSonntag.addToList(Item.itemList.get("Backkakao"));
 		LidlAmSonntag.addToList(Item.itemList.get("Kaffee"));
 		
+		new Supermarket("Lidl",lidlGrid);
+		new Supermarket("Aldi",lidlGrid);
+		new Supermarket("Rewe",lidlGrid);
+		new Supermarket("Combo",lidlGrid);
+		new Supermarket("Schlecker wtf? - Den gibts gar nicht mehr!",lidlGrid);
+		new Supermarket("MediaMark",lidlGrid);
+		new Supermarket("EDEKA -> richbitch Laden",lidlGrid);
+		new Supermarket("MediaMark",lidlGrid);
+		new Supermarket("MediaMark",lidlGrid);
+		new Supermarket("MediaMark",lidlGrid);
+		new Supermarket("MediaMark",lidlGrid);
+		new Supermarket("MediaMark",lidlGrid);
+		new Supermarket("MediaMark",lidlGrid);
+		new Supermarket("MediaMark",lidlGrid);
+		new Supermarket("MediaMark",lidlGrid);
+		
 		
 		new UI();
 		
