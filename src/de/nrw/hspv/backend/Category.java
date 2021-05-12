@@ -18,6 +18,7 @@ public class Category implements Serializable {
 		this.name = name;
 		this.id = idCounter;
 		idCounter++;
+
 	}
 	
 	
@@ -39,4 +40,31 @@ public class Category implements Serializable {
 	public void setCategoryID(int id) {
 		this.id = id;
 	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public static TreeMap<Integer, Category> getCategoryList() {
+		return categoryList;
+	}
+
+
+	public static void setCategoryList(TreeMap<Integer, Category> categoryList) {
+		Category.categoryList = categoryList;
+	}
+
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
+	
 }
