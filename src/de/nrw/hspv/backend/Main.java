@@ -169,6 +169,7 @@ public class Main implements Serializable {
 		new UI();
 		
 		System.out.println(Supermarket.getSupermarketList().size());
+		System.out.println(Item.itemList.get("Apfel").getCategory());
 	}
 	
 	
