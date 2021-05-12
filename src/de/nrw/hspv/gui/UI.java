@@ -42,6 +42,7 @@ public class UI extends JFrame{
 	private static JPanel listOverviewPanel;
 	private static JPanel productPanel;
 	private static JPanel listPanel;
+	private static JPanel supermarketPanel;
 	
 	
 	
@@ -124,8 +125,10 @@ public class UI extends JFrame{
 		UI.productPanel =new ProductPanel();
 		mainPanel.add(UI.productPanel, "Products");
 		
-		UI.listPanel = new ListPanel();
+		UI.supermarketPanel = new SupermarketPanel();
+		mainPanel.add(UI.supermarketPanel, "Supermarkets");
 		
+		UI.listPanel = new ListPanel();
 		mainPanel.add(UI.listPanel,"actualList");
 	}
 	
@@ -201,7 +204,10 @@ public class UI extends JFrame{
 		buttonPanel.add(products);
 		
 		EKButton supermarketButton = new EKButton(); // Erstellt Button, um ins Supermarktmanagementmenu zu kommen.
-		supermarketButton.setText("Supermärkte");		
+		supermarketButton.setText("Supermärkte");	
+		supermarketButton.addActionListener(e->{
+			cl.show(mainPanel, "Supermarkets");
+		});
 		buttonPanel.add(supermarketButton);
 		
 		
