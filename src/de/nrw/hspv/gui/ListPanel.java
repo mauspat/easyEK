@@ -50,7 +50,7 @@ public class ListPanel extends JPanel {
 
 		this.setLayout(new BorderLayout());// BorderLayout, um im Zentrum das Flowlayout zu verwenden, und links und
 											// rechts gleichzeitig einen Rand zu haben.
-		this.setVisible(true);
+		
 		this.add(centerPanel);
 
 		// mainPanel mit FlowLayout wird im Centrum des BorderLayouts hinzugefügt
