@@ -1,5 +1,6 @@
 package de.nrw.hspv.backend;
 
+import java.awt.Color;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -9,6 +10,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
+
+import javax.swing.UIManager;
 
 import de.nrw.hspv.gui.UI;
 
@@ -20,78 +23,7 @@ public class Main implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	/** 
-	 * Die contains-Methode erhält ein int-Array sowie einen int-Wert als Übergabeparameter. Sie überprüft dann,
-	 * ob der int-Wert im Array enthalten ist. In diesem Fall liefert die Methode den Wert true zurück,
-	 * ansonsten den Wert false.
-	 */
-	public static boolean contains(final int[] supermarket, final int categoryID) {
-		// Die Lambda-Expression "c -> c == categoryID" nutzt das funktionale Interface
-		// "IntPredicate" und überprüft, ob c dem Wert der übergebenen Variablen "categoryID"
-		// entspricht. Ist dies der Fall, ist der Rückgabewert true, ansonsten false.
-		return Arrays.stream(supermarket).anyMatch(c -> c == categoryID);
-	}
 	
-	// Methode zum Sortieren der Einkaufsliste nach dem jeweiligen Supermarkt
-	/**
-	 * listSort sortiert eine übergebene Liste (ArrayList vom Typ Item) anhand eines ebenfalls übergebenenen
-	 * int-Arrays. Jeder Eintrag aus der Liste wird mit dem aktuellen int-Wert des Arrays abgeglichen;
-	 * stimmen die Werte überein, wird das Item auf die sortierte Einkaufsliste gesetzt.
-	 * Die Werte des int-Arrays entsprechend dabei der Sortier-Reihenfolge des Supermarktes. Items,
-	 * die in einem Supermarkt nicht gefunden werden können, werden unten an die Liste angehängt.
-	 * @param list
-	 * @param supermarket
-	 * @return ArrayList<Item> sortedList
-	 */
-	public static ArrayList<Item> listSort(ArrayList<Item> list, int[] supermarket) {
-		// Die Liste categorized erhält vorab alle Items, deren Kategorien im gewählten Supermarkt gefunden werden.
-		ArrayList<Item> categorized = new ArrayList<Item>();
-		
-		// Auf die bucketList werden die Items gepackt, deren Kategorien im gewählten Supermarkt nicht vorkommen.
-		// Die bucketList ist nur temporär, alle Items auf der bucketList werden zum Schluss an die
-		// sortedList angehängt, damit diese Items ganz unten auf der Liste stehen.
-		ArrayList<Item> bucketList = new ArrayList<Item>();
-		
-		// in sortedList werden die sortierten Einträge gespeichert
-		ArrayList<Item> sortedList = new ArrayList<Item>();
-		
-		// Hier wird vorsortiert - Wenn die Kategorie-ID des Produktes als Kategorie im
-		// Supermarkt vorkommt, wird das Item auf die categorized-Liste gesetzt,
-		// ansonsten auf die bucketList.
-		Iterator<Item> rawItr = list.iterator();
-		while(rawItr.hasNext()) {
-			Item i = rawItr.next();
-			if(contains(supermarket, i.getCategory().getCategoryID())) {
-				categorized.add(i);
-			} else {
-				bucketList.add(i);
-			}
-		}
-		
-		// Die categorized-Liste wird durchlaufen; jeder Eintrag wird mit dem Supermarkt-Array
-		// abgeglichen; wenn die ID des aktuellen Items dem aktuellen Supermarkt-Array-Wert gleicht,
-		// wird das Item auf die Liste sortedList gesetzt.
-		for(int i = 0; i < supermarket.length; i++) {
-			Iterator<Item> sortItr = categorized.iterator();
-			while(sortItr.hasNext()) {
-				Item sorter = sortItr.next();
-				if(sorter.getCategory().getCategoryID() == supermarket[i]) {
-					sortedList.add(sorter);
-				}
-			}
-		}
-		
-		// Alle Items auf der bucketList werden jetzt an die sortedList angehängt
-		Iterator<Item> bucket = bucketList.iterator();
-		while(bucket.hasNext()) {
-			Item temp = bucket.next();
-			sortedList.add(temp);
-		}
-		
-		// Die sortierte Liste wird als Rückgabewert der Funktion zurückgegeben.
-		return sortedList;
-	}
-
 	
 	/*-------------------------------------------*
 	 *--------- BEGINN DER MAIN-METHODE ---------*
@@ -100,101 +32,46 @@ public class Main implements Serializable {
 		// Kategorien und Items werden zu Programmstart geladen
 		// Die Einträge werden direkt in die statischen TreeMaps
 		// itemList und categoryList in den jeweiligen Klassen geschrieben
+		
+		//Ändert Farbe vom Toggle Button
+		UIManager.put("ToggleButton.select", new Color(216,86,0));
 		loadCategories();
-		loadItems();
+//		loadItems();
 		loadShoppingLists();
 		
+		
+//		Item.saveItems();
 		//--------- Zu Testzwecken - Ausgabe der Kategorien und Items ---------
 //		displayCategories();
 		displayItems();
-		
-		
-		System.out.println("Es wird eine neue Shopping Liste mit dem Namen \"TestListe\" angelegt ");
-		ShoppingList myList = new ShoppingList("TestListe");
-		new ShoppingList("TestListe2").saveList();
-		new ShoppingList("Testliste3").saveList();
-		
-		
-		System.out.println("Es werden Äpfel, Wasser, Brot, Mehl und Kekse Käse hinzugefügt ...");
-		myList.addToList(Item.itemList.get("Äpfel"));
-		myList.addToList(Item.itemList.get("Wasser"));
-		myList.addToList(Item.itemList.get("Brot"));
-		myList.addToList(Item.itemList.get("Mehl"));
-		myList.addToList(Item.itemList.get("Kekse"));
-		
-		System.out.println("Die Liste wird ausgegeben ...\n");
-		myList.showList();
-		System.out.println("\nDie Liste wird gespeichert...");
-		myList.saveList();
-		
-		System.out.println(ShoppingList.getAllShoppingLists().size());
-		ShoppingList del = ShoppingList.getAllShoppingLists().get(1);
-		System.out.println(del.getShoppingListName());
 
-		System.out.println(ShoppingList.getAllShoppingLists().size());
-		del = ShoppingList.getAllShoppingLists().get(1);
-	
-		System.out.println(ShoppingList.getAllShoppingLists().size());
-		
-		System.out.println(ShoppingList.getAllShoppingLists().get(0).getShoppingListName());
-		
-		
-		int[] lidlGrid= {1,2,3,4,5,6,7,8};
-		new Supermarket("Lidl",lidlGrid); 
-		ShoppingList LidlAmSonntag = new ShoppingList("Lidl Sonntag");
-		LidlAmSonntag.addToList(Item.itemList.get("Vodka"));
-		LidlAmSonntag.addToList(Item.itemList.get("Rum"));
-		LidlAmSonntag.addToList(Item.itemList.get("Chips"));
-		LidlAmSonntag.addToList(Item.itemList.get("Kekse"));
-		LidlAmSonntag.addToList(Item.itemList.get("Backkakao"));
-		LidlAmSonntag.addToList(Item.itemList.get("Kaffee"));
-		
-		new Supermarket("Lidl",lidlGrid);
-		new Supermarket("Aldi",lidlGrid);
-		new Supermarket("Rewe",lidlGrid);
-		new Supermarket("Combo",lidlGrid);
-		new Supermarket("Schlecker wtf? - Den gibts gar nicht mehr!",lidlGrid);
-		new Supermarket("MediaMark",lidlGrid);
-		new Supermarket("EDEKA -> richbitch Laden",lidlGrid);
-		new Supermarket("MediaMark",lidlGrid);
-		new Supermarket("MediaMark",lidlGrid);
-		new Supermarket("MediaMark",lidlGrid);
-		new Supermarket("MediaMark",lidlGrid);
-		new Supermarket("MediaMark",lidlGrid);
-		new Supermarket("MediaMark",lidlGrid);
-		new Supermarket("MediaMark",lidlGrid);
-		new Supermarket("MediaMark",lidlGrid);
-		
-		
+		loadAllItems();
 		new UI();
-		
-		System.out.println(Supermarket.getSupermarketList().size());
-		System.out.println(Item.itemList.get("Apfel").getCategory());
 	}
 	
 	
 	
 
-//	public static void loadAllItems() {
-//		try {
-//			FileInputStream fileInput = new FileInputStream(new File("resource//safedItems.txt"));
-//			ObjectInputStream objectInput = new ObjectInputStream(fileInput);
-//			
-//			//TODO Zu testzwecken: - noch in die Liste schreiben!
-//			
-//			Item i1 = (Item)objectInput.readObject();
-//			Item i2 = (Item)objectInput.readObject();
-//			Item i3 = (Item)objectInput.readObject();
-//			
-//			System.out.println(i1.getName()+"-"+i1.getCategory());
-//			System.out.println(i2.getName()+"-"+i2.getCategory());
-//			System.out.println(i3.getName()+"-"+i3.getCategory());
-//			
-//		} catch (IOException | ClassNotFoundException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//	}
+	public static void loadAllItems() {
+		
+		
+		try {
+			FileInputStream fileInput = new FileInputStream(new File("resource/productlist/safedItems.txt"));
+			ObjectInputStream objectInput = new ObjectInputStream(fileInput);
+			
+			//TODO Zu testzwecken: - noch in die Liste schreiben!
+			
+			while(true) {
+			Item tempItem = (Item)objectInput.readObject();
+			Item.itemList.put(tempItem.getName(), tempItem);
+			}
+		} catch (IOException | ClassNotFoundException e ) {
+			
+			System.err.println("EOF Exception");
+		} 
+		
+		System.out.println("weiter gehts");
+	}
 
 	
 	
@@ -261,6 +138,7 @@ public class Main implements Serializable {
 					ShoppingList temp = (ShoppingList) in.readObject();
 					ShoppingList.getAllShoppingLists().add(temp);
 					fileIn.close();
+					in.close();
 				} catch (Exception e) {
 					System.out.println("Einkaufsliste konnte nicht geladen werden.");
 					e.printStackTrace();

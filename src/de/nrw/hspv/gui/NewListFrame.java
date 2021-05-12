@@ -179,11 +179,6 @@ public class NewListFrame extends JFrame {
 
 	private void initJList() {
 
-		// -------------Testzweck entfernen--------------
-		Item.itemList.put("Apfel", new Item("Apfel", new Category("Obst", 1)));
-		Item.itemList.put("Banane", new Item("Banane", new Category("Obst", 1)));
-		// ----------------------------------------------
-
 		// JLabel mit Titel
 		JLabel listTitle = new JLabel("Produkte auswählen");
 		listTitle.setForeground(Color.white);

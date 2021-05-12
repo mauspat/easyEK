@@ -335,3 +335,83 @@
   <message>Neue Liste konnte erfolgreich erstellt werden!</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-05-12T00:04:46.664340500Z</date>
+  <millis>1620777886664</millis>
+  <nanos>340500</nanos>
+  <sequence>0</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>FINE</level>
+  <class>de.nrw.hspv.gui.NewListFrame$5</class>
+  <method>actionPerformed</method>
+  <thread>18</thread>
+  <message>Neue Liste konnte erfolgreich erstellt werden!</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-05-12T00:13:26.767128200Z</date>
+  <millis>1620778406767</millis>
+  <nanos>128200</nanos>
+  <sequence>0</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>FINE</level>
+  <class>de.nrw.hspv.gui.NewListFrame$5</class>
+  <method>actionPerformed</method>
+  <thread>18</thread>
+  <message>Neue Liste konnte erfolgreich erstellt werden!</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-05-12T08:35:55.846578100Z</date>
+  <millis>1620808555846</millis>
+  <nanos>578100</nanos>
+  <sequence>0</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>FINE</level>
+  <class>de.nrw.hspv.gui.NewListFrame$5</class>
+  <method>actionPerformed</method>
+  <thread>18</thread>
+  <message>Neue Liste konnte erfolgreich erstellt werden!</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-05-12T11:23:19.178238500Z</date>
+  <millis>1620818599178</millis>
+  <nanos>238500</nanos>
+  <sequence>0</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>FINE</level>
+  <class>de.nrw.hspv.gui.NewListFrame$5</class>
+  <method>actionPerformed</method>
+  <thread>18</thread>
+  <message>Neue Liste konnte erfolgreich erstellt werden!</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-05-12T12:39:09.595941400Z</date>
+  <millis>1620823149595</millis>
+  <nanos>941400</nanos>
+  <sequence>0</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>FINE</level>
+  <class>de.nrw.hspv.gui.NewListFrame$5</class>
+  <method>actionPerformed</method>
+  <thread>18</thread>
+  <message>Neue Liste konnte erfolgreich erstellt werden!</message>
+</record>
+</log>

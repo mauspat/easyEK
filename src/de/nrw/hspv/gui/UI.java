@@ -46,7 +46,8 @@ public class UI extends JFrame{
 	
 	
 	
-	public UI(){			
+	public UI(){	
+		this.setTitle("easyEK");
 		this.setSize(WINDOW_WIDH, WINDOW_HIGHT);
 		this.getContentPane().setBackground(BG_COLOR);
 		this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);

@@ -24,6 +24,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JToggleButton;
 import javax.swing.ListSelectionModel;
+import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ListDataEvent;
@@ -115,9 +116,6 @@ public class SupermarketPanel extends JPanel {
 				}
 				String street = textFields[3].getText();
 
-				for (JTextField t : textFields) {
-					t.setText("");
-				}
 
 				int a = JOptionPane.showConfirmDialog(UI.getMainPanel(), sortCatButtons, "Sortierung des Supermarktes",
 						JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null);
@@ -146,6 +144,11 @@ public class SupermarketPanel extends JPanel {
 
 					JOptionPane.showMessageDialog(UI.getMainPanel(), "Supermarkt wurde erstellt", "Supermarkt erstellt",
 							JOptionPane.INFORMATION_MESSAGE);
+					
+					//Wenn okay gedrückt wird, dann werden die  Inhalte der Textfelder gelöscht
+					for (JTextField t : textFields) {
+						t.setText("");
+					}
 				}
 			}
 
@@ -154,6 +157,7 @@ public class SupermarketPanel extends JPanel {
 	}
 
 	private JPanel initCatSortButtons() {
+		
 		JPanel buttonHolder = new JPanel();
 
 		buttonHolder.setLayout(new GridLayout(0, 1, 5, 5));

@@ -1,5 +1,9 @@
 package de.nrw.hspv.backend;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.TreeMap;
 
@@ -19,20 +23,20 @@ public class Item implements Serializable {
 	public Item(String name, Category category){
 		this.name = name;
 		this.category = category;
-//		itemList.put(name, this);
+		itemList.put(name, this);
 	}
 	
 	
 
 	// Wird diese Funktion gebraucht, wenn wir die Items
 	// zu Programmstart aus der Liste auslesen?
-	/*
+	
 	public static void saveItems() {
 		FileOutputStream dataOutStream=null;
 		ObjectOutputStream objectOutputStream=null;
 		
 		try {
-			dataOutStream = new FileOutputStream(new File("resource//safedItems.txt"));
+			dataOutStream = new FileOutputStream(new File("resource/productlist/safedItems.txt"));
 			objectOutputStream = new ObjectOutputStream(dataOutStream);
 			
 			for(Item i: itemList.values()) {
@@ -48,7 +52,7 @@ public class Item implements Serializable {
 	}
 	
 	 
-	*/ 	
+	
 	
 	@Override
 	 public String toString() {

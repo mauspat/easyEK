@@ -40,4 +40,6 @@ public class MyLogger {
 	public Logger getLogger() {
 		return logger.log;
 	}
+	
+	
 }

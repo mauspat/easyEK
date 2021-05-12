@@ -208,11 +208,14 @@ public class ListPanel extends JPanel {
 
 		// Greift in den UI Manager ein, um die Farbe zu ändern, wenn Button "getoggelt"
 		// ist
+		
+		
+		
 		UIManager.put("ToggleButton.select", new Color(186, 132, 76));
-
 		// Iteriert über die länge der gesamten Liste und fügt für jedes Element einen
 		// eigenen ToggleButton in das Panel ein.
 		for (int i = 0; i < actualEkList.getShoppingList().size(); i++) {
+			
 			EKListItemButton button = new EKListItemButton();
 
 			String tempName = actualEkList.getShoppingList().get(i).getName(); // String, der die Beschriftung enthält.
@@ -246,6 +249,7 @@ public class ListPanel extends JPanel {
 		private String name;
 
 		EKListItemButton() {
+			
 			// Standartmäßige Höhe und Breite des Buttons.
 			int hight = 40, width = UI.getWindowWidh() - 100;
 
