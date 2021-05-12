@@ -200,7 +200,7 @@ public class NewListFrame extends JFrame {
 		list.setBackground(BG_COLOR.brighter().brighter());
 		list.setVisibleRowCount(10);
 		list.setForeground(Color.white);
-		list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		list.setFixedCellHeight(40);
 
 		list.addListSelectionListener(new ListSelectionListener() {
@@ -211,8 +211,6 @@ public class NewListFrame extends JFrame {
 				if (e.getValueIsAdjusting()) {
 
 					String choosenOne = list.getSelectedValue();
-					System.out.println(choosenOne);
-
 					choosenListModel.addElement(choosenOne);
 
 				}
