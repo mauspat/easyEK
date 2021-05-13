@@ -1,12 +1,21 @@
 package de.nrw.hspv.backend;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Supermarket {
+public class Supermarket implements Serializable {
 
-	private static ArrayList<Supermarket> supermarketList = new ArrayList<Supermarket>();
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public static ArrayList<Supermarket> supermarketList = new ArrayList<Supermarket>();
 
 	private static int counter = 0;
 	private int id;
@@ -88,9 +97,30 @@ public class Supermarket {
 				}
 			}
 		}
-		
-		
-		
+	}
+	
+
+	/**
+	 * Die Methode saveSupermarket() speichert die erfassten Supermärkte in der Datei
+	 * supermarkets/supermarkets.txt. Dazu werden das Serializable-Interface und die Methode
+	 * writeObject genutzt.
+	 */
+	public static void saveSupermarket() {
+		try {
+			// Verzeichnis wird nach Datei durch
+//			File dir = new File("resource/shoppinglists");
+//			File[] directoryListing = dir.listFiles();
+			
+			FileOutputStream fileOut = new FileOutputStream("resource/supermarkets/supermarkets.txt");
+			ObjectOutputStream out = new ObjectOutputStream(fileOut);
+			// Die aktuelle Liste wird in eine .txt-Datei geschrieben
+			out.writeObject(supermarketList);
+			out.close();
+			System.out.println("Der Supermarkt wurde gespeichert.");
+		} catch (IOException e) {
+			System.out.println("Fehler beim Speichern des Supermarktes.");
+			e.printStackTrace();
+		}
 	}
 
 	@Override

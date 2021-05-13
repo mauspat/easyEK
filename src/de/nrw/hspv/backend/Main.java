@@ -23,8 +23,6 @@ public class Main implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	
-	
 	/*-------------------------------------------*
 	 *--------- BEGINN DER MAIN-METHODE ---------*
      *-------------------------------------------*/
@@ -38,6 +36,7 @@ public class Main implements Serializable {
 		loadCategories();
 //		loadItems();
 		loadShoppingLists();
+		loadSupermarkets();
 		
 		
 //		Item.saveItems();
@@ -50,13 +49,42 @@ public class Main implements Serializable {
 	}
 	
 	
-	
+	/**
+	 * Die loadSupermarkets()-Methode lädt zum Programmstart alle gespeicherten Supermärkte aus
+	 * der Datei supermarkets/supermarkets.txt ein, damit diese in der Sortier-Liste zu Programmstart
+	 * verfügbar sind.
+	 */
+	@SuppressWarnings("unchecked")
+	private static void loadSupermarkets() {
+		try {
+			FileInputStream fileInput = new FileInputStream(new File("resource/supermarkets/supermarkets.txt"));
+			ObjectInputStream objectInput = new ObjectInputStream(fileInput);
+			
+			try {
+				Supermarket.supermarketList = (ArrayList<Supermarket>)objectInput.readObject();
+			} catch (EOFException e) {
+					System.out.println("End of file.");
+			} catch (ClassCastException e) {
+				System.out.println("Fehler beim casten der Klasse.");
+				e.printStackTrace();
+			}
+		} catch (IOException | ClassNotFoundException e) {
+			System.out.println("Fehler beim Laden der Supermärkte.");
+			e.printStackTrace();
+		}
+	}
 
+
+
+	/**
+	 * Die loadAllItems()-Methode lädt alle Produkte aus der savedItems.txt-Datei ein und speichert sie
+	 * in der statischen Klassenvariablen itemList.  
+	 */
 	public static void loadAllItems() {
 		
 		
 		try {
-			FileInputStream fileInput = new FileInputStream(new File("resource/productlist/safedItems.txt"));
+			FileInputStream fileInput = new FileInputStream(new File("resource/productlist/savedItems.txt"));
 			ObjectInputStream objectInput = new ObjectInputStream(fileInput);
 			
 			//TODO Zu testzwecken: - noch in die Liste schreiben!

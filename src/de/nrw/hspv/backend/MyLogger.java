@@ -19,7 +19,7 @@ public class MyLogger {
 	private MyLogger() { // private, damit kein neues Objekt in anderen Klassen erzeugt werden kann
 
 		try {
-			log.addHandler(new FileHandler("resource/LoggerFile.txt", true)); // File Handler schreibt Logs/Einträge in
+			log.addHandler(new FileHandler("resource/log/LoggerFile.txt", true)); // File Handler schreibt Logs/Einträge in
 																				// eine oder mehrer Dateien, hier eine
 		} catch (SecurityException e) { // addHandler und File Handler werfen SecurityException
 

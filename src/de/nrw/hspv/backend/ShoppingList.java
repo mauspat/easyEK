@@ -38,19 +38,15 @@ public class ShoppingList implements Serializable {
 	}
 	
 	
-	
-	
-	
-	
-	//__-------------------------------------------------
+	//---------------------------------------------------
 	/** 
 	 * Die contains-Methode erhält ein int-Array sowie einen int-Wert als Übergabeparameter. Sie überprüft dann,
 	 * ob der int-Wert im Array enthalten ist. In diesem Fall liefert die Methode den Wert true zurück,
 	 * ansonsten den Wert false.
 	 */
 	private  boolean containsCategory(final int[] supermarket, final int categoryID) {
-		// Die Lambda-Expression "c -> c == categoryID" nutzt das funktionale Interface
-		// "IntPredicate" und überprüft, ob c dem Wert der übergebenen Variablen "categoryID"
+		// Die Lambda-Expression "c -> c == categoryID" nutzt die anyMatch-Methode der
+		// InStream-Klasse und überprüft, ob c dem Wert der übergebenen Variablen "categoryID"
 		// entspricht. Ist dies der Fall, ist der Rückgabewert true, ansonsten false.
 		return Arrays.stream(supermarket).anyMatch(c -> c == categoryID);
 	}
@@ -119,21 +115,8 @@ public class ShoppingList implements Serializable {
 		return sortedList;
 	}
 	
-	//__-------------------------------------------------
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	//---------------------------------------------------
+
 	
 	/**
 	 * Die Methode addToList fügt der ArrayList shoppingList ein Item hinzu.

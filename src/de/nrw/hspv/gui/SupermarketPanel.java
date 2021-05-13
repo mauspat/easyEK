@@ -136,6 +136,7 @@ public class SupermarketPanel extends JPanel {
 					}
 
 					new Supermarket(name, city, street, plz, gridArray);
+					Supermarket.saveSupermarket();
 					System.out.println(Supermarket.getSupermarketList());
 
 					DefaultListModel<Supermarket> lm = new DefaultListModel<Supermarket>();
