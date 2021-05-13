@@ -1,27 +1,27 @@
-0/Verschiedenes
-1/Obst
-2/Gemüse
+1/Aktionsangebote
+2/Back- und Kochzutaten
 3/Backwaren
-4/Müsli, Cornflakes und Cerealien
-5/Fleisch und Wurst
-6/Käse
-7/Milchprodukte
-8/andere Kühlware
-9/Tiefkühlware
-10/Konserven
-11/Saucen
-12/Reis und Nudeln
-13/Back- und Kochzutaten
-14/Essig & Öle
-15/Süßigkeiten
-16/Snacks
-17/Alkoholische Getränke
-18/Spirituosen
-19/Getränke
-20/Drogerie
-21/Kaffee, Tee und Kakao
-22/Haushalt
-23/Aktionsangebote
-24/Tiernahrung
-25/Zeitrschriften
-26/Quengelware
+4/Drogerie
+5/Essig & Öle
+6/Fleisch und Wurst
+7/Gemüse
+8/Getränke
+9/Getränke (Alkoholisch)
+10/Haushalt
+11/Kaffee, Tee und Kakao
+12/Käse
+13/Konserven
+14/Kühlware
+15/Milch und Milchprodukte
+16/Müsli, Cornflakes und Cerealien
+17/Obst
+18/Quengelware
+19/Reis und Nudeln
+20/Saucen
+21/Snacks
+22/Spirituosen
+23/Süßigkeiten
+24/Tiefkühlware & Fertiggerichte
+25/Tiernahrung
+26/Zeitschriften
+27/Verschiedenes

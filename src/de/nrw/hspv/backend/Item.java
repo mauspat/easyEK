@@ -36,7 +36,7 @@ public class Item implements Serializable {
 		ObjectOutputStream objectOutputStream=null;
 		
 		try {
-			dataOutStream = new FileOutputStream(new File("resource/productlist/safedItems.txt"));
+			dataOutStream = new FileOutputStream(new File("resource/productlist/savedItems.txt"));
 			objectOutputStream = new ObjectOutputStream(dataOutStream);
 			
 			for(Item i: itemList.values()) {

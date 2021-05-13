@@ -42,7 +42,7 @@ public class Main implements Serializable {
 //		Item.saveItems();
 		//--------- Zu Testzwecken - Ausgabe der Kategorien und Items ---------
 //		displayCategories();
-		displayItems();
+//		displayItems();
 
 		loadAllItems();
 		new UI();

@@ -1,112 +1,158 @@
-1/Obst/Äpfel
-1/Obst/Birnen
-1/Obst/Orangen
-1/Obst/Melonen
-1/Obst/Mangos
-1/Obst/Bananen
-1/Obst/Kiwis
-1/Obst/Erdbeeren
-1/Obst/Heidelbeeren
-1/Obst/Kirschen
-1/Obst/Zitronen
-1/Obst/Papayas
-2/Backwaren/Brot
-2/Backwaren/Brötchen
-2/Backwaren/Aufbackbrötchen
-2/Backwaren/Baguette
-2/Backwaren/Bagels
-2/Backwaren/Croissants
-2/Backwaren/Muffins
-2/Backwaren/Kuchen
-2/Backwaren/Körnerbrötchen
-2/Backwaren/Toast
-3/Drogerie/Deo
-3/Drogerie/Shampoo
-3/Drogerie/Duschgel
-3/Drogerie/Seife
-3/Drogerie/Handcreme
-3/Drogerie/Hairspray
-3/Drogerie/Zahnpasta
-3/Drogerie/Zahnbürste
-3/Drogerie/Toilettenpapier
-3/Drogerie/Tempos
-3/Drogerie/Zewa
-4/Snacks/Chips
-4/Snacks/Salzstangen
-4/Snacks/Erdnussflips
-4/Snacks/Zwiebelringe
-4/Snacks/Nic-Nacs
-5/Getränke/Wasser
-5/Getränke/Cola
-5/Getränke/Apfelschorle
-5/Getränke/Malzbier
-5/Getränke/Orangensaft
-5/Getränke/Saft
-6/Alkoholische Getränke/Bier
-7/Sprituosen/Cognac
-7/Sprituosen/Whisky
-7/Sprituosen/Vodka
-7/Sprituosen/Rum
-8/Süßigkeiten/Schokolade
-8/Süßigkeiten/Kekse
-8/Süßigkeiten/Schokobons
-8/Süßigkeiten/Twix
-8/Süßigkeiten/Snickers
-8/Süßigkeiten/Milky Way
-8/Süßigkeiten/Duplo
-8/Süßigkeiten/Kinderriegel
-8/Süßigkeiten/Mars
-9/Gemüse/Möhren
-9/Gemüse/Rotkohl
-9/Gemüse/Blumenkohl
-9/Gemüse/Brokkoli
-9/Gemüse/Porree
-9/Gemüse/Lauchzwiebeln
-9/Gemüse/Kartoffeln
-9/Gemüse/Zwiebeln
-9/Gemüse/Knoblauch
-9/Gemüse/Kohlrabi
-10/Milchprodukte/Milch
-10/Milchprodukte/Joghurt
-10/Milchprodukte/Creme Fraiche
-11/Käse/Parmesan
-11/Käse/Gouda
-11/Käse/Emmentaler
-11/Käse/Scheibenkäse
-11/Käse/Hartkäse
-11/Käse/Geriebener Käse
-12/Back- und Kochzutaten/Mehl
-12/Back- und Kochzutaten/Salz
-12/Back- und Kochzutaten/Zucker
-12/Back- und Kochzutaten/Backkakao
-12/Back- und Kochzutaten/Vanillezucker
-12/Back- und Kochzutaten/Vanillearoma
-12/Back- und Kochzutaten/Brauner Zucker
-12/Back- und Kochzutaten/Eier
-13/Kaffe, Tee und Kakao/Kaffee
-13/Kaffe, Tee und Kakao/Kaffeekapseln
-13/Kaffe, Tee und Kakao/Kakao
-13/Kaffe, Tee und Kakao/Tee
-13/Kaffe, Tee und Kakao/Fencheltee
-13/Kaffe, Tee und Kakao/Kamillentee
-13/Kaffe, Tee und Kakao/Früchtetee
-14/Essig & Öle/Olivenöl
-14/Essig & Öle/Rapsöl
-14/Essig & Öle/Sonnenblumenöl
-14/Essig & Öle/Speiseöl
-14/Essig & Öle/Essig
-14/Essig & Öle/Apfelessig
-14/Essig & Öle/Balsamico-Essig
-14/Essig & Öle/Essig-Essenz
-14/Essig & Öle/Branntwein-Essig
-15/Fleisch und Wurst/Salami
-15/Fleisch und Wurst/Mortadella
-15/Fleisch und Wurst/Fleischwurst
-15/Fleisch und Wurst/Wurst
-15/Fleisch und Wurst/Schinken
-16/Reis und Nudeln/Nudeln
-16/Reis und Nudeln/Lasagnenudeln
-16/Reis und Nudeln/Reis
-16/Reis und Nudeln/Basmati-Reis
-16/Reis und Nudeln/Langkornreis
-17/Haushalt/Backpapier
+1/Aktionsangebote/Einsteiger Malset (Ölfarben)
+2/Back- und Kochzutaten/Mehl
+2/Back- und Kochzutaten/Salz
+2/Back- und Kochzutaten/Zucker
+2/Back- und Kochzutaten/Backkakao
+2/Back- und Kochzutaten/Vanillezucker
+2/Back- und Kochzutaten/Vanillearoma
+2/Back- und Kochzutaten/Brauner Zucker
+2/Back- und Kochzutaten/Eier
+3/Backwaren/Brot
+3/Backwaren/Brötchen
+3/Backwaren/Aufbackbrötchen
+3/Backwaren/Baguette
+3/Backwaren/Bagels
+3/Backwaren/Croissants
+3/Backwaren/Muffins
+3/Backwaren/Kuchen
+3/Backwaren/Körnerbrötchen
+3/Backwaren/Toast
+4/Drogerie/Deo
+4/Drogerie/Shampoo
+4/Drogerie/Duschgel
+4/Drogerie/Seife
+4/Drogerie/Handcreme
+4/Drogerie/Hairspray
+4/Drogerie/Zahnpasta
+4/Drogerie/Zahnbürste
+4/Drogerie/Toilettenpapier
+4/Drogerie/Tempos
+4/Drogerie/Zewa
+5/Essig & Öle/Olivenöl
+5/Essig & Öle/Rapsöl
+5/Essig & Öle/Sonnenblumenöl
+5/Essig & Öle/Speiseöl
+5/Essig & Öle/Essig
+5/Essig & Öle/Apfelessig
+5/Essig & Öle/Balsamico-Essig
+5/Essig & Öle/Essig-Essenz
+5/Essig & Öle/Branntwein-Essig
+6/Fleisch und Wurst/Salami
+6/Fleisch und Wurst/Mortadella
+6/Fleisch und Wurst/Fleischwurst
+6/Fleisch und Wurst/Wurst
+6/Fleisch und Wurst/Schinken
+7/Gemüse/Möhren
+7/Gemüse/Rotkohl
+7/Gemüse/Blumenkohl
+7/Gemüse/Brokkoli
+7/Gemüse/Porree
+7/Gemüse/Lauchzwiebeln
+7/Gemüse/Kartoffeln
+7/Gemüse/Zwiebeln
+7/Gemüse/Knoblauch
+7/Gemüse/Kohlrabi
+8/Getränke/Wasser
+8/Getränke/Cola
+8/Getränke/Apfelschorle
+8/Getränke/Malzbier
+8/Getränke/Orangensaft
+8/Getränke/Saft
+9/Getränke (alkoholisch)/Bier
+9/Getränke (alkoholisch)/Weißbier
+9/Getränke (alkoholisch)/Mischbier
+10/Haushalt/Backpapier
+10/Haushalt/Frischhaltefolie
+10/Haushalt/Alufolie
+10/Haushalt/Gefrierbeutel
+10/Haushalt/Müllbeutel
+11/Kaffe, Tee und Kakao/Kaffee
+11/Kaffe, Tee und Kakao/Kaffeekapseln
+11/Kaffe, Tee und Kakao/Kakao
+11/Kaffe, Tee und Kakao/Tee
+11/Kaffe, Tee und Kakao/Fencheltee
+11/Kaffe, Tee und Kakao/Kamillentee
+11/Kaffe, Tee und Kakao/Früchtetee
+12/Käse/Parmesan
+12/Käse/Gouda
+12/Käse/Emmentaler
+12/Käse/Scheibenkäse
+12/Käse/Hartkäse
+12/Käse/Geriebener Käse
+13/Konserven/Sauerkirschen
+13/Konserven/Apfelmus
+13/Konserven/Pfirsiche
+13/Konserven/Erbsen
+13/Konserven/Mais
+13/Konserven/Oliven
+13/Konserven/Champignons
+13/Konserven/Tomaten
+13/Konserven/Prinzessbohnen
+13/Konserven/Kidneybohnen
+13/Konserven/Erbsen & Möhren
+13/Konserven/Kichererbsen
+14/Kühlware/Erdbeeren (tiefgefroren)
+15/Milch und Milchprodukte/Milch
+15/Milch und Milchprodukte/Joghurt
+15/Milch und Milchprodukte/Crème fraîche
+15/Milch und Milchprodukte/Quark
+15/Milch und Milchprodukte/Sahne
+16/Müsli, Cornflakes und Cerealien/Cornflakes
+16/Müsli, Cornflakes und Cerealien/Schokomüsli
+16/Müsli, Cornflakes und Cerealien/Müsli
+16/Müsli, Cornflakes und Cerealien/Fruit Loops
+17/Obst/Apfel
+17/Obst/Birnen
+17/Obst/Orangen
+17/Obst/Melonen
+17/Obst/Mangos
+17/Obst/Bananen
+17/Obst/Kiwis
+17/Obst/Erdbeeren
+17/Obst/Heidelbeeren
+17/Obst/Kirschen
+17/Obst/Zitronen
+17/Obst/Papayas
+18/Quengelware/Überraschungsei
+18/Quengelware/Vodka (0,2 l)
+18/Quengelware/Schnapps (0,2 l)
+19/Reis und Nudeln/Nudeln
+19/Reis und Nudeln/Lasagnenudeln
+19/Reis und Nudeln/Reis
+19/Reis und Nudeln/Basmati-Reis
+19/Reis und Nudeln/Langkornreis
+20/Saucen/Braune Sauce
+20/Saucen/Helle Sauce
+20/Sauce/Hollandaise
+21/Snacks/Chips
+21/Snacks/Salzstangen
+21/Snacks/Erdnussflips
+21/Snacks/Zwiebelringe
+21/Snacks/Nic-Nacs
+22/Sprituosen/Cognac
+22/Sprituosen/Whisky
+22/Sprituosen/Vodka
+22/Sprituosen/Rum
+23/Süßigkeiten/Schokolade
+23/Süßigkeiten/Kekse
+23/Süßigkeiten/Schokobons
+23/Süßigkeiten/Twix
+23/Süßigkeiten/Snickers
+23/Süßigkeiten/Milky Way
+23/Süßigkeiten/Duplo
+23/Süßigkeiten/Kinderriegel
+23/Süßigkeiten/Mars
+24/Tiefkühlware & Fertiggerichte/Tiefkühlpizza
+24/Tiefkühlware & Fertiggerichte/Steinofenpizza
+24/Tiefkühlware & Fertiggerichte/Lasagne (TK)
+25/Tiernahrung/Hundefutter
+25/Tiernahrung/Katzenfutter
+25/Tiernahrung/Vogelfutter
+25/Tiernahrung/Tierfutter
+26/Zeitschriften/Bild der Frau
+26/Zeitschriften/Bunte
+26/Zeitschriften/Gala
+26/Zeitschriften/PC Games
+27/Verschiedenes/Fruchtfliegenfalle
+27/Verschiedenes/Eiskratzer
+27/Verschiedenes/Destilliertes Wasser
