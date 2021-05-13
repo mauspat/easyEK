@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 
 /**
  * 
- * @author Carla Freitag
+ * @author 
  *
  */
 public class MyLogger {
@@ -32,6 +32,8 @@ public class MyLogger {
 									// berücksichtigt
 	}
 
+	
+	
 	// --------GETTERS---------
 	public static MyLogger getInstance() {
 		return logger;
@@ -42,4 +44,8 @@ public class MyLogger {
 	}
 	
 	
+	//---------- Level anpassen ---------
+	public void setLevel() {
+		log.setLevel(null);
+	}
 }

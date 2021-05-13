@@ -44,7 +44,7 @@ public class UI extends JFrame{
 	private static JPanel listPanel;
 	private static JPanel supermarketPanel;
 	
-	
+	private NewListFrame newList = new NewListFrame();
 	
 	public UI(){	
 		this.setTitle("easyEK");
@@ -65,9 +65,10 @@ public class UI extends JFrame{
 		addButtonLine();
 		addToolbar();
 		addMainPanel();
-		addRightClick();
+//		addRightClick();
 		this.add(mainPanel, BorderLayout.CENTER);
 		this.setVisible(true);
+		
 	}
 	
 	
@@ -108,7 +109,11 @@ public class UI extends JFrame{
 		
 	}
 	
-	
+
+
+
+
+
 	/**
 	 * Weist dem Zentrum des Frames das "MainPanel" hinzu.  Dies ist durch ein CardLayout in der Lage, mehrere Panels übereinander zu lagern, wobei nur eins sichtbar ist.
 	 * Die auswahl der einzelenen Panels erfolgt über die Buttons. Siehe: {@code addButtonLine()}
@@ -163,8 +168,8 @@ public class UI extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				NewListFrame liste1 = new NewListFrame();
-				
+//				NewListFrame liste1 = new NewListFrame();
+				newList.setVisible(true);
 			}
 			
 		});
@@ -214,6 +219,11 @@ public class UI extends JFrame{
 		
 		this.add(buttonPanel, BorderLayout.SOUTH);
 	}
+	
+	
+	
+	
+	
 	public static CardLayout getCl() {
 		return cl;
 	}
