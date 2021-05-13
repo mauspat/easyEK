@@ -28,6 +28,7 @@ public class ShoppingList implements Serializable {
 		this.supermarket=supermarket;
 		savedLists.add(this);
 		counter += 1;
+		saveList();
 	}
 	
 	public ShoppingList(String name) {
@@ -35,6 +36,7 @@ public class ShoppingList implements Serializable {
 		this.id = counter;
 		savedLists.add(this);
 		counter += 1;
+		saveList();
 	}
 	
 	
