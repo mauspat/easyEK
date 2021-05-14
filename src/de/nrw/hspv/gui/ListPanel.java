@@ -80,23 +80,13 @@ public class ListPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				int checkProgress = JOptionPane.showConfirmDialog(centerPanel, "Soll diese Liste wirklich gelöscht werden?", "Liste löschen", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 				if(checkProgress==0) {
-					//Iterieren über die Liste, bis diese gefunden ist und dann wird diese gelöscht
-					Iterator<ShoppingList> it = ShoppingList.getAllShoppingLists().iterator();
-					while(it.hasNext()) {
-						if(it.next().equals(actualEkList)) {
-							it.remove();
-							break;
-						}
-					}
-					
+					ShoppingList.deleteList(actualEkList);
 					UI.getMainPanel().add(new ListOverviewPanel(), "ListOverview");
 					UI.getCl().show(UI.getMainPanel(), "ListOverview");
 					UI.changeToolbarButton();
 					System.out.println(UI.getMainPanel().getComponentCount());
 				}
-				
 			}
-			
 		});
 		
 		button.setIcon(garbage);

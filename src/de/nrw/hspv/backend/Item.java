@@ -14,8 +14,7 @@ public class Item implements Serializable {
 	
 	private static final long serialVersionUID = 6423603262569584025L;
 	
-	//TODO auf priovate setzten und Getter setter hinzufügen
-	public static TreeMap<String, Item> itemList = new TreeMap<String, Item>();
+	private static TreeMap<String, Item> itemList = new TreeMap<String, Item>();
 	
 	private String name;
 	private Category category;
@@ -66,6 +65,10 @@ public class Item implements Serializable {
 	
 	public Category getCategory() {
 		return category;
+	}
+	
+	public static TreeMap<String, Item> getItemList() {
+		return itemList;
 	}
 	
 	

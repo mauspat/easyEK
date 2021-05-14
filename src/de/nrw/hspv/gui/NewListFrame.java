@@ -61,6 +61,7 @@ public class NewListFrame extends JFrame {
 
 		this.setSize(WINDOW_WIDH, WINDOW_HIGHT);
 		this.getContentPane().setBackground(BG_COLOR);
+		this.setLocationRelativeTo(UI.getMainPanel());
 
 		class MyWindowAdapter extends WindowAdapter { // nur die Methode implementieren, die wir brauchen, weil die
 														// Klasse WindowAdapter das Interface implementiert
@@ -123,7 +124,7 @@ public class NewListFrame extends JFrame {
 	private void searchFilter(String searchText) {
 		DefaultListModel<String> searchModel = new DefaultListModel<String>();
 
-		for (String e : Item.itemList.keySet()) {
+		for (String e : Item.getItemList().keySet()) {
 			if (e.toLowerCase().contains(searchText.toLowerCase())) {
 				searchModel.addElement(e);
 			}
@@ -186,7 +187,7 @@ public class NewListFrame extends JFrame {
 		listTitle.setHorizontalTextPosition(JLabel.LEFT);
 		centerPanel.add(listTitle);
 
-		itemListModel.addAll(Item.itemList.keySet());
+		itemListModel.addAll(Item.getItemList().keySet());
 
 		// JList list mit allen Produkten, die es gibt
 
@@ -322,10 +323,11 @@ public class NewListFrame extends JFrame {
 					if (clickedButton == 0) {
 						ShoppingList sl = new ShoppingList(listName);
 						for (int i = 0; i < choosenListModel.size(); i++) {
-							sl.addToList(Item.itemList.get(choosenListModel.elementAt(i)));
+							sl.addToList(Item.getItemList().get(choosenListModel.elementAt(i)));
 						}
 						// Die Liste wird sortiert.
 						sl.sortList((Supermarket) supermarkets.getSelectedItem());
+						sl.saveList();
 						
 						JOptionPane.showMessageDialog(getContentPane(), "Neue Einkaufsliste wurde erstellt!", "Liste erstellt", JOptionPane.INFORMATION_MESSAGE);
 						

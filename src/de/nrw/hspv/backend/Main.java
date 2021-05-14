@@ -91,7 +91,7 @@ public class Main implements Serializable {
 			
 			while(true) {
 			Item tempItem = (Item)objectInput.readObject();
-			Item.itemList.put(tempItem.getName(), tempItem);
+			Item.getItemList().put(tempItem.getName(), tempItem);
 			}
 		} catch (IOException | ClassNotFoundException e ) {
 			
@@ -119,7 +119,7 @@ public class Main implements Serializable {
 				String itemName = segments[2];
 				int itemCategoryID = Integer.parseInt(segments[0]);
 				Category itemCategory = Category.categoryList.get(itemCategoryID);
-				Item.itemList.put(itemName, new Item(itemName, itemCategory));
+				Item.getItemList().put(itemName, new Item(itemName, itemCategory));
 			}
 		} catch (IOException e) {
 			System.out.println("Fehler beim Einlesen der Produktliste.");
@@ -192,7 +192,7 @@ public class Main implements Serializable {
 	 * und zeigt alle dort hinterlegten Items in der Console an.
 	 */
 	public static void displayItems() {
-		for(Map.Entry<String, Item> entry: Item.itemList.entrySet()) {
+		for(Map.Entry<String, Item> entry: Item.getItemList().entrySet()) {
 			String key = entry.getKey();
 			Item currentItem = entry.getValue();
 			System.out.println("Key lautet: " + key);
