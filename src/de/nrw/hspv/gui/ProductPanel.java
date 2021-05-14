@@ -73,9 +73,9 @@ public class ProductPanel extends JPanel {
 	}
 
 	private void addProductOverview() {
-//		mainPanel.setLayout(new BorderLayout());
-		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
-
+		mainPanel.setLayout(new BorderLayout());
+//		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+		
 		// JLabel
 		label.setText("Übersicht aller Produkte");
 		label.setFont(new Font("SansSerif", Font.BOLD, 14));
@@ -87,29 +87,49 @@ public class ProductPanel extends JPanel {
 		upPanel.add(label);
 
 		// JList
+		JPanel jListPanel = new JPanel();
+		jListPanel.setBackground(UI.getBgColor());
 		JList<String> allProducts = new JList<String>();
 		allProducts.setVisibleRowCount(9);
 		allProducts.setFixedCellHeight(25);
+		allProducts.setFixedCellWidth(300);
 		allProducts.setBackground(UI.getBgColor().brighter().brighter());
 		allProducts.setForeground(Color.WHITE);
-		allProducts.setModel(NewListFrame.getItemList());
-		mainPanel.add(new JScrollPane(allProducts));
+		allProducts.setModel(NewListFrame.getItemListModel());
+		jListPanel.add(new JScrollPane(allProducts));
+		mainPanel.add(jListPanel, BorderLayout.NORTH);
 
 		// Platzhalter
 		mainPanel.add(Box.createRigidArea(new Dimension(50, 150)));
 	}
 
+	
+	/**
+	 * fügt alle notwendigen Container für das Erstellen eines neuen Items hinzu
+	 */
 	public void addNewProduct() {
+		
+		
+		JPanel itemInputPanel = new JPanel();
+		itemInputPanel.setBackground(UI.getBgColor());
+		itemInputPanel.setLayout(new BoxLayout(itemInputPanel, BoxLayout.Y_AXIS));
+
+		
+		itemInputPanel.add(Box.createRigidArea(new Dimension(100, 80)));
+
 		// JLabel
+		JPanel newProductPanel = new JPanel();
+		newProductPanel.setBackground(UI.getBgColor());
 		JLabel newProduct = new JLabel("Neues Produkt hinzufügen");
-		newProduct.setFont(new Font("SansSerif", Font.BOLD, 14));
+		newProduct.setFont(new Font("SansSerif", Font.BOLD, 16));
 		newProduct.setHorizontalTextPosition(JLabel.CENTER);
 		newProduct.setForeground(Color.white);
-		newProduct.setAlignmentX(Component.LEFT_ALIGNMENT);
-		mainPanel.add(newProduct);
+		newProduct.setAlignmentX(Component.CENTER_ALIGNMENT);
+		itemInputPanel.add(newProduct);
+		
+		itemInputPanel.add(Box.createRigidArea(new Dimension(100, 20)));
 
-		mainPanel.add(Box.createRigidArea(new Dimension(100, 40)));
-
+		
 		// JComboBox = Kategorieauswahl
 		JComboBox<String> chooseCategory = new JComboBox<String>();
 		for (Entry<Integer, Category> entry : Category.categoryList.entrySet()) {
@@ -121,34 +141,39 @@ public class ProductPanel extends JPanel {
 		chooseCategory.setRenderer(new ComboBoxRenderer("Kategorie auswählen"));
 		chooseCategory.getRenderer().toString();
 		System.out.println(chooseCategory.getRenderer().toString());
-		mainPanel.add(chooseCategory);
+		itemInputPanel.add(chooseCategory);
 
 		// Platzhalter
-		mainPanel.add(Box.createRigidArea(new Dimension(100, 30)));
+		itemInputPanel.add(Box.createRigidArea(new Dimension(100, 30)));
 
 		// JLabel
 		JLabel productNameLabel = new JLabel("Bezeichnung:");
 		productNameLabel.setFont(new Font("SansSerif", Font.BOLD, 12));
 		productNameLabel.setForeground(Color.white);
-		productNameLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
-		mainPanel.add(productNameLabel);
+		productNameLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+		itemInputPanel.add(productNameLabel);
 
 		// TextField für Eingabe des Namen des Produkts
 		JTextField productName = new JTextField();
 		productName.setSize(new Dimension(mainPanel.getWidth(), 35));
-		productName.setAlignmentX(Component.LEFT_ALIGNMENT);
+//		productName.setAlignmentX(Component.LEFT_ALIGNMENT);
 		;
-		mainPanel.add(productName);
+		itemInputPanel.add(productName);
 
 		// Platzhalter
-		mainPanel.add(Box.createRigidArea(new Dimension(100, 80)));
+		itemInputPanel.add(Box.createRigidArea(new Dimension(100, 80)));
 
+		mainPanel.add(itemInputPanel, BorderLayout.CENTER);
+		
 		// Button zum Hinzufügen
-		EKButton addProduct = new EKButton("Produkt hinzufügen");
+		JPanel buttonPanel = new JPanel();
+		EKButton addProduct = new EKButton();
+		buttonPanel.setBackground(UI.getBgColor().darker().darker());
 		addProduct.setBackground(UI.getBgColor().darker().darker());
 		addProduct.setForeground(Color.white);
-		addProduct.setPreferredSize(new Dimension(374, 35));
-		addProduct.setHorizontalTextPosition(JLabel.CENTER);
+		addProduct.setSize(new Dimension(buttonPanel.getWidth(), buttonPanel.getHeight()));
+		addProduct.setText("Produkt hinzufügen");
+//		addProduct.setHorizontalTextPosition(JLabel.CENTER);
 		addProduct.addActionListener(new ActionListener() {
 
 			@Override
@@ -196,7 +221,9 @@ public class ProductPanel extends JPanel {
 			}
 		});
 
-		mainPanel.add(addProduct);
+		
+		buttonPanel.add(addProduct);
+		mainPanel.add(buttonPanel, BorderLayout.SOUTH);
 
 	}
 	

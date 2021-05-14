@@ -17,8 +17,6 @@ public class Supermarket implements Serializable {
 
 	public static ArrayList<Supermarket> supermarketList = new ArrayList<Supermarket>();
 
-	private static int counter = 0;
-	private int id;
 	private int postalCode;
 	private String name;
 	private String street;
@@ -34,14 +32,12 @@ public class Supermarket implements Serializable {
 	public Supermarket(String name, int[] grid) {
 		this.name = name;
 		this.grid = grid;
-		this.id = counter + 1;
-		counter += 1;
 
 		// --------- Standardwerte ---------
 		street = "N/A"; // N/A = Not Available
 		city = "N/A";
 
-		postalCode = 9999;
+		postalCode = 99999;
 		// ---------------------------------
 
 		supermarketList.add(this);
@@ -51,8 +47,6 @@ public class Supermarket implements Serializable {
 		this.name = name;
 		this.city = city;
 		this.grid = grid;
-		this.id = counter + 1;
-		counter += 1;
 
 		// --------- Standardwerte ---------
 		street = "N/A";
@@ -70,8 +64,6 @@ public class Supermarket implements Serializable {
 
 		this.postalCode = postalCode;
 		this.grid = grid;
-		this.id = counter + 1;
-		counter += 1;
 
 		supermarketList.add(this);
 	}
@@ -92,11 +84,12 @@ public class Supermarket implements Serializable {
 			while(allMarkets.hasNext()) {
 				if(deleteThisMarket.equals(allMarkets.next())) {
 					allMarkets.remove();
-
 					
 				}
 			}
 		}
+		
+		saveSupermarket();
 	}
 	
 

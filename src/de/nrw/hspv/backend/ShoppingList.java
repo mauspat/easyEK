@@ -28,7 +28,7 @@ public class ShoppingList implements Serializable {
 		this.supermarket=supermarket;
 		savedLists.add(this);
 		counter += 1;
-		saveList();
+//		saveList();
 	}
 	
 	public ShoppingList(String name) {
@@ -36,7 +36,7 @@ public class ShoppingList implements Serializable {
 		this.id = counter;
 		savedLists.add(this);
 		counter += 1;
-		saveList();
+//		saveList();
 	}
 	
 	
@@ -143,10 +143,6 @@ public class ShoppingList implements Serializable {
 			// also z. B. Wochenendeinkauf_02.txt
 
 			String filename = name + ".txt";
-
-			// Verzeichnis wird nach Datei durch
-//			File dir = new File("resource/shoppinglists");
-//			File[] directoryListing = dir.listFiles();
 			
 			FileOutputStream fileOut = new FileOutputStream("resource/shoppinglists/" + filename);
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);

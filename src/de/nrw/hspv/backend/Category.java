@@ -8,7 +8,7 @@ public class Category implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private static int idCounter = 1;;
+	private static int idCounter = 1;
 	private int id;
 	private String name;
 	// Statische Liste mit allen Kategorien

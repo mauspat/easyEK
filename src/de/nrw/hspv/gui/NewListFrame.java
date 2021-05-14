@@ -51,7 +51,7 @@ public class NewListFrame extends JFrame {
 	JPanel rightPanel = new JPanel();
 	JPanel centerPanel = new JPanel();
 
-	DefaultListModel<String> itemListModel = new DefaultListModel<String>();
+	static DefaultListModel<String> itemListModel = new DefaultListModel<String>();
 	DefaultListModel<String> choosenListModel = new DefaultListModel<String>();
 	JList<String> list = new JList<String>(itemListModel);
 
@@ -61,6 +61,7 @@ public class NewListFrame extends JFrame {
 
 		this.setSize(WINDOW_WIDH, WINDOW_HIGHT);
 		this.getContentPane().setBackground(BG_COLOR);
+		this.setLocationRelativeTo(UI.getMainPanel());
 
 		class MyWindowAdapter extends WindowAdapter { // nur die Methode implementieren, die wir brauchen, weil die
 														// Klasse WindowAdapter das Interface implementiert
@@ -72,16 +73,19 @@ public class NewListFrame extends JFrame {
 		this.getContentPane().setLayout(new BorderLayout());
 		this.getContentPane().setBackground(BG_COLOR);
 
+		
 		initSearchPanel();
-
 		initPanels();
-		initCenter();
-		initButtons();
+		initUpPanel();
 		initJList();
+		initButtons();
+		
 		this.setVisible(true);
 
 	}
 
+	
+	
 	private void initSearchPanel() {
 		// TODO Textfeld größe anpassen wenn langeweile vorhanden!
 		// TODO Text "Suche..." bei anklicken entfernen
@@ -123,7 +127,7 @@ public class NewListFrame extends JFrame {
 	private void searchFilter(String searchText) {
 		DefaultListModel<String> searchModel = new DefaultListModel<String>();
 
-		for (String e : Item.itemList.keySet()) {
+		for (String e : Item.getItemList().keySet()) {
 			if (e.toLowerCase().contains(searchText.toLowerCase())) {
 				searchModel.addElement(e);
 			}
@@ -133,7 +137,12 @@ public class NewListFrame extends JFrame {
 		list.setModel(itemListModel);
 
 	}
-
+	
+	
+	/**
+	 * Initialisiert Panels bezüglich Farbe und Größe und füngt sie anhand des BorderLayouts dem Frame hinzu
+	 * 
+	 */
 	public void initPanels() {
 
 		upPanel.setBackground(BG_COLOR);
@@ -153,16 +162,16 @@ public class NewListFrame extends JFrame {
 		this.add(leftPanel, BorderLayout.WEST);
 		this.add(rightPanel, BorderLayout.EAST);
 		this.add(centerPanel, BorderLayout.CENTER);
+		centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
 	}
 
+	
+	
 	/**
-	 * 
+	 * Fügt dem oberen Panel ein Label hinzu 
 	 */
-
-	public void initCenter() {
-
-//		centerPanel.setLayout(new GridLayout(0,1,5,10));
-		centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
+	public void initUpPanel() {
+		
 		// JLabel
 		JLabel label = new JLabel();
 		label.setText("Wählen Sie Ihre Produkte");
@@ -186,10 +195,10 @@ public class NewListFrame extends JFrame {
 		listTitle.setHorizontalTextPosition(JLabel.LEFT);
 		centerPanel.add(listTitle);
 
-		itemListModel.addAll(Item.itemList.keySet());
-
+		itemListModel.addAll(Item.getItemList().keySet());
+		
+		
 		// JList list mit allen Produkten, die es gibt
-
 		list.setFixedCellWidth(300);
 		list.setSelectionBackground(new Color(0, 209, 155));
 		list.setBackground(BG_COLOR.brighter().brighter());
@@ -214,7 +223,8 @@ public class NewListFrame extends JFrame {
 
 		centerPanel.add(new JScrollPane(list));
 
-		// Abstand zwischen Liste und Label
+		
+		// Platzhalter
 		centerPanel.add(Box.createRigidArea(new Dimension(100, 10)));
 
 		JLabel listTitle2 = new JLabel("ausgewählte Produkte");
@@ -223,6 +233,7 @@ public class NewListFrame extends JFrame {
 		listTitle2.setHorizontalTextPosition(JLabel.LEFT);
 		centerPanel.add(listTitle2);
 
+		
 		// JList mit Items, die aus der JList 1 ausgewählt wurden
 		JList<String> list2 = new JList<String>(choosenListModel);
 		list2.setSelectionBackground(new Color(0, 209, 155));
@@ -249,30 +260,24 @@ public class NewListFrame extends JFrame {
 				}
 			}
 		});
-
 		centerPanel.add(new JScrollPane(list2));
-//		myList.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
-//
-//			@Override
-//			public void valueChanged(ListSelectionEvent e) {
-//				// TODO Auto-generated method stub
-//				
-//			}	
-////		gucken weche Methode implementiert werden muss
-//			});
-//		
+
+		// Platzhalter
 		centerPanel.add(Box.createRigidArea(new Dimension(100, 10)));
-
-		// der JList wird die Liste mit den Produkten übergeben
-
 	}
 
+	
+	
+	/**
+	 * Fügt dem DownPanel EKButtons hinzu mit einem GridLayout
+	 */
 	public void initButtons() {
 
 		downPanel.setLayout(new GridLayout(1, 2, 4, 0));
 
+		
+		// zurück Button
 		EKButton goBack = new EKButton();
-
 		ImageIcon backArrow = new ImageIcon("resource/icons/goback.png");
 		backArrow.setImage(backArrow.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
 
@@ -287,8 +292,10 @@ public class NewListFrame extends JFrame {
 		});
 		downPanel.add(goBack);
 
+		
+		
+		// Einkaufsliste erstellen Button
 		EKButton addToList = new EKButton();
-
 		addToList.setText("<html>Einkaufsliste<br>erstellen</html>");
 		addToList.addActionListener(new ActionListener() {
 
@@ -322,24 +329,31 @@ public class NewListFrame extends JFrame {
 					if (clickedButton == 0) {
 						ShoppingList sl = new ShoppingList(listName);
 						for (int i = 0; i < choosenListModel.size(); i++) {
-							sl.addToList(Item.itemList.get(choosenListModel.elementAt(i)));
+							sl.addToList(Item.getItemList().get(choosenListModel.elementAt(i)));
 						}
 						// Die Liste wird sortiert.
 						sl.sortList((Supermarket) supermarkets.getSelectedItem());
+						sl.saveList();
 						
 						JOptionPane.showMessageDialog(getContentPane(), "Neue Einkaufsliste wurde erstellt!", "Liste erstellt", JOptionPane.INFORMATION_MESSAGE);
 						
 						UI.getMainPanel().add(new ListOverviewPanel(),"ListOverview");
 						UI.getCl().show(UI.getMainPanel(), "ListOverview");
 						dispose();
-						MyLogger.getInstance().getLogger().log(Level.FINE,
-								"Neue Liste konnte erfolgreich erstellt werden!");
+						MyLogger.getInstance().getLogger().log(Level.INFO, "Neue Liste konnte erfolgreich erstellt werden!");
 					}
-
 				}
 			}
 		});
 		downPanel.add(addToList);
-
+	}
+	
+	
+	/**
+	 * Notwendig, damit in der ProductPanel Klasse auf die DefaultListModel zugegriffen werden kann
+	 * @return itemListModel
+	 */
+	public static DefaultListModel<String> getItemListModel(){
+		return itemListModel;
 	}
 }

@@ -9,6 +9,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.logging.Level;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -33,6 +34,7 @@ import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 
 import de.nrw.hspv.backend.Category;
+import de.nrw.hspv.backend.MyLogger;
 import de.nrw.hspv.backend.Supermarket;
 
 public class SupermarketPanel extends JPanel {
@@ -65,7 +67,7 @@ public class SupermarketPanel extends JPanel {
 		createSupermarketPanel.setBorder(border);
 
 		/*
-		 * Textefelderwerden mit Beschriftung hinzugefügt.
+		 * Textefelder werden mit Beschriftung hinzugefügt.
 		 */
 		String[] tfDescribtion = { "Anzeigename", "Stadt", "Postleitzahl", "Straße" };
 		for (int i = 0; i < 4; i++) {
@@ -145,6 +147,7 @@ public class SupermarketPanel extends JPanel {
 
 					JOptionPane.showMessageDialog(UI.getMainPanel(), "Supermarkt wurde erstellt", "Supermarkt erstellt",
 							JOptionPane.INFORMATION_MESSAGE);
+					MyLogger.getInstance().getLogger().log(Level.INFO, "Neuer Supermarkt wurde erfolgreich erstellt");
 					
 					//Wenn okay gedrückt wird, dann werden die  Inhalte der Textfelder gelöscht
 					for (JTextField t : textFields) {
@@ -255,7 +258,7 @@ public class SupermarketPanel extends JPanel {
 					dlm.addAll(Supermarket.getSupermarketList());
 					JOptionPane.showMessageDialog(upperPanel, "Die Supermärkte wurden gelöscht!", "Elemente gelöscht",
 							JOptionPane.INFORMATION_MESSAGE);
-
+					MyLogger.getInstance().getLogger().log(Level.INFO, "Supermarkt wurde erfolgreich gelöscht");
 					overviewList.setModel(dlm);
 				}
 			}
