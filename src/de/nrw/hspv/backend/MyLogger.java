@@ -28,7 +28,7 @@ public class MyLogger {
 
 			e.printStackTrace();
 		}
-		log.setLevel(Level.FINEST); // falls Level.CONFIG : alle Levels unter Config werden nicht aufgenommen oder
+		log.setLevel(Level.INFO); // falls Level.CONFIG : alle Levels unter Config werden nicht aufgenommen oder
 									// berücksichtigt
 	}
 
@@ -44,8 +44,4 @@ public class MyLogger {
 	}
 	
 	
-	//---------- Level anpassen ---------
-	public void setLevel() {
-		log.setLevel(null);
-	}
 }
