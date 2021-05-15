@@ -288,3 +288,307 @@
 <log>
 </log>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-05-15T10:01:06.565044500Z</date>
+  <millis>1621072866565</millis>
+  <nanos>44500</nanos>
+  <sequence>0</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>INFO</level>
+  <class>de.nrw.hspv.backend.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Programm wurde gestartet!</message>
+</record>
+<record>
+  <date>2021-05-15T10:01:36.954727Z</date>
+  <millis>1621072896954</millis>
+  <nanos>727000</nanos>
+  <sequence>1</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>INFO</level>
+  <class>de.nrw.hspv.gui.UI$1</class>
+  <method>windowClosing</method>
+  <thread>18</thread>
+  <message>Programm wurde beendet</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-05-15T10:03:09.693680600Z</date>
+  <millis>1621072989693</millis>
+  <nanos>680600</nanos>
+  <sequence>0</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>INFO</level>
+  <class>de.nrw.hspv.backend.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Programm wurde gestartet!</message>
+</record>
+<record>
+  <date>2021-05-15T10:03:44.892632600Z</date>
+  <millis>1621073024892</millis>
+  <nanos>632600</nanos>
+  <sequence>1</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>INFO</level>
+  <class>de.nrw.hspv.gui.UI$1</class>
+  <method>windowClosing</method>
+  <thread>18</thread>
+  <message>Programm wurde beendet</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-05-15T10:03:48.008902Z</date>
+  <millis>1621073028008</millis>
+  <nanos>902000</nanos>
+  <sequence>0</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>INFO</level>
+  <class>de.nrw.hspv.backend.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Programm wurde gestartet!</message>
+</record>
+<record>
+  <date>2021-05-15T10:04:03.282748200Z</date>
+  <millis>1621073043282</millis>
+  <nanos>748200</nanos>
+  <sequence>1</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>INFO</level>
+  <class>de.nrw.hspv.gui.UI$1</class>
+  <method>windowClosing</method>
+  <thread>18</thread>
+  <message>Programm wurde beendet</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-05-15T10:04:31.213234500Z</date>
+  <millis>1621073071213</millis>
+  <nanos>234500</nanos>
+  <sequence>0</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>INFO</level>
+  <class>de.nrw.hspv.backend.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Programm wurde gestartet!</message>
+</record>
+<record>
+  <date>2021-05-15T10:04:56.770673400Z</date>
+  <millis>1621073096770</millis>
+  <nanos>673400</nanos>
+  <sequence>1</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>INFO</level>
+  <class>de.nrw.hspv.gui.UI$1</class>
+  <method>windowClosing</method>
+  <thread>18</thread>
+  <message>Programm wurde beendet</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-05-15T10:05:00.355194100Z</date>
+  <millis>1621073100355</millis>
+  <nanos>194100</nanos>
+  <sequence>0</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>INFO</level>
+  <class>de.nrw.hspv.backend.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Programm wurde gestartet!</message>
+</record>
+<record>
+  <date>2021-05-15T10:05:11.650012600Z</date>
+  <millis>1621073111650</millis>
+  <nanos>12600</nanos>
+  <sequence>1</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>INFO</level>
+  <class>de.nrw.hspv.gui.UI$1</class>
+  <method>windowClosing</method>
+  <thread>18</thread>
+  <message>Programm wurde beendet</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-05-15T10:05:24.629112800Z</date>
+  <millis>1621073124629</millis>
+  <nanos>112800</nanos>
+  <sequence>0</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>INFO</level>
+  <class>de.nrw.hspv.backend.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Programm wurde gestartet!</message>
+</record>
+<record>
+  <date>2021-05-15T10:05:46.031493300Z</date>
+  <millis>1621073146031</millis>
+  <nanos>493300</nanos>
+  <sequence>1</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>INFO</level>
+  <class>de.nrw.hspv.gui.UI$1</class>
+  <method>windowClosing</method>
+  <thread>18</thread>
+  <message>Programm wurde beendet</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-05-15T10:05:50.218964700Z</date>
+  <millis>1621073150218</millis>
+  <nanos>964700</nanos>
+  <sequence>0</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>INFO</level>
+  <class>de.nrw.hspv.backend.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Programm wurde gestartet!</message>
+</record>
+<record>
+  <date>2021-05-15T10:07:05.512899200Z</date>
+  <millis>1621073225512</millis>
+  <nanos>899200</nanos>
+  <sequence>1</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>INFO</level>
+  <class>de.nrw.hspv.gui.UI$1</class>
+  <method>windowClosing</method>
+  <thread>18</thread>
+  <message>Programm wurde beendet</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-05-15T10:21:08.310919300Z</date>
+  <millis>1621074068310</millis>
+  <nanos>919300</nanos>
+  <sequence>0</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>INFO</level>
+  <class>de.nrw.hspv.backend.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Programm wurde gestartet!</message>
+</record>
+<record>
+  <date>2021-05-15T10:22:29.651456800Z</date>
+  <millis>1621074149651</millis>
+  <nanos>456800</nanos>
+  <sequence>1</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>INFO</level>
+  <class>de.nrw.hspv.gui.UI$1</class>
+  <method>windowClosing</method>
+  <thread>18</thread>
+  <message>Programm wurde beendet</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-05-15T10:24:57.902187600Z</date>
+  <millis>1621074297902</millis>
+  <nanos>187600</nanos>
+  <sequence>0</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>INFO</level>
+  <class>de.nrw.hspv.backend.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Programm wurde gestartet!</message>
+</record>
+<record>
+  <date>2021-05-15T10:25:39.736496200Z</date>
+  <millis>1621074339736</millis>
+  <nanos>496200</nanos>
+  <sequence>1</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>INFO</level>
+  <class>de.nrw.hspv.gui.SupermarketPanel$1</class>
+  <method>actionPerformed</method>
+  <thread>18</thread>
+  <message>Neuer Supermarkt wurde erfolgreich erstellt</message>
+</record>
+<record>
+  <date>2021-05-15T10:25:44.485627300Z</date>
+  <millis>1621074344485</millis>
+  <nanos>627300</nanos>
+  <sequence>2</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>INFO</level>
+  <class>de.nrw.hspv.gui.UI$1</class>
+  <method>windowClosing</method>
+  <thread>18</thread>
+  <message>Programm wurde beendet</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-05-15T10:25:47.712260100Z</date>
+  <millis>1621074347712</millis>
+  <nanos>260100</nanos>
+  <sequence>0</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>INFO</level>
+  <class>de.nrw.hspv.backend.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Programm wurde gestartet!</message>
+</record>
+<record>
+  <date>2021-05-15T10:25:54.163438400Z</date>
+  <millis>1621074354163</millis>
+  <nanos>438400</nanos>
+  <sequence>1</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>INFO</level>
+  <class>de.nrw.hspv.gui.SupermarketPanel$2</class>
+  <method>actionPerformed</method>
+  <thread>18</thread>
+  <message>Supermarkt wurde erfolgreich gelöscht</message>
+</record>
+<record>
+  <date>2021-05-15T10:25:57.700775900Z</date>
+  <millis>1621074357700</millis>
+  <nanos>775900</nanos>
+  <sequence>2</sequence>
+  <logger>de.nrw.hspv.backend.MyLogger</logger>
+  <level>INFO</level>
+  <class>de.nrw.hspv.gui.UI$1</class>
+  <method>windowClosing</method>
+  <thread>18</thread>
+  <message>Programm wurde beendet</message>
+</record>
+</log>
