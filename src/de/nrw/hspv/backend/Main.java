@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
 import java.util.regex.Pattern;
 
 import javax.swing.UIManager;
@@ -46,6 +47,7 @@ public class Main implements Serializable {
 
 		loadAllItems();
 		new UI();
+		MyLogger.getInstance().getLogger().log(Level.INFO, "Programm wurde gestartet!");
 	}
 	
 	

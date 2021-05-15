@@ -201,7 +201,7 @@ public class ProductPanel extends JPanel {
 				Item product = new Item(name, cat);
 				System.out.println(product.getName());
 				System.out.println(product.getCategory().getCategoryName());
-				repaint();
+				
 				}
 //				
 //				try {

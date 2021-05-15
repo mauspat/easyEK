@@ -80,7 +80,7 @@ public class NewListFrame extends JFrame {
 		initJList();
 		initButtons();
 		
-		this.setVisible(true);
+//		this.setVisible(true);
 
 	}
 

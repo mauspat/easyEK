@@ -59,6 +59,7 @@ public class UI extends JFrame {
 				int answer = JOptionPane.showConfirmDialog(mainPanel,
 						"<html>Möchten Sie das Programm schließen?<br>Alle Änderungen werden automatisch gespeichert!</html>",
 						"schließen", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+				MyLogger.getInstance().getLogger().log(Level.INFO, "Programm wurde beendet");
 				if (answer == 0) {
 					System.exit(0);
 				}
@@ -193,7 +194,6 @@ public class UI extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-//				NewListFrame liste1 = new NewListFrame();
 				newList.setVisible(true);
 			}
 

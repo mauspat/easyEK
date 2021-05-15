@@ -117,14 +117,18 @@ public class SupermarketPanel extends JPanel {
 					return;
 				}
 				String street = textFields[3].getText();
-
-
-				int a = JOptionPane.showConfirmDialog(UI.getMainPanel(), sortCatButtons, "Sortierung des Supermarktes",
+				
+				JScrollPane sp = new JScrollPane(sortCatButtons,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+				sp.setPreferredSize(new Dimension(350,600));
+				
+				int a = JOptionPane.showConfirmDialog(UI.getMainPanel(), sp, "Sortierung des Supermarktes",
 						JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null);
+				
 				ArrayList<CatButton> grid = new ArrayList<CatButton>();
+				
 				if (a == 0) {
-
-					for (Component c : sortCatButtons.getComponents()) {
+					
+					for (Component c : (sortCatButtons.getComponents())) {
 						CatButton actB = ((CatButton) c);
 						if (actB.order != 0) {
 							grid.add(actB);
@@ -163,6 +167,7 @@ public class SupermarketPanel extends JPanel {
 	private JPanel initCatSortButtons() {
 		
 		JPanel buttonHolder = new JPanel();
+		
 
 		buttonHolder.setLayout(new GridLayout(0, 1, 5, 5));
 		ArrayList<Category> cl = new ArrayList<Category>();
@@ -171,7 +176,9 @@ public class SupermarketPanel extends JPanel {
 		for (Category c : cl) {
 			buttonHolder.add(new CatButton(c));
 		}
-
+		
+		
+		
 		return buttonHolder;
 	}
 
