@@ -26,10 +26,6 @@ public class Item implements Serializable {
 	}
 	
 	
-
-	// Wird diese Funktion gebraucht, wenn wir die Items
-	// zu Programmstart aus der Liste auslesen?
-	
 	public static void saveItems() {
 		FileOutputStream dataOutStream=null;
 		ObjectOutputStream objectOutputStream=null;

@@ -208,8 +208,11 @@ public class ProductPanel extends JPanel {
 					}
 				}
 				Item product = new Item(name, cat);
-//				Item.saveItems();
+
+				Item.saveItems();
 				MyLogger.getInstance().getLogger().log(Level.INFO, name + "(Produkt) wurde hinzugefügt!");
+
+
 				System.out.println(product.getName());
 				System.out.println(product.getCategory().getCategoryName());
 				}

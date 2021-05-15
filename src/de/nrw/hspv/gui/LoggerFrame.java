@@ -36,6 +36,9 @@ public class LoggerFrame extends JFrame {
 
 	}
 
+	/**
+	 * Logger Datei einlesen und in TextArea ausgeben
+	 */
 	public void initPanel() {
 
 		JTextArea logText = new JTextArea();
