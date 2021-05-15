@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.logging.Level;
 
 import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
@@ -27,6 +28,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import de.nrw.hspv.backend.Item;
+import de.nrw.hspv.backend.MyLogger;
 import de.nrw.hspv.backend.ShoppingList;
 import de.nrw.hspv.backend.Supermarket;
 
@@ -82,6 +84,7 @@ public class ListPanel extends JPanel {
 				if(checkProgress==0) {
 					ShoppingList.deleteList(actualEkList);
 					UI.getMainPanel().add(new ListOverviewPanel(), "ListOverview");
+					MyLogger.getInstance().getLogger().log(Level.INFO, actualEkList.getName()+"(Einkaufsliste) wurde gelöscht");
 					UI.getCl().show(UI.getMainPanel(), "ListOverview");
 					UI.changeToolbarButton();
 					System.out.println(UI.getMainPanel().getComponentCount());

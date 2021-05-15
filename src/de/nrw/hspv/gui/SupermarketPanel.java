@@ -111,7 +111,7 @@ public class SupermarketPanel extends JPanel {
 				try {
 					plz = Integer.parseInt(textFields[2].getText());
 				} catch (NumberFormatException exc) {
-					// exc.printStackTrace();
+		
 					JOptionPane.showMessageDialog(UI.getMainPanel(), "Postleitzahl kann nur aus Ziffern bestehen!",
 							"Fehler", JOptionPane.ERROR_MESSAGE);
 					return;
@@ -151,7 +151,7 @@ public class SupermarketPanel extends JPanel {
 
 					JOptionPane.showMessageDialog(UI.getMainPanel(), "Supermarkt wurde erstellt", "Supermarkt erstellt",
 							JOptionPane.INFORMATION_MESSAGE);
-					MyLogger.getInstance().getLogger().log(Level.INFO, "Neuer Supermarkt wurde erfolgreich erstellt");
+					MyLogger.getInstance().getLogger().log(Level.INFO, "Neuer Supermarkt, namens " + name + " wurde erfolgreich erstellt");
 					
 					//Wenn okay gedrückt wird, dann werden die  Inhalte der Textfelder gelöscht
 					for (JTextField t : textFields) {

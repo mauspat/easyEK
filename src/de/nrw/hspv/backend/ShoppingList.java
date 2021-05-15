@@ -153,6 +153,7 @@ public class ShoppingList implements Serializable {
 		} catch (IOException e) {
 			System.out.println("Fehler beim Speichern der Liste.");
 			e.printStackTrace();
+			MyLogger.getInstance().getLogger().severe("Einkaufsliste konnte nicht gespeichert werden");
 		}
 	}
 	

@@ -7,14 +7,11 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Arrays;
 import java.util.Map.Entry;
+import java.util.logging.Level;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
-import javax.swing.DefaultListModel;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -23,12 +20,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ListCellRenderer;
-import javax.swing.ListSelectionModel;
-
 import de.nrw.hspv.backend.*;
-import de.nrw.hspv.gui.*;
 
 public class ProductPanel extends JPanel {
+
 
 	JPanel upPanel = new JPanel();
 	JPanel downPanel = new JPanel();
@@ -38,6 +33,7 @@ public class ProductPanel extends JPanel {
 	JPanel centerPanel = new JPanel();
 
 	JLabel label = new JLabel();
+	JList<String> allProducts = new JList<String>();
 
 	ProductPanel() {
 
@@ -50,6 +46,9 @@ public class ProductPanel extends JPanel {
 		this.setVisible(true);
 	}
 
+	/**
+	 * Initialisiert Panels bezüglich Farbe und Größe und füngt sie anhand des BorderLayouts dem Frame hinzu
+	 */
 	private void initPanels() {
 
 		upPanel.setBackground(UI.getBgColor());
@@ -72,6 +71,9 @@ public class ProductPanel extends JPanel {
 
 	}
 
+	/**
+	 * Fügt dme Panel 
+	 */
 	private void addProductOverview() {
 		mainPanel.setLayout(new BorderLayout());
 //		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
@@ -83,13 +85,12 @@ public class ProductPanel extends JPanel {
 		label.setBackground(UI.getBgColor());
 		label.setForeground(Color.WHITE);
 		label.setHorizontalTextPosition(JLabel.CENTER);
-//		label.setVerticalAlignment(JLabel.CENTER);
 		upPanel.add(label);
 
 		// JList
 		JPanel jListPanel = new JPanel();
 		jListPanel.setBackground(UI.getBgColor());
-		JList<String> allProducts = new JList<String>();
+		
 		allProducts.setVisibleRowCount(9);
 		allProducts.setFixedCellHeight(25);
 		allProducts.setFixedCellWidth(300);
@@ -109,7 +110,7 @@ public class ProductPanel extends JPanel {
 	 */
 	public void addNewProduct() {
 		
-		
+		// Extra Panel 
 		JPanel itemInputPanel = new JPanel();
 		itemInputPanel.setBackground(UI.getBgColor());
 		itemInputPanel.setLayout(new BoxLayout(itemInputPanel, BoxLayout.Y_AXIS));
@@ -156,8 +157,6 @@ public class ProductPanel extends JPanel {
 		// TextField für Eingabe des Namen des Produkts
 		JTextField productName = new JTextField();
 		productName.setSize(new Dimension(mainPanel.getWidth(), 35));
-//		productName.setAlignmentX(Component.LEFT_ALIGNMENT);
-		;
 		itemInputPanel.add(productName);
 
 		// Platzhalter
@@ -173,51 +172,51 @@ public class ProductPanel extends JPanel {
 		addProduct.setForeground(Color.white);
 		addProduct.setSize(new Dimension(buttonPanel.getWidth(), buttonPanel.getHeight()));
 		addProduct.setText("Produkt hinzufügen");
-//		addProduct.setHorizontalTextPosition(JLabel.CENTER);
 		addProduct.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
+				// Wenn kein Name eingegeben wurde, wird nochmal darauf hingewiesen
 				if (productName.getText().equals(null)|| productName.getText().equals("")) {
 
 					JOptionPane.showMessageDialog(UI.getMainPanel(), "Sie müssen einen Namen eingeben");
 
 				}
-				else if (chooseCategory.getSelectedItem().equals("Kategorie auswählen")) {
+				// keine Kategorie ausgewählt
+				else if (chooseCategory.getSelectedItem() == null) {
 					
 					JOptionPane.showMessageDialog(UI.getMainPanel(), "Sie müssen eine Kategorie wählen");
 					
 				}
 				else {
 				String name = productName.getText();
+				
+				
+				//gucken ob es Produkt schon gibt
+				if (NewListFrame.itemListModel.contains(name)) {
+					
+					JOptionPane.showMessageDialog(UI.getMainPanel(), "Produkt ist schon vorhanden!");
+				}
+				else {
+				
+				
 				Category cat = new Category();
 				for (Entry<Integer, Category> entry : Category.categoryList.entrySet()) {
 					if (entry.getValue().getCategoryName().equals(chooseCategory.getSelectedItem())) {
 						cat = entry.getValue();
 					}
 				}
-
 				Item product = new Item(name, cat);
+//				Item.saveItems();
+				MyLogger.getInstance().getLogger().log(Level.INFO, name + "(Produkt) wurde hinzugefügt!");
 				System.out.println(product.getName());
 				System.out.println(product.getCategory().getCategoryName());
-				
 				}
-//				
-//				try {
-//				      FileWriter myWriter = new FileWriter("resource/productlist/easyEK_productList.txt");
-//				      
-//				     
-//				      myWriter.write("Hallo");
-//				      myWriter.close();
-//				      
-//				      System.out.println("Hat funtkioniert");
-//				      
-//				    } 
-//				catch (IOException event) {
-//				      System.out.println("Fehler");
-//				      event.printStackTrace();
-//				    }
+				productName.setText("");
+				
+				UI.getMainPanel().add(new ProductPanel(), "ProductPanel");			
+				}
 			}
 		});
 

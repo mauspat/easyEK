@@ -113,6 +113,7 @@ public class Supermarket implements Serializable {
 		} catch (IOException e) {
 			System.out.println("Fehler beim Speichern des Supermarktes.");
 			e.printStackTrace();
+			MyLogger.getInstance().getLogger().severe("Supermarkt konnte nicht gespeichert werden");
 		}
 	}
 

@@ -66,12 +66,15 @@ public class Main implements Serializable {
 				Supermarket.supermarketList = (ArrayList<Supermarket>)objectInput.readObject();
 			} catch (EOFException e) {
 					System.out.println("End of file.");
+					MyLogger.getInstance().getLogger().severe("Ende der Datei");
 			} catch (ClassCastException e) {
 				System.out.println("Fehler beim casten der Klasse.");
+				MyLogger.getInstance().getLogger().severe("Klasse konnte nicht gecastet werden");
 				e.printStackTrace();
 			}
 		} catch (IOException | ClassNotFoundException e) {
 			System.out.println("Fehler beim Laden der Supermärkte.");
+			MyLogger.getInstance().getLogger().severe("Supermärkte konnten nicht geladen werden");
 			e.printStackTrace();
 		}
 	}
@@ -98,6 +101,7 @@ public class Main implements Serializable {
 		} catch (IOException | ClassNotFoundException e ) {
 			
 			System.err.println("EOF Exception");
+			MyLogger.getInstance().getLogger().severe("Liste ist Zuende (EOF Exception)");
 		} 
 		
 		System.out.println("weiter gehts");
@@ -126,6 +130,7 @@ public class Main implements Serializable {
 		} catch (IOException e) {
 			System.out.println("Fehler beim Einlesen der Produktliste.");
 			e.printStackTrace();
+			MyLogger.getInstance().getLogger().severe("Produktliste konnte nicht eingelesen werden");
 		}		
 	}
 	
@@ -147,6 +152,7 @@ public class Main implements Serializable {
 			}
 		} catch (IOException e) {
 			System.out.println("Fehler beim Lesen der Kategorie-Liste.");
+			MyLogger.getInstance().getLogger().severe("Kategorien konnten nicht eingelesen werden");
 			e.printStackTrace();
 		}
 		
@@ -171,6 +177,7 @@ public class Main implements Serializable {
 					in.close();
 				} catch (Exception e) {
 					System.out.println("Einkaufsliste konnte nicht geladen werden.");
+					MyLogger.getInstance().getLogger().severe("Einkaufsliste konnt nicht geladen werden");
 					e.printStackTrace();
 				}
 				

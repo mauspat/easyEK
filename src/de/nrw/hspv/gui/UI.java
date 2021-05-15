@@ -5,12 +5,14 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 import java.util.logging.Level;
 
 import javax.swing.Box;
@@ -47,6 +49,7 @@ public class UI extends JFrame {
 	private static JPanel supermarketPanel;
 
 	private NewListFrame newList = new NewListFrame();
+	LoggerFrame LogFrame = new LoggerFrame();
 
 	public UI() {
 		this.setTitle("easyEK");
@@ -59,8 +62,8 @@ public class UI extends JFrame {
 				int answer = JOptionPane.showConfirmDialog(mainPanel,
 						"<html>Möchten Sie das Programm schließen?<br>Alle Änderungen werden automatisch gespeichert!</html>",
 						"schließen", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
-				MyLogger.getInstance().getLogger().log(Level.INFO, "Programm wurde beendet");
 				if (answer == 0) {
+					MyLogger.getInstance().getLogger().log(Level.INFO, "Programm wurde beendet");
 					System.exit(0);
 				}
 			}
@@ -85,7 +88,7 @@ public class UI extends JFrame {
 
 		JMenuItem off = new JMenuItem("OFF");
 		JMenuItem info = new JMenuItem("INFO");
-		JMenuItem severe = new JMenuItem("SEEVERE");
+		JMenuItem severe = new JMenuItem("SEVERE");
 		logging.add(off);
 		logging.add(info);
 		logging.add(severe);
@@ -94,8 +97,14 @@ public class UI extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
-				MyLogger.getInstance().getLogger().setLevel(Level.OFF);
+				try {
+					MyLogger.getInstance().getLogger().setLevel(Level.OFF);
+					LogFrame.initPanel();
+					LogFrame.setVisible(true);
+				} catch (SecurityException e1) {
+		
+					e1.printStackTrace();
+				}
 				System.out.println(MyLogger.getInstance().getLogger().getLevel());
 			}
 
@@ -106,7 +115,14 @@ public class UI extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				MyLogger.getInstance().getLogger().setLevel(Level.INFO);
+				try {
+					LogFrame.initPanel();
+					MyLogger.getInstance().getLogger().setLevel(Level.INFO);
+					LogFrame.setVisible(true);
+				} catch (SecurityException e1) {
+				
+					e1.printStackTrace();
+				}
 				System.out.println(MyLogger.getInstance().getLogger().getLevel());
 			}
 
@@ -116,8 +132,15 @@ public class UI extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
-				MyLogger.getInstance().getLogger().setLevel(Level.SEVERE);
+				try {
+					MyLogger.getInstance().getLogger().setLevel(Level.SEVERE);
+					LogFrame.initPanel();
+					LogFrame.setVisible(true);
+				} catch (SecurityException e1)
+				{
+					
+					e1.printStackTrace();
+				}
 				System.out.println(MyLogger.getInstance().getLogger().getLevel());
 			}
 
@@ -336,5 +359,5 @@ public class UI extends JFrame {
 		}
 		toolbar.repaint();
 	}
-
+	
 }

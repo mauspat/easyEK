@@ -6,32 +6,31 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
+ * Standardmäßig wird auf INFO Level geloggt, es sei denn man wählt SEVERE oder OFF aus dem JPopUpMenu siehe @UI 
  * 
- * @author 
- *
  */
 public class MyLogger {
 
 	private static final MyLogger logger = new MyLogger(); // kann nur ein Ojekt erzeugt werden und weitergehend durch
 															// @getInstance genutzt werden
 	private final Logger log = Logger.getLogger(MyLogger.class.getName());
+	
+
 
 	private MyLogger() { // private, damit kein neues Objekt in anderen Klassen erzeugt werden kann
-
+		
 		try {
-			log.addHandler(new FileHandler("resource/log/LoggerFile.txt", true)); // File Handler schreibt Logs/Einträge in
-																				// eine oder mehrer Dateien, hier eine
-		} catch (SecurityException e) { // addHandler und File Handler werfen SecurityException
-
+			log.addHandler(new FileHandler("resource/log/Logging.txt"));
+		} catch (SecurityException e) {
 			e.printStackTrace();
-		} catch (IOException e) {		//FileHandler wirft IOException
-
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		log.setLevel(Level.INFO); // falls Level.CONFIG : alle Levels unter Config werden nicht aufgenommen oder
-									// berücksichtigt
-	}
 
+		log.setLevel(Level.INFO);
+	}
+	
+	
 	
 	
 	// --------GETTERS---------
@@ -42,6 +41,5 @@ public class MyLogger {
 	public Logger getLogger() {
 		return logger.log;
 	}
-	
-	
+
 }
