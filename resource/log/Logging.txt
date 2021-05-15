@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2021-05-15T14:43:13.495941300Z</date>
-  <millis>1621089793495</millis>
-  <nanos>941300</nanos>
+  <date>2021-05-15T15:12:29.517715Z</date>
+  <millis>1621091549517</millis>
+  <nanos>715000</nanos>
   <sequence>0</sequence>
   <logger>de.nrw.hspv.backend.MyLogger</logger>
   <level>SEVERE</level>
@@ -14,9 +14,9 @@
   <message>Liste ist Zuende (EOF Exception)</message>
 </record>
 <record>
-  <date>2021-05-15T14:43:14.774330800Z</date>
-  <millis>1621089794774</millis>
-  <nanos>330800</nanos>
+  <date>2021-05-15T15:12:30.607391100Z</date>
+  <millis>1621091550607</millis>
+  <nanos>391100</nanos>
   <sequence>1</sequence>
   <logger>de.nrw.hspv.backend.MyLogger</logger>
   <level>INFO</level>
@@ -26,39 +26,15 @@
   <message>Programm wurde gestartet!</message>
 </record>
 <record>
-  <date>2021-05-15T14:43:44.935184700Z</date>
-  <millis>1621089824935</millis>
-  <nanos>184700</nanos>
+  <date>2021-05-15T15:12:35.936033700Z</date>
+  <millis>1621091555936</millis>
+  <nanos>33700</nanos>
   <sequence>2</sequence>
-  <logger>de.nrw.hspv.backend.MyLogger</logger>
-  <level>INFO</level>
-  <class>de.nrw.hspv.gui.NewListFrame$6</class>
-  <method>actionPerformed</method>
-  <thread>20</thread>
-  <message>Neue Liste konnte erfolgreich erstellt werden!</message>
-</record>
-<record>
-  <date>2021-05-15T14:43:49.081941300Z</date>
-  <millis>1621089829081</millis>
-  <nanos>941300</nanos>
-  <sequence>3</sequence>
-  <logger>de.nrw.hspv.backend.MyLogger</logger>
-  <level>INFO</level>
-  <class>de.nrw.hspv.gui.ListPanel$1</class>
-  <method>actionPerformed</method>
-  <thread>20</thread>
-  <message>nice(Einkaufsliste) wurde gelöscht</message>
-</record>
-<record>
-  <date>2021-05-15T14:44:06.434066200Z</date>
-  <millis>1621089846434</millis>
-  <nanos>66200</nanos>
-  <sequence>4</sequence>
   <logger>de.nrw.hspv.backend.MyLogger</logger>
   <level>INFO</level>
   <class>de.nrw.hspv.gui.UI$1</class>
   <method>windowClosing</method>
-  <thread>20</thread>
+  <thread>19</thread>
   <message>Programm wurde beendet</message>
 </record>
 </log>
