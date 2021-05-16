@@ -22,13 +22,13 @@ public class ShoppingList implements Serializable {
 	private Supermarket supermarket;
 	private ArrayList<Item> shoppingList = new ArrayList<Item>();
 	
+	// --------- KONSTRUKTOREN --------- //
 	public ShoppingList(String name, Supermarket supermarket) {
 		this.name = name;
 		this.id = counter;
 		this.supermarket=supermarket;
 		savedLists.add(this);
 		counter += 1;
-//		saveList();
 	}
 	
 	public ShoppingList(String name) {
@@ -36,11 +36,8 @@ public class ShoppingList implements Serializable {
 		this.id = counter;
 		savedLists.add(this);
 		counter += 1;
-//		saveList();
 	}
 	
-	
-	//---------------------------------------------------
 	/** 
 	 * Die contains-Methode erhält ein int-Array sowie einen int-Wert als Übergabeparameter. Sie überprüft dann,
 	 * ob der int-Wert im Array enthalten ist. In diesem Fall liefert die Methode den Wert true zurück,
@@ -53,7 +50,6 @@ public class ShoppingList implements Serializable {
 		return Arrays.stream(supermarket).anyMatch(c -> c == categoryID);
 	}
 	
-	// Methode zum Sortieren der Einkaufsliste nach dem jeweiligen Supermarkt
 	/**
 	 * listSort sortiert eine übergebene Liste (ArrayList vom Typ Item) anhand eines ebenfalls übergebenenen
 	 * int-Arrays. Jeder Eintrag aus der Liste wird mit dem aktuellen int-Wert des Arrays abgeglichen;
@@ -117,9 +113,6 @@ public class ShoppingList implements Serializable {
 		return sortedList;
 	}
 	
-	//---------------------------------------------------
-
-	
 	/**
 	 * Die Methode addToList fügt der ArrayList shoppingList ein Item hinzu.
 	 * Als Übergabeparameter wird ein Objekt des Typs Item erwartet.
@@ -157,19 +150,32 @@ public class ShoppingList implements Serializable {
 		}
 	}
 	
+	/**
+	 * Die Methode {@code deleteList(ShoppingList shoppingList)} löscht eine übergebe Einkaufsliste.
+	 * Dabei wird die ArrayList {@code savedLists} durchlaufen, bis die übergebene Liste gefunden wird.
+	 * Anschließend wird die Datei mit demselben Namen aus dem Verzeichnis shoppingslists gelöscht.
+	 * @param shoppingList
+	 */
 	public static void deleteList(ShoppingList shoppingList) {
 		Iterator<ShoppingList> itr = savedLists.iterator();
 		while(itr.hasNext()) {
 			ShoppingList s = itr.next();
+			// Abfrage: gleicht die aktuelle Einkaufsliste der übergebenen Einkaufsliste?
 			if(s == shoppingList) {
 				String filename = s.getShoppingListName();
 				itr.remove();
+				// Speichere die Datei in der Variablen file
 				File file = new File("resource/shoppinglists/" + filename + ".txt");
+				// Datei mit dem Namen der übergebenen Einkaufsliste wird gelöscht
 				file.delete();
 			}
 		}
 	}
 	
+	/**
+	 * {@code showList()} gibt eine Einkaufsliste inkl. der Items auf dieser Liste in der Console ist.
+	 * Die Methode dient nur zu Testzwecken.
+	 */
 	public void showList() {
 		Iterator<Item> itr = shoppingList.iterator();
 		while(itr.hasNext()) {

@@ -51,12 +51,14 @@ public class Main implements Serializable {
 	}
 	
 	
+	// ---------- METHODEN --------- //
+	
+	
 	/**
-	 * Die loadSupermarkets()-Methode lädt zum Programmstart alle gespeicherten Supermärkte aus
+	 * Die {@code loadSupermarkets()}-Methode lädt zum Programmstart alle gespeicherten Supermärkte aus
 	 * der Datei supermarkets/supermarkets.txt ein, damit diese in der Sortier-Liste zu Programmstart
 	 * verfügbar sind.
 	 */
-
 	private static void loadSupermarkets() {
 		try {
 			FileInputStream fileInput = new FileInputStream(new File("resource/supermarkets/supermarkets.txt"));
@@ -79,10 +81,8 @@ public class Main implements Serializable {
 		}
 	}
 
-
-
 	/**
-	 * Die loadAllItems()-Methode lädt alle Produkte aus der savedItems.txt-Datei ein und speichert sie
+	 * Die {@code loadAllItems()}-Methode lädt alle Produkte aus der savedItems.txt-Datei ein und speichert sie
 	 * in der statischen Klassenvariablen itemList.  
 	 */
 	public static void loadAllItems() {
@@ -109,9 +109,10 @@ public class Main implements Serializable {
 	
 	
 	/**
-	 * Die Methode loadItems() lädt alle hinterlegten Produkte aus der Datei easyEK_productList.txt ein
-	 * und speichert sie in der statischen Variablen "itemList" (vom Typen TreeMap). Sie ist nur relevant um vorher in der 
-	 * txt geschriebene Inhalte in das Programm zu überführen und dann mittels {@code saveItems() } serialisiert abzuspeichern.
+	 * Die Methode {@code loadItems()} lädt alle hinterlegten Produkte aus der Datei easyEK_productList.txt ein
+	 * und speichert sie in der statischen Variablen "itemList" (vom Typen TreeMap). Sie ist nur beim allerersten
+	 * Programmstart relevant um vorher in der txt geschriebene Inhalte in das Programm zu überführen und dann
+	 * mittels {@code saveItems() } serialisiert abzuspeichern.
 	 */
 	public static void loadItems() {
 		List<String> itemListTemp;
@@ -135,8 +136,8 @@ public class Main implements Serializable {
 	}
 	
 	/**
-	 * Die Methode loadCategories() lädt alle vorhandenen Kategorien aus der Datei categories.txt
-	 * ein und speichert diese in der statischen Variablen "categoryList" (vom Typen TreeMap) ab.
+	 * Die Methode {@code loadCategories()} lädt alle vorhandenen Kategorien aus der Datei categories.txt
+	 * ein und speichert diese in der statischen Variablen {@code categoryList} (vom Typen TreeMap) ab.
 	 */
 	public static void loadCategories() {
 		List<String> categoryList;
@@ -159,7 +160,7 @@ public class Main implements Serializable {
 	}
 	
 	/**
-	 * Die Methode loadShoppingLists() liest das Verzeichnis "resource/shoppinglists/" ein.
+	 * Die Methode {@code loadShoppingLists()} liest das Verzeichnis "resource/shoppinglists/" ein.
 	 * Jede txt-Datei im Verzeichnis wird als eigene Liste behandelt und eingelesen.
 	 */
 	public static void loadShoppingLists() {
@@ -197,7 +198,7 @@ public class Main implements Serializable {
 	
 	//--------- für Testzwecke ---------
 	/**
-	 * Die Methode displayItems() liest die statische Variable "itemList" (vom Typen TreeMap) aus der Klasse Item aus
+	 * Die Methode {@code displayItems()} liest die statische Variable {@code itemList} (vom Typen TreeMap) aus der Klasse Item aus
 	 * und zeigt alle dort hinterlegten Items in der Console an.
 	 */
 	public static void displayItems() {
@@ -211,7 +212,7 @@ public class Main implements Serializable {
 	}
 	
 	/**
-	 * Die Methode displayItems() liest die statische Variable "itemList" (vom Typen TreeMap) aus der Klasse Item aus
+	 * Die Methode {@code displayItems()} liest die statische Variable {@code itemList} (vom Typen TreeMap) aus der Klasse Item aus
 	 * und zeigt alle dort hinterlegten Items in der Console an.
 	 */
 	public static void displayCategories() {
