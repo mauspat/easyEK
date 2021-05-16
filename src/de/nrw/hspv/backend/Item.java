@@ -60,24 +60,45 @@ public class Item implements Serializable {
 	}
 	
 	// GETTERS
+	/**
+	 * {@code getName()} liefert den Namen eines Items als String zurück.
+	 * @return
+	 */
 	public String getName() {
 		return name;
 	}
 	
+	/**
+	 * {@code getCategory()} liefert die Kategorie des Items als Category-Objekt zurück.
+	 * @return
+	 */
 	public Category getCategory() {
 		return category;
 	}
 	
+	/**
+	 * {@code getItemList()} liefert die Produktliste itemList zurück vom Typen TreeMap<String, Item>.
+	 * @return
+	 */
 	public static TreeMap<String, Item> getItemList() {
 		return itemList;
 	}
 	
 	
 	// SETTERS
+	/**
+	 * {@code setName(String name)} setzt den Namen des Produkts fest.
+	 * @param name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 	
+	/**
+	 * {@code setCategory(Category category)} erhält ein Objekt des Typs Category und setzt die aktuelle
+	 * Item-Category auf diesen Wert.
+	 * @param category
+	 */
 	public void setCategory(Category category) {
 		this.category = category;
 	}

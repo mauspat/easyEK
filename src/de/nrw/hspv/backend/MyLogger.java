@@ -33,10 +33,18 @@ public class MyLogger {
 	
 	
 	// --------GETTERS---------
+	/**
+	 * Die getInstance-Methode liefert das finale logger-Objekt vom Typen MyLogger zurück.
+	 * @return
+	 */
 	public static MyLogger getInstance() {
 		return logger;
 	}
 
+	/**
+	 * die getLogger-Methode liefert den Logger zurück.
+	 * @return
+	 */
 	public Logger getLogger() {
 		return logger.log;
 	}

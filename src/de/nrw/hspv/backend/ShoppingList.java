@@ -185,34 +185,66 @@ public class ShoppingList implements Serializable {
 	}
 	
 	//--------- SETTERS ---------
+	/**
+	 * {@code setName(String name)} aktualisiert den Namen einer ShoppingList.
+	 * @param name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 	
 	//--------- GETTERS ---------
+	/**
+	 * [@code getListCounter()} liefert den aktuellen counter-Wert zurück.
+	 * @return
+	 */
 	public int getListCounter() {
 		return counter;
 	}
 	
+	/**
+	 * 	{@code getShoppingListName()} liefert den Namen der ShoppingList zurück.
+	 */
 	public String getShoppingListName() {
 		return name;
 	}
 	
+	/**
+	 * {@code getSize()} liefert die Anzahl der Items auf einer ShoppingList zurück.
+	 * @return
+	 */
 	public int getSize() {
 		return shoppingList.size();
 	}
 	
+	/**
+	 * {@code printList()} gibt die Items auf einer ShoppingList in der Console aus.
+	 */
 	public void printList() {
 		shoppingList.stream().forEach(e -> System.out.println(e));
 	}
+	
+	/**
+	 * {@code getAllShoppingLists()} liefert die ArrayList {@code savedLists} zurück, in der alle angelegten
+	 * ShoppingLists enthalten sind.
+	 * @return
+	 */
 	public static ArrayList<ShoppingList> getAllShoppingLists() {
 		return savedLists;
 	}
 
+	/**
+	 * {@code getName()} liefert den Namen der aktuellen ShoppingList zurück.
+	 * @return
+	 */
 	public String getName() {
 		return name;
 	}
 	
+	/**
+	 * {@code getShoppingList()} liefert die aktuelle ShoppingList zurück.
+	 * @return
+	 */
 	public ArrayList<Item> getShoppingList(){
 		return shoppingList;
 	}

@@ -123,39 +123,76 @@ public class Supermarket implements Serializable {
 	}
 
 	// --------- SETTERS ---------
+	/**
+	 * {@code setName(String Name)} verändert den Namen eines Supermarkts.
+	 * @param name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * {@code setPostalCode(int Postalcode)} setzt die Postleitzahl eines Supermarkts.
+	 * @param postalCode
+	 */
 	public void setPostalCode(int postalCode) {
 		this.postalCode = postalCode;
 	}
 
+	/**
+	 * {@code setStreet(String street)} setzt die Straße und Hausnummer eines Supermarkts.
+	 * @param street
+	 */
 	public void setStreet(String street) {
 		this.street = street;
 	}
 
+	/**
+	 * {@code setCity(String city)} setzt die Stadt eines Supermarkts.
+	 * @param city
+	 */
 	public void setCity(String city) {
 		this.city = city;
 	}
-
+	
+	/**
+	 * {@code setSupermarketList(ArrayList<Supermarket> supermarketList)} erhält als Übergabeparameter eine Supermarkt-Liste
+	 * und überschreibt damit die derzeitige Supermarks-Liste.
+	 * @param supermarketList
+	 */
 	public static void setSupermarketList(ArrayList<Supermarket> supermarketList) {
 		Supermarket.supermarketList = supermarketList;
 	}
 
 	// --------- GETTERS ---------
+	/**
+	 * {@code getSupermarket()} liefert den aktuellen Supermarkt zurück.
+	 * @return
+	 */
 	public Supermarket getSupermarket() {
 		return this;
 	}
 
+	/**
+	 * {@code getSupermarketName()} liefert den Namen des aktuellen Supermarktes als String zurück.
+	 * @return
+	 */
 	public String getSupermarketName() {
 		return name;
 	}
 
+	/**
+	 * {@code getSupermarketGrid()} liefert einen Supermarktraster als int[]-Array zurück.
+	 * @return
+	 */
 	public int[] getSupermarketGrid() {
 		return grid;
 	}
 
+	/**
+	 * {@code getSupermarketList()} liefert die supermarketList vom Typen ArrayList<Supermarket> zurück.
+	 * @return
+	 */
 	public static ArrayList<Supermarket> getSupermarketList() {
 		return supermarketList;
 	}
