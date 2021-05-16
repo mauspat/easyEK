@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2021-05-15T15:12:29.517715Z</date>
-  <millis>1621091549517</millis>
-  <nanos>715000</nanos>
+  <date>2021-05-16T14:07:55.034316800Z</date>
+  <millis>1621174075034</millis>
+  <nanos>316800</nanos>
   <sequence>0</sequence>
   <logger>de.nrw.hspv.backend.MyLogger</logger>
   <level>SEVERE</level>
@@ -14,9 +14,9 @@
   <message>Liste ist Zuende (EOF Exception)</message>
 </record>
 <record>
-  <date>2021-05-15T15:12:30.607391100Z</date>
-  <millis>1621091550607</millis>
-  <nanos>391100</nanos>
+  <date>2021-05-16T14:07:56.049435900Z</date>
+  <millis>1621174076049</millis>
+  <nanos>435900</nanos>
   <sequence>1</sequence>
   <logger>de.nrw.hspv.backend.MyLogger</logger>
   <level>INFO</level>
@@ -26,9 +26,9 @@
   <message>Programm wurde gestartet!</message>
 </record>
 <record>
-  <date>2021-05-15T15:12:35.936033700Z</date>
-  <millis>1621091555936</millis>
-  <nanos>33700</nanos>
+  <date>2021-05-16T14:08:04.029000600Z</date>
+  <millis>1621174084029</millis>
+  <nanos>600</nanos>
   <sequence>2</sequence>
   <logger>de.nrw.hspv.backend.MyLogger</logger>
   <level>INFO</level>

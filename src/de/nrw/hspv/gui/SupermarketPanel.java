@@ -38,7 +38,10 @@ import de.nrw.hspv.backend.MyLogger;
 import de.nrw.hspv.backend.Supermarket;
 
 public class SupermarketPanel extends JPanel {
-
+	
+	/**
+	 * Ein Array der vier angezeigten TextFields, um beim auslesen des Inhalts beim klicken auf den Button  einfach auf die Textfelder zugreifen zu könne
+	 */
 	private JTextField[] textFields = new JTextField[4];
 	private JPanel sortCatButtons = initCatSortButtons();
 	private JPanel lowerPanel = new JPanel();
@@ -52,7 +55,10 @@ public class SupermarketPanel extends JPanel {
 		this.addOverviewList();
 		this.addCreateSupermarketPanel();
 	}
-
+	
+	/**
+	 * Fügt dem Panel den unteren Teil hinzu, in dem ein neuer Supermarkt angelegt werden kann.
+	 */
 	private void addCreateSupermarketPanel() {
 
 		lowerPanel.setLayout(new BorderLayout(20, 20));
@@ -71,10 +77,12 @@ public class SupermarketPanel extends JPanel {
 		 */
 		String[] tfDescribtion = { "Anzeigename", "Stadt", "Postleitzahl", "Straße" };
 		for (int i = 0; i < 4; i++) {
+			//Beschriftung des Textfeldes
 			JLabel description = new JLabel(tfDescribtion[i]);
 			description.setForeground(Color.WHITE);
 			createSupermarketPanel.add(description);
-
+			
+			//Die Textfelder werden einem JPanel hinzugefügg, damit sie innerhalb des GridLayouts nicht den volln Platz einnehmen
 			JPanel tfHolder = new JPanel();
 			tfHolder.setLayout(new BoxLayout(tfHolder, BoxLayout.LINE_AXIS));
 			tfHolder.setBackground(UI.getBgColor().brighter());
@@ -89,7 +97,7 @@ public class SupermarketPanel extends JPanel {
 		}
 
 		lowerPanel.add(createSupermarketPanel, BorderLayout.CENTER);
-		lowerPanel.add(createSupermarketPanel);
+
 
 		lowerPanel.add(Box.createRigidArea(new Dimension(25, 10)), BorderLayout.WEST);
 		lowerPanel.add(Box.createRigidArea(new Dimension(25, 10)), BorderLayout.EAST);
@@ -105,6 +113,7 @@ public class SupermarketPanel extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				//Im ersten Schritt werden die Inhalte der Textfelder ausgelesen
 				String name = textFields[0].getText();
 				String city = textFields[1].getText();
 				int plz = 99999;
@@ -118,37 +127,49 @@ public class SupermarketPanel extends JPanel {
 				}
 				String street = textFields[3].getText();
 				
+				//Scrollpane wird ertellt, damit die Kategorie Buttons im Confirm Dialog nicht zu viel Platz einnehmen
 				JScrollPane sp = new JScrollPane(sortCatButtons,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 				sp.setPreferredSize(new Dimension(350,600));
 				
 				int a = JOptionPane.showConfirmDialog(UI.getMainPanel(), sp, "Sortierung des Supermarktes",
 						JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null);
 				
+				//Eine Sammlung der ausgewählten Buttons -  wird benötigt, um später die Kategorien der einzelnen Buttons auszulesen und der Reihenfolge nach zu sortieren
 				ArrayList<CatButton> grid = new ArrayList<CatButton>();
 				
+				//Wenn der Dialog mit ok bestätigt wird:
 				if (a == 0) {
 					
+					//Über alle Komponenten des Panels "SortCatButtons" wird Iteriert.
 					for (Component c : (sortCatButtons.getComponents())) {
+						//Dem Panel werden nur CatButtons hinzugefügt. Daher können doe Componenten zum CatButton gecastet werden
 						CatButton actB = ((CatButton) c);
+						// Wenn der Button im Dialog ausgwählt wurde, bekommt er eine Reihenfolgennumer. Wurde er nicht ausgewählt ist die Reihenfolge
+						//nummer  0 . Dann hat der Supermarkt diese Kategorie nicht und sie soll dem Sortierungsraster nicht hinzugefügt werden
 						if (actB.order != 0) {
+							
 							grid.add(actB);
 						}
 					}
+					//Die ArrayListe wird anhand des Attributs "order" sortiert. Dazu implementiert der "CatButton" das Interface Comparable
 					grid.sort(null);
-
+					//Die ArrayListe mit Buttons wird in ein int Array überführt, da ein Supermarkt ein int Array mit den Kategorie IDs erwartet.
+					//Dazu wurde im CatButton auch die zugehörige Kategorie ID hinterlegt, auf die hier in der Schleife zugegriffen wird.
 					int[] gridArray = new int[grid.size()];
 					for (int i = 0; i < gridArray.length; i++) {
 						gridArray[i] = grid.get(i).CategoryID;
 					}
-
+					//Der Supermart wird mittels Konstruktoraufruf erstellt.
 					new Supermarket(name, city, street, plz, gridArray);
+					//Nach anlegen wird der Supermarkt abgespeichert
 					Supermarket.saveSupermarket();
-					System.out.println(Supermarket.getSupermarketList());
-
+					
+					//Die Übersicht von Supermärkten wird aktualisiert, sodass der neu erstelle Supermarkt hier auftaucht
 					DefaultListModel<Supermarket> lm = new DefaultListModel<Supermarket>();
 					lm.addAll(Supermarket.getSupermarketList());
 					overviewList.setModel(lm);
-
+					
+					//Info an den User, dass der Supermarkt erfolgreich erstellt wurde
 					JOptionPane.showMessageDialog(UI.getMainPanel(), "Supermarkt wurde erstellt", "Supermarkt erstellt",
 							JOptionPane.INFORMATION_MESSAGE);
 					MyLogger.getInstance().getLogger().log(Level.INFO, "Neuer Supermarkt, namens " + name + " wurde erfolgreich erstellt");
@@ -170,22 +191,29 @@ public class SupermarketPanel extends JPanel {
 		
 
 		buttonHolder.setLayout(new GridLayout(0, 1, 5, 5));
+		//Liste mit Categorien wird erstellt, um einfacher durch die Values der TreeMap zu iterieren.
 		ArrayList<Category> cl = new ArrayList<Category>();
 		cl.addAll(Category.getCategoryList().values());
-
+		
+		//Für jede KAtegorie wird ein neuer Button dem Panel hinzugefügt.
 		for (Category c : cl) {
 			buttonHolder.add(new CatButton(c));
 		}
 		
-		
-		
 		return buttonHolder;
 	}
-
+	
+	/**
+	 * Der CatButton ist eine Art Zählbutton. Werden Button ausgewählt, wird gespeichert, in welcher Reihenfolge die einzelenen Buttons 
+	 * ausgewählt worden sind. Weiterhin ist hier die Kategorie ID hinterlegt.
+	 * Der nicht ausgewählte Anzeigetext des Buttons wird ebenfalls auf Basis der Kategorie bestimmt
+	 * Er implementiert das Interface Comparable, damit doie Buttons nach Ihrer angeklickten Reihenfolge in einer Liste sortiert werden können-.
+	 * @author Lukas
+	 *
+	 */
 	private static class CatButton extends JToggleButton implements Comparable<CatButton> {
 		private static int clickCount = 0;
 		private int order = 0;
-		private Category category;
 		private int CategoryID;
 		private String normalText;
 		private String toggleText;

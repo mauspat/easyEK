@@ -27,7 +27,9 @@ import de.nrw.hspv.backend.MyLogger;
 
 public class UI extends JFrame {
 
-	// Scale ist willkürlich gewählt
+	/**
+	 * scale gibt den Faktor an, mit dem die Größe des Fensters im Verhältnis 9:16 bestimmt wird
+	 */
 	private static final int scale = 50;
 	private static final int WINDOW_WIDH = scale * 9;
 	private static final int WINDOW_HIGHT = scale * 16;
@@ -35,10 +37,16 @@ public class UI extends JFrame {
 															// sein!!! Von der Farbe ist es einfacher auszugehen und den
 															// Componenten ihre Farben zu zu weisen
 
-	// Das CardLyout muss als Instanzvariable gespeichert werden, da das Layout
-	// selbst bei der "durchblättern" Methode übergeben werden muss!
+	/**
+	 * cl ist das CardLayout des Programms. Es ermöglicht ein durchblättern durch die verschiedenen Panels ohne dabei alle komponenten, wie z.b. die untere 
+	 * Buttonleiste neu laden zu müssen.
+	 */
 	private static CardLayout cl = new CardLayout();
 	private static JPanel mainPanel = new JPanel(cl);
+	
+	/**
+	 * Die Toolbar ist di obere Leiste, in der variable Button angelegt werden können. Der Button "neue Liste" ist immer vorhanden.
+	 */
 	private static JToolBar toolbar = new JToolBar();
 
 	private static JPanel listOverviewPanel;
@@ -60,6 +68,8 @@ public class UI extends JFrame {
 				int answer = JOptionPane.showConfirmDialog(mainPanel,
 						"<html>Möchten Sie das Programm schließen?<br>Alle Änderungen werden automatisch gespeichert!</html>",
 						"schließen", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+				
+				//Nur wenn der User die Warning Massage mit ok bestätigt, wird das  Prgramm geschlossen.
 				if (answer == 0) {
 					MyLogger.getInstance().getLogger().log(Level.INFO, "Programm wurde beendet");
 					System.exit(0);
@@ -167,7 +177,7 @@ public class UI extends JFrame {
 	 * Siehe: {@code addButtonLine()} Die Auswahl der Panels ist über die Methode
 	 * {@code mainPanel.show("PanelName")} möglich.
 	 * 
-	 * @return void
+	 * 
 	 * @category GUI
 	 */
 	private void addMainPanel() {
@@ -197,7 +207,7 @@ public class UI extends JFrame {
 
 		// Toolbar wird erstellt und mit darauffolgenden Methoden designt
 		toolbar.setBackground(BG_COLOR.darker());
-		toolbar.setPreferredSize(new Dimension(WINDOW_WIDH, WINDOW_HIGHT / 18)); // Setzt die größe aus 1/22 der
+		toolbar.setPreferredSize(new Dimension(WINDOW_WIDH, WINDOW_HIGHT / 18)); // Setzt die größe aus 1/18 der
 																					// Fensterhöhe fest
 		toolbar.setBorderPainted(false); // hässliche Grenze die gefärbt ist weg
 		toolbar.setFloatable(false); // Toolbar kann nicht verschoben werden
@@ -208,8 +218,6 @@ public class UI extends JFrame {
 		 */
 		int buttonSizeW = 40;
 		int buttonSizeH = 40;
-
-		// TODO Buttons ein Icon hinzufügen und Text löschen
 
 		// Erstellt die Buttons, die oben in der Toolbar angezeigt werden sollen
 		EKButton addList = new EKButton();

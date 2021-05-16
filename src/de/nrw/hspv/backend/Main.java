@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.regex.Pattern;
 
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 import de.nrw.hspv.gui.UI;
@@ -28,24 +29,23 @@ public class Main implements Serializable {
 	 *--------- BEGINN DER MAIN-METHODE ---------*
      *-------------------------------------------*/
 	public static void main(String[] args) {
-		// Kategorien und Items werden zu Programmstart geladen
-		// Die Einträge werden direkt in die statischen TreeMaps
-		// itemList und categoryList in den jeweiligen Klassen geschrieben
+		
 		
 		//Ändert Farbe vom Toggle Button
 		UIManager.put("ToggleButton.select", new Color(216,86,0));
+		
+		/*
+		Kategorien und Items werden zu Programmstart geladen
+		Die Einträge werden direkt in die statischen TreeMaps
+		itemList und categoryList in den jeweiligen Klassen geschrieben
+		*/
+		
 		loadCategories();
-//		loadItems();
 		loadShoppingLists();
 		loadSupermarkets();
-		
-		
-//		Item.saveItems();
-		//--------- Zu Testzwecken - Ausgabe der Kategorien und Items ---------
-//		displayCategories();
-//		displayItems();
-
 		loadAllItems();
+		
+		
 		new UI();
 		MyLogger.getInstance().getLogger().log(Level.INFO, "Programm wurde gestartet!");
 	}
@@ -56,7 +56,7 @@ public class Main implements Serializable {
 	 * der Datei supermarkets/supermarkets.txt ein, damit diese in der Sortier-Liste zu Programmstart
 	 * verfügbar sind.
 	 */
-	@SuppressWarnings("unchecked")
+
 	private static void loadSupermarkets() {
 		try {
 			FileInputStream fileInput = new FileInputStream(new File("resource/supermarkets/supermarkets.txt"));
@@ -92,7 +92,7 @@ public class Main implements Serializable {
 			FileInputStream fileInput = new FileInputStream(new File("resource/productlist/savedItems.txt"));
 			ObjectInputStream objectInput = new ObjectInputStream(fileInput);
 			
-			//TODO Zu testzwecken: - noch in die Liste schreiben!
+			
 			
 			while(true) {
 			Item tempItem = (Item)objectInput.readObject();
@@ -104,14 +104,14 @@ public class Main implements Serializable {
 			MyLogger.getInstance().getLogger().severe("Liste ist Zuende (EOF Exception)");
 		} 
 		
-		System.out.println("weiter gehts");
 	}
 
 	
 	
 	/**
 	 * Die Methode loadItems() lädt alle hinterlegten Produkte aus der Datei easyEK_productList.txt ein
-	 * und speichert sie in der statischen Variablen "itemList" (vom Typen TreeMap).
+	 * und speichert sie in der statischen Variablen "itemList" (vom Typen TreeMap). Sie ist nur relevant um vorher in der 
+	 * txt geschriebene Inhalte in das Programm zu überführen und dann mittels {@code saveItems() } serialisiert abzuspeichern.
 	 */
 	public static void loadItems() {
 		List<String> itemListTemp;
@@ -190,7 +190,7 @@ public class Main implements Serializable {
 				
 			}
 		} else {
-			System.out.println("Keine Listen vorhanden.");
+			JOptionPane.showMessageDialog(UI.getMainPanel(), "Keine Listen hinterlegt", "Warnung", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 	

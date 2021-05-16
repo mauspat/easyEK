@@ -215,7 +215,7 @@ public class NewListFrame extends JFrame {
 
 		centerPanel.add(new JScrollPane(list));
 
-		// Platzhalter
+		// Platzhalter:
 		centerPanel.add(Box.createRigidArea(new Dimension(100, 10)));
 
 		// Jlabel wird initialisiert
@@ -253,7 +253,7 @@ public class NewListFrame extends JFrame {
 		});
 		centerPanel.add(new JScrollPane(list2));
 
-		// Platzhalter
+		// Platzhalter:
 		centerPanel.add(Box.createRigidArea(new Dimension(100, 10)));
 	}
 
