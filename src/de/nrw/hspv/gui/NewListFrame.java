@@ -55,7 +55,6 @@ public class NewListFrame extends JFrame {
 
 		this.setSize(WINDOW_WIDH, WINDOW_HIGHT);
 		this.getContentPane().setBackground(BG_COLOR);
-		this.setLocationRelativeTo(UI.getMainPanel());
 		
 		class MyWindowAdapter extends WindowAdapter { // nur die Methode implementieren, die wir brauchen, weil die
 														// Klasse WindowAdapter das Interface implementiert
@@ -112,7 +111,7 @@ public class NewListFrame extends JFrame {
 	}
 
 	/**
-	 * Neue Liste wird erstellt, die alle Produkte enthält, die Eingabe aus JTextField, teilweiseentsprechen
+	 * Neue Liste wird erstellt, die alle Produkte enthält, die der Eingabe aus JTextField teilweise entsprechen
 	 * @param searchText
 	 */
 	private void searchFilter(String searchText) {
@@ -132,7 +131,6 @@ public class NewListFrame extends JFrame {
 	/**
 	 * Initialisiert Panels bezüglich Farbe und Größe und füngt sie anhand des
 	 * BorderLayouts dem Frame hinzu
-	 * 
 	 */
 	public void initPanels() {
 
@@ -176,7 +174,7 @@ public class NewListFrame extends JFrame {
 	}
 
 	/**
-	 * Es wird eine JList, die alle gespeicherten Produkte aufruft, erstellt wenn
+	 * Es wird eine JList erstellt, die alle gespeicherten Produkte aufruft, wenn
 	 * man auf ein Produkt dieser JList klickt, wird dieses automatisch der zweiten
 	 * JList hinzugefügt
 	 */
@@ -245,7 +243,7 @@ public class NewListFrame extends JFrame {
 
 					// wenn Listenelement gelöscht wird, wird auch wieder etwas geändert und damit
 					// der ListSelectionListener erneut aufgerufen
-					// dann ist in der Liste kein Element mehr selektiert und index wird -1 (Siehe
+					// dann ist in der Liste kein Element mehr selektiert und index wird -1
 
 					if (index != -1) {
 						choosenListModel.removeElementAt(index);
@@ -282,6 +280,7 @@ public class NewListFrame extends JFrame {
 		});
 		downPanel.add(goBack);
 
+		
 		// Einkaufsliste erstellen Button
 		EKButton addToList = new EKButton();
 		addToList.setText("<html>Einkaufsliste<br>erstellen</html>");
@@ -299,7 +298,7 @@ public class NewListFrame extends JFrame {
 				} else if (listName.equals("")) {
 					JOptionPane.showMessageDialog(getContentPane(), "Sie müssen einen Namen für die Liste angeben!",
 							"Fehler", JOptionPane.ERROR_MESSAGE);
-				} else { // (Also wenn ein Name eingegeben wurde und dieser Name nicht Leer ist)
+				} else { // wenn ein Name eingegeben wurde und dieser Name nicht Leer ist
 
 					// Neues AbfrageFenster -> Nach welchem Supermarkt soll die Liste sortiert sein?
 					JComboBox<Supermarket> supermarkets = new JComboBox<Supermarket>();

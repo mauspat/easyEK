@@ -6,8 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Standardmäßig wird auf INFO Level geloggt, es sei denn man wählt SEVERE oder OFF aus dem JPopUpMenu siehe @UI 
- * 
+ * Standardmäßig wird auf INFO Level geloggt, es sei denn man wählt SEVERE oder OFF aus dem JPopupMenu siehe @UI 
  */
 public class MyLogger {
 

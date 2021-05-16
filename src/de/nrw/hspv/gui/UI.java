@@ -5,14 +5,12 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.IOException;
 import java.util.logging.Level;
 
 import javax.swing.Box;
@@ -80,7 +78,9 @@ public class UI extends JFrame {
 
 	/**
 	 * Erzeugt ein PopupMenu. Es dient dem Logging und wird erstellt mit einem Klick
-	 * auf die rechte Maustaste. Auswahl zwischen den Leveln: OFF, INFO, SEVERE
+	 * auf die rechte Maustaste. 
+	 * Auswahl zwischen den Leveln: OFF, INFO, SEVERE (Standard vor Auswahl: INFO)
+	 * Mit Auswahl eines Levels öffnet sich der LoggerFrame, welches einfach wieder verborgen werden kann
 	 */
 	public void addRightClick() {
 
@@ -98,8 +98,9 @@ public class UI extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
+					MyLogger.getInstance().getLogger().info("Level gewechselt zu: OFF");
 					MyLogger.getInstance().getLogger().setLevel(Level.OFF);
-					LogFrame.initPanel();
+					LogFrame.initPanel(); // Methode nochmal aufrufen, damit die Logging-File "aktuell" ausgegeben wird
 					LogFrame.setVisible(true);
 				} catch (SecurityException e1) {
 		
@@ -107,7 +108,6 @@ public class UI extends JFrame {
 				}
 				System.out.println(MyLogger.getInstance().getLogger().getLevel());
 			}
-
 		});
 
 		info.addActionListener(new ActionListener() {
@@ -116,6 +116,7 @@ public class UI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				try {
+					MyLogger.getInstance().getLogger().info("Level gewechselt zu: INFO");
 					LogFrame.initPanel();
 					MyLogger.getInstance().getLogger().setLevel(Level.INFO);
 					LogFrame.setVisible(true);
@@ -125,7 +126,6 @@ public class UI extends JFrame {
 				}
 				System.out.println(MyLogger.getInstance().getLogger().getLevel());
 			}
-
 		});
 
 		severe.addActionListener(new ActionListener() {
@@ -133,6 +133,7 @@ public class UI extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
+					MyLogger.getInstance().getLogger().info("Level gewechselt zu: SEVERE");
 					MyLogger.getInstance().getLogger().setLevel(Level.SEVERE);
 					LogFrame.initPanel();
 					LogFrame.setVisible(true);
@@ -143,7 +144,6 @@ public class UI extends JFrame {
 				}
 				System.out.println(MyLogger.getInstance().getLogger().getLevel());
 			}
-
 		});
 
 		this.addMouseListener(new MouseAdapter() {
@@ -158,6 +158,7 @@ public class UI extends JFrame {
 		this.add(logging);
 
 	}
+	
 
 	/**
 	 * Weist dem Zentrum des Frames das "MainPanel" hinzu. Dies ist durch ein

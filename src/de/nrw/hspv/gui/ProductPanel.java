@@ -193,7 +193,7 @@ public class ProductPanel extends JPanel {
 				String name = productName.getText();
 				
 				
-				//gucken ob es Produkt schon gibt
+				// Kontrolle, ob es Produkt schon gibt
 				if (NewListFrame.itemListModel.contains(name)) {
 					
 					JOptionPane.showMessageDialog(UI.getMainPanel(), "Produkt ist schon vorhanden!");
@@ -207,8 +207,8 @@ public class ProductPanel extends JPanel {
 						cat = entry.getValue();
 					}
 				}
+				// neues Produkt erzeugen und Speichern
 				Item product = new Item(name, cat);
-
 				Item.saveItems();
 				MyLogger.getInstance().getLogger().log(Level.INFO, name + "(Produkt) wurde hinzugefügt!");
 
@@ -231,7 +231,7 @@ public class ProductPanel extends JPanel {
 	
 }
 
-// Klasse, damit in der ComboBox Befehl steht von StackOverflow
+// Klasse, damit in der ComboBox Befehl steht und nicht direkt eine Kategorie
 class ComboBoxRenderer extends JLabel implements ListCellRenderer {
 	private String title2;
 

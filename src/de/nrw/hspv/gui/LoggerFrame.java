@@ -15,7 +15,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
 
+import de.nrw.hspv.backend.MyLogger;
+
 public class LoggerFrame extends JFrame {
+	
+	/**
+	 * eigener Frame, der sich jedes mal öffnet, sobald ein Levels aus dem JPopUpMenu ausgewählt wird
+	 * kann einfach verborgen werden, durch 
+	 */
 
 	LoggerFrame() {
 
@@ -56,6 +63,7 @@ public class LoggerFrame extends JFrame {
 		} catch (FileNotFoundException e) {
 
 			e.printStackTrace();
+			MyLogger.getInstance().getLogger().severe("Logger-File konnt enicht gefunden werden!");
 		}
 		JScrollPane scroll = new JScrollPane(logText);
 		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
